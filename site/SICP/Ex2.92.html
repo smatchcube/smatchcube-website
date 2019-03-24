@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.92</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.92</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.92</h1>
+</div>
+<p>The exercise become easy if we think of polynomials without polynomials as coefficients, I will assume that.\ The idea is to &quot;normalize&quot; one of the polynomial to the other so the two polynomials have the same &quot;principal&quot; variable. Here is how to normalize a polynomial to another variable:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(normalize poly-or-x v)
+  (make-poly v
+             (adjoin-term
+               (make-term <span class="dv">0</span> poly-or-x)
+(the-empty-termlist))))</code></pre></div>
+<p>After that it's really easy to add two polynomials with different variables, we just need to compare the variable symbol (converting the symbols to strings and comparing them with <code>string&lt;?</code>) and add them after normalizing the polynomial with the least important variable. Same reasoning for multiplication. The problem is that we are not really doing the operation in this process so the solution is not simplified at all.</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

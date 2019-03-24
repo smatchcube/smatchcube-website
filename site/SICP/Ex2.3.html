@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.3</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.3</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.3</h1>
+</div>
+<p>My first representation define a rectangle as a point with two vectors as described in the image. <img src="/assets/Ex2.3a.svg" />{: .center-image .medium-margin .widthh }</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-rectangle px py v1x v1y v2x v2y)
+  (<span class="kw">cons</span> (make-point px py)
+        (<span class="kw">cons</span> (<span class="kw">make-vector</span> v1x v1y)
+              (<span class="kw">make-vector</span> v2x v2y))))
+
+(<span class="kw">define</span><span class="fu"> </span>(p rectangle) (<span class="kw">car</span> rectangle))
+(<span class="kw">define</span><span class="fu"> </span>(v1 rectangle) (<span class="kw">car</span> (<span class="kw">cdr</span> rectangle)))
+(<span class="kw">define</span><span class="fu"> </span>(v2 rectangle) (<span class="kw">cdr</span> (<span class="kw">cdr</span> rectangle)))</code></pre></div>
+<p>I used vectors from \(^2\) for my definition of a rectangle so i need to write the constructor and the selectors needed.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(<span class="kw">make-vector</span> x y) (<span class="kw">cons</span> x y))
+
+(<span class="kw">define</span><span class="fu"> </span>(x-vector v) (<span class="kw">car</span> v))
+(<span class="kw">define</span><span class="fu"> </span>(y-vector v) (<span class="kw">cdr</span> v))</code></pre></div>
+<p>We can represent the data structure of a rectangle with the box-and-pointer notation. <img src="/assets/Ex2.3b.svg" />{: .center-image .medium-margin .widthhh }</p>
+<p>Now we can define a procedure to compute the norm of the vectors and one procedure to directly find the length and the width of a rectangle.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(vector-norm v)
+  (<span class="kw">sqrt</span> (<span class="kw">+</span> (square (x-vector v))
+           (square (y-vector v)))))
+
+(<span class="kw">define</span><span class="fu"> </span>(<span class="kw">length</span> rectangle)
+  (vector-norm (v1 rectangle)))
+(<span class="kw">define</span><span class="fu"> </span>(width rectangle)
+  (vector-norm (v2 rectangle)))</code></pre></div>
+<p>We can finally write the procedures to find the perimeter and the area of a rectangle.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(area rectangle)
+  (* (<span class="kw">length</span> rectangle)
+     (width rectangle)))
+
+(<span class="kw">define</span><span class="fu"> </span>(perimeter rectangle)
+  (* (<span class="kw">+</span> (<span class="kw">length</span> rectangle)
+        (width rectangle))
+     <span class="dv">2</span>))</code></pre></div>
+<p>The second way of representing a rectangle is with three points (in clockwise or counterclockwise order). This representation is less elegant in my opinion so I will not explain it as my first representation.</p>
+<p>So for this representation we need a new constructor and new selectors for our rectangles.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-rectangle p1x p1y p2x p2y p3x p3y)
+  (<span class="kw">cons</span> (make-point p1x p1y)
+        (<span class="kw">cons</span> (make-point p2x p2y)
+              (make-point p3x p3y))))
+
+(<span class="kw">define</span><span class="fu"> </span>(p1 rectangle) (<span class="kw">car</span> rectangle))
+(<span class="kw">define</span><span class="fu"> </span>(p2 rectangle) (<span class="kw">car</span> (<span class="kw">cdr</span> rectangle)))
+(<span class="kw">define</span><span class="fu"> </span>(p3 rectangle) (<span class="kw">cdr</span> (<span class="kw">cdr</span> rectangle)))</code></pre></div>
+<p>Now we need to change the <code>length</code> and <code>width</code> procedures according to the new representation, I choose to use my already defined <code>vector-norm</code>.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-vector-from-points p1 p2)
+  (<span class="kw">make-vector</span> (<span class="kw">abs</span> (<span class="kw">-</span> (x-point p1) (x-point p2)))
+               (<span class="kw">abs</span> (<span class="kw">-</span> (y-point p1) (y-point p2)))))
+
+(<span class="kw">define</span><span class="fu"> </span>(<span class="kw">length</span> rectangle)
+  (<span class="kw">let</span> ((v1 (make-vector-from-points (p1 rectangle) (p2 rectangle))))
+    (vector-norm v1)))
+
+(<span class="kw">define</span><span class="fu"> </span>(width rectangle)
+  (<span class="kw">let</span> ((v2 (make-vector-from-points (p2 rectangle) (p3 rectangle))))
+    (vector-norm v2)))</code></pre></div>
+<p>And now we can define the perimeter and the area.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(area rectangle)
+  (* (<span class="kw">length</span> rectangle)
+     (width rectangle)))
+
+(<span class="kw">define</span><span class="fu"> </span>(perimeter rectangle)
+  (* (<span class="kw">+</span> (<span class="kw">length</span> rectangle)
+        (width rectangle))
+     <span class="dv">2</span>))</code></pre></div>
+<p>As you can see these two last procedures are the same as the <code>area</code> and <code>perimeter</code> used in the first representation of a rectangle because we used different layers of abstractions.</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

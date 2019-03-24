@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.90</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.90</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.90</h1>
+</div>
+<p>This exercise is really difficult in my opinion if we want to have the possibility to use operations on two polynomials with different representations like we did for complex numbers. The problem is that polynomials are much more complex data structures so to simplify the task I only allow the possibility to use operations only on polynomials using the same representation. I might try to think about this feature later if I have time.\ Here is the whole code, sadly as I stated above many lines must be duplicated.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(install-polynomial-package)
+  (<span class="kw">define</span><span class="fu"> </span>(make-dense-polynomial var terms)
+    ((get &#39;make-dense-polynomial &#39;dense) var terms))
+  (<span class="kw">define</span><span class="fu"> </span>(make-sparse-polynomial var terms)
+    ((get &#39;make-sparse-polynomial &#39;sparse) var terms))
+  (<span class="kw">define</span><span class="fu"> </span>(tag p) (attach-tag &#39;polynomial p))
+  (put &#39;make-dense-polynomial &#39;polynomial
+       (<span class="kw">lambda</span> (var terms) (tag (make-dense-polynomial var terms))))
+  (put &#39;make-sparse-polynomial &#39;polynomial
+       (<span class="kw">lambda</span> (var terms) (tag (make-sparse-polynomial var terms))))
+  (put &#39;add &#39;(polynomial polynomial)
+       (<span class="kw">lambda</span> (p1 p2) (tag (add p1 p2))))
+  (put &#39;sub &#39;(polynomial polynomial)
+       (<span class="kw">lambda</span> (p1 p2) (tag (sub p1 p2))))
+  (put &#39;mul &#39;(polynomial polynomial)
+       (<span class="kw">lambda</span> (p1 p2) (tag (mul p1 p2))))
+  (put &#39;neg &#39;(polynomial)
+       (<span class="kw">lambda</span> (p) (tag (neg p))))
+  (put &#39;=zero? &#39;(polynomial)
+       (<span class="kw">lambda</span> (p) (=zero? p)))
+  &#39;done)
+(<span class="kw">define</span><span class="fu"> </span>(make-dense-polynomial var terms)
+  ((get &#39;make-dense-polynomial &#39;polynomial) var terms))
+(<span class="kw">define</span><span class="fu"> </span>(make-sparse-polynomial var terms)
+  ((get &#39;make-sparse-polynomial &#39;polynomial) var terms))
+(install-polynomial-package)
+
+
+(<span class="kw">define</span><span class="fu"> </span>(install-dense-polynomial-package)
+  <span class="co">;; internal procedures</span>
+  (<span class="kw">define</span><span class="fu"> </span>(add-terms L1 L2)
+    (<span class="kw">cond</span> ((empty-termlist? L1) L2)
+          ((empty-termlist? L2) L1)
+          (<span class="kw">else</span>
+           (<span class="kw">let</span> ((t1 (first-term L1))
+                 (t2 (first-term L2)))
+             (<span class="kw">cond</span> ((<span class="kw">&gt;</span> (order t1) (order t2))
+                    (adjoin-term
+                     t1 (add-terms (rest-terms L1) L2)))
+                   ((<span class="kw">&lt;</span> (order t1) (order t2))
+                    (adjoin-term
+                     t2 (add-terms L1 (rest-terms L2))))
+                   (<span class="kw">else</span>
+                    (adjoin-term
+                     (make-term (order t1)
+                                (add (coeff t1) (coeff t2)))
+                     (add-terms (rest-terms L1)
+                                (rest-terms L2)))))))))
+  (<span class="kw">define</span><span class="fu"> </span>(neg-terms L)
+    (<span class="kw">if</span> (empty-termlist? L)
+        (the-empty-termlist)
+        (adjoin-term (make-term (order (first-term L))
+                                (neg (coeff (first-term L))))
+                     (neg-terms (rest-terms L)))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-terms L1 L2)
+    (<span class="kw">if</span> (empty-termlist? L1)
+        (the-empty-termlist)
+        (add-terms (mul-term-by-all-terms (first-term L1) L2)
+                   (mul-terms (rest-terms L1) L2))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-term-by-all-terms t1 L)
+    (<span class="kw">if</span> (empty-termlist? L)
+        (the-empty-termlist)
+        (<span class="kw">let</span> ((t2 (first-term L)))
+          (adjoin-term
+           (make-term (<span class="kw">+</span> (order t1) (order t2))
+                      (mul (coeff t1) (coeff t2)))
+           (mul-term-by-all-terms t1 (rest-terms L))))))
+  (<span class="kw">define</span><span class="fu"> </span>(sub-terms L1 L2)
+    (add-terms L1 (neg-terms L2)))
+  <span class="co">;; representation of poly</span>
+  (<span class="kw">define</span><span class="fu"> </span>(make-poly variable term-list)
+    (<span class="kw">cons</span> variable term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(variable p) (<span class="kw">car</span> p))
+  (<span class="kw">define</span><span class="fu"> </span>(term-list p) (<span class="kw">cdr</span> p))
+  (<span class="kw">define</span><span class="fu"> </span>(variable? x) (<span class="kw">symbol?</span> x))
+  (<span class="kw">define</span><span class="fu"> </span>(same-variable? v1 v2)
+    (<span class="kw">and</span> (variable? v1) (variable? v2) (<span class="kw">eq?</span> v1 v2)))
+  <span class="co">;; representation of terms and terms lists</span>
+  (<span class="kw">define</span><span class="fu"> </span>(adjoin-term term term-list)
+    (<span class="kw">cond</span> ((=zero? (coeff term)) term-list)
+          ((empty-termlist? term-list)
+           (<span class="kw">if</span> (=zero? (order term))
+               (<span class="kw">list</span> (coeff term))
+               (adjoin-term term &#39;(<span class="dv">0</span>))))
+          ((equ? (order term) (add (order (first-term term-list)) <span class="dv">1</span>))
+           (<span class="kw">cons</span> (coeff term) term-list))
+          (<span class="kw">else</span> (adjoin-term term (<span class="kw">cons</span> <span class="dv">0</span> term-list)))))
+  (<span class="kw">define</span><span class="fu"> </span>(the-empty-termlist) &#39;())
+  (<span class="kw">define</span><span class="fu"> </span>(first-term term-list)
+    (<span class="kw">list</span> (<span class="kw">length</span> (<span class="kw">cdr</span> term-list)) (<span class="kw">car</span> term-list)))
+  (<span class="kw">define</span><span class="fu"> </span>(rest-terms term-list) (<span class="kw">cdr</span> term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(empty-termlist? term-list) (<span class="kw">null?</span> term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(make-term order coeff) (<span class="kw">list</span> order coeff))
+  (<span class="kw">define</span><span class="fu"> </span>(order term) (<span class="kw">car</span> term))
+  (<span class="kw">define</span><span class="fu"> </span>(coeff term) (<span class="kw">cadr</span> term))
+  (<span class="kw">define</span><span class="fu"> </span>(add-poly p1 p2)
+    (<span class="kw">if</span> (same-variable? (variable p1) (variable p2))
+        (make-poly (variable p1)
+                   (add-terms (term-list p1)
+                              (term-list p2)))
+        (error <span class="st">&quot;Polys not in same var: ADD-POLY&quot;</span>
+               (<span class="kw">list</span> p1 p2))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-poly p1 p2)
+    (<span class="kw">if</span> (same-variable? (variable p1) (variable p2))
+        (make-poly (variable p1)
+                   (mul-terms (term-list p1)
+                              (term-list p2)))
+        (error <span class="st">&quot;Polys not in same var: MUL-POLY&quot;</span>
+               (<span class="kw">list</span> p1 p2))))
+  (<span class="kw">define</span><span class="fu"> </span>(=zero-poly? poly)
+    (<span class="kw">cond</span> ((empty-termlist? (term-list poly)) true)
+          ((=zero? (coeff (first-term (term-list poly))))
+           (=zero-poly? (make-poly (variable poly)
+                                   (rest-terms (term-list poly)))))
+          (<span class="kw">else</span> false)))
+  (<span class="kw">define</span><span class="fu"> </span>(neg-poly p)
+    (make-poly (variable p) (neg-terms (term-list p))))
+  (<span class="kw">define</span><span class="fu"> </span>(sub-poly p1 p2)
+    (<span class="kw">if</span> (same-variable? (variable p1) (variable p2))
+        (add-poly p1 (neg-poly p2))
+        (error <span class="st">&quot;Polys not in same var: SUB-POLY&quot;</span>
+               (<span class="kw">list</span> p1 p2))))
+  <span class="co">;; interface to the rest of the system</span>
+  (<span class="kw">define</span><span class="fu"> </span>(tag p) (attach-tag &#39;dense p))
+  (put &#39;add &#39;(dense dense)
+        (<span class="kw">lambda</span> (p1 p2) (tag (add-poly p1 p2))))
+  (put &#39;mul &#39;(dense dense)
+        (<span class="kw">lambda</span> (p1 p2) (tag (mul-poly p1 p2))))
+  (put &#39;make-dense-polynomial &#39;dense
+        (<span class="kw">lambda</span> (var terms)
+          (tag (make-poly var terms))))
+  (put &#39;=zero? &#39;(dense)
+       (<span class="kw">lambda</span> (poly) (=zero-poly? poly)))
+  (put &#39;neg &#39;(dense)
+       (<span class="kw">lambda</span> (poly) (tag (neg-poly poly))))
+  (put &#39;sub &#39;(dense dense)
+       (<span class="kw">lambda</span> (p1 p2) (tag (sub-poly p1 p2))))
+  &#39;done)
+(install-dense-polynomial-package)
+
+
+(<span class="kw">define</span><span class="fu"> </span>(install-sparse-polynomial-package)
+  <span class="co">;; internal procedures</span>
+  (<span class="kw">define</span><span class="fu"> </span>(add-terms L1 L2)
+    (<span class="kw">cond</span> ((empty-termlist? L1) L2)
+          ((empty-termlist? L2) L1)
+          (<span class="kw">else</span>
+           (<span class="kw">let</span> ((t1 (first-term L1))
+                 (t2 (first-term L2)))
+             (<span class="kw">cond</span> ((<span class="kw">&gt;</span> (order t1) (order t2))
+                    (adjoin-term
+                     t1 (add-terms (rest-terms L1) L2)))
+                   ((<span class="kw">&lt;</span> (order t1) (order t2))
+                    (adjoin-term
+                     t2 (add-terms L1 (rest-terms L2))))
+                   (<span class="kw">else</span>
+                    (adjoin-term
+                     (make-term (order t1)
+                                (add (coeff t1) (coeff t2)))
+                     (add-terms (rest-terms L1)
+                                (rest-terms L2)))))))))
+  (<span class="kw">define</span><span class="fu"> </span>(neg-terms L)
+    (<span class="kw">if</span> (empty-termlist? L)
+        (the-empty-termlist)
+        (adjoin-term (make-term (order (first-term L))
+                                (neg (coeff (first-term L))))
+                     (neg-terms (rest-terms L)))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-terms L1 L2)
+    (<span class="kw">if</span> (empty-termlist? L1)
+        (the-empty-termlist)
+        (add-terms (mul-term-by-all-terms (first-term L1) L2)
+                   (mul-terms (rest-terms L1) L2))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-term-by-all-terms t1 L)
+    (<span class="kw">if</span> (empty-termlist? L)
+        (the-empty-termlist)
+        (<span class="kw">let</span> ((t2 (first-term L)))
+          (adjoin-term
+           (make-term (<span class="kw">+</span> (order t1) (order t2))
+                      (mul (coeff t1) (coeff t2)))
+           (mul-term-by-all-terms t1 (rest-terms L))))))
+  <span class="co">;; representation of poly</span>
+  (<span class="kw">define</span><span class="fu"> </span>(make-poly variable term-list)
+    (<span class="kw">cons</span> variable term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(variable p) (<span class="kw">car</span> p))
+  (<span class="kw">define</span><span class="fu"> </span>(term-list p) (<span class="kw">cdr</span> p))
+  (<span class="kw">define</span><span class="fu"> </span>(variable? x) (<span class="kw">symbol?</span> x))
+  (<span class="kw">define</span><span class="fu"> </span>(same-variable? v1 v2)
+    (<span class="kw">and</span> (variable? v1) (variable? v2) (<span class="kw">eq?</span> v1 v2)))
+  <span class="co">;; representation of terms and terms lists</span>
+  (<span class="kw">define</span><span class="fu"> </span>(adjoin-term term term-list)
+    (<span class="kw">if</span> (=zero? (coeff term))
+        term-list
+        (<span class="kw">cons</span> term term-list)))
+  (<span class="kw">define</span><span class="fu"> </span>(the-empty-termlist) &#39;())
+  (<span class="kw">define</span><span class="fu"> </span>(first-term term-list) (<span class="kw">car</span> term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(rest-terms term-list) (<span class="kw">cdr</span> term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(empty-termlist? term-list) (<span class="kw">null?</span> term-list))
+  (<span class="kw">define</span><span class="fu"> </span>(make-term order coeff) (<span class="kw">list</span> order coeff))
+  (<span class="kw">define</span><span class="fu"> </span>(order term) (<span class="kw">car</span> term))
+  (<span class="kw">define</span><span class="fu"> </span>(coeff term) (<span class="kw">cadr</span> term))
+  (<span class="kw">define</span><span class="fu"> </span>(add-poly p1 p2)
+    (<span class="kw">if</span> (same-variable? (variable p1) (variable p2))
+        (make-poly (variable p1)
+                   (add-terms (term-list p1)
+                              (term-list p2)))
+        (error <span class="st">&quot;Polys not in same var: ADD-POLY&quot;</span>
+               (<span class="kw">list</span> p1 p2))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-poly p1 p2)
+    (<span class="kw">if</span> (same-variable? (variable p1) (variable p2))
+        (make-poly (variable p1)
+                   (mul-terms (term-list p1)
+                              (term-list p2)))
+        (error <span class="st">&quot;Polys not in same var: MUL-POLY&quot;</span>
+               (<span class="kw">list</span> p1 p2))))
+  (<span class="kw">define</span><span class="fu"> </span>(=zero-poly? poly)
+    (<span class="kw">cond</span> ((empty-termlist? (term-list poly)) true)
+          ((=zero? (coeff (first-term (term-list poly))))
+           (=zero-poly? (make-poly (variable poly)
+                                   (rest-terms (term-list poly)))))
+          (<span class="kw">else</span> false)))
+  (<span class="kw">define</span><span class="fu"> </span>(neg-poly p)
+    (make-poly (variable p) (neg-terms (term-list p))))
+  (<span class="kw">define</span><span class="fu"> </span>(sub-poly p1 p2)
+    (<span class="kw">if</span> (same-variable? (variable p1) (variable p2))
+        (add-poly p1 (neg-poly p2))
+        (error <span class="st">&quot;Polys not in same var: SUB-POLY&quot;</span>
+               (<span class="kw">list</span> p1 p2))))
+  <span class="co">;; interface to the rest of the system</span>
+  (<span class="kw">define</span><span class="fu"> </span>(tag p) (attach-tag &#39;sparse p))
+  (put &#39;add &#39;(sparse sparse)
+        (<span class="kw">lambda</span> (p1 p2) (tag (add-poly p1 p2))))
+  (put &#39;mul &#39;(sparse sparse)
+        (<span class="kw">lambda</span> (p1 p2) (tag (mul-poly p1 p2))))
+  (put &#39;make-sparse-polynomial &#39;sparse
+        (<span class="kw">lambda</span> (var terms)
+          (tag (make-poly var terms))))
+  (put &#39;=zero? &#39;(sparse)
+       (<span class="kw">lambda</span> (poly) (=zero-poly? poly)))
+  (put &#39;neg &#39;(sparse)
+       (<span class="kw">lambda</span> (poly) (tag (neg-poly poly))))
+  (put &#39;sub &#39;(sparse sparse)
+       (<span class="kw">lambda</span> (p1 p2) (tag (sub-poly p1 p2))))
+  &#39;done)
+(install-sparse-polynomial-package)</code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

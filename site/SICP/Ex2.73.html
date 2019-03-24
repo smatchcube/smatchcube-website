@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.73</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.73</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.73</h1>
+</div>
+<h1 id="a.">a.</h1>
+<p>There are no operators for constant or variable expressions so the <code>operator</code> expression can't works and give a correct type with this representation (number and variables are not tagged). # b. Here is my code, it's the basic derivation code, it only works with two operands and it doesn't simplify expressions.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-sum a1 a2) (<span class="kw">list</span> &#39;+ a1 a2))
+(<span class="kw">define</span><span class="fu"> </span>(make-product m1 m2) (<span class="kw">list</span> &#39;* m1 m2))
+(<span class="kw">define</span><span class="fu"> </span>(addend s) (<span class="kw">car</span> s))
+(<span class="kw">define</span><span class="fu"> </span>(augend s) (<span class="kw">cadr</span> s))
+(<span class="kw">define</span><span class="fu"> </span>(multiplier p) (<span class="kw">car</span> p))
+(<span class="kw">define</span><span class="fu"> </span>(multiplicand p) (<span class="kw">cadr</span> p))
+(<span class="kw">define</span><span class="fu"> </span>(deriv-sum operands var)
+  (make-sum
+   (deriv (addend operands) var)
+   (deriv (augend operands) var)))
+(<span class="kw">define</span><span class="fu"> </span>(deriv-product operands var)
+  (<span class="kw">let</span> ((f (multiplier operands))
+        (g (multiplier operands)))
+    (make-sum (make-product (deriv f var) g)
+              (make-product f (deriv g var)))))
+
+<span class="co">;; install the procedures in the table</span>
+(put &#39;deriv &#39;+ deriv-sum)
+(put &#39;deriv &#39;* deriv-product)</code></pre></div>
+<h1 id="c.">c.</h1>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(base e) (<span class="kw">car</span> e))
+(<span class="kw">define</span><span class="fu"> </span>(exponent e) (<span class="kw">cadr</span> e))
+(<span class="kw">define</span><span class="fu"> </span>(make-exponentiation base exponent)
+  (<span class="kw">list</span> &#39;** base exponent))
+(<span class="kw">define</span><span class="fu"> </span>(deriv-exponentiation operands var)
+  (<span class="kw">let</span> ((base (base operands))
+        (exponent (exponent operands)))
+    (make-product exponent
+                  (make-product
+                   (make-exponentiation base (<span class="kw">-</span> exponent <span class="dv">1</span>))
+                   (deriv base var)))))
+(put &#39;deriv &#39;** deriv-exponentiation)</code></pre></div>
+<h1 id="d.">d.</h1>
+<p>We only need to reverse the index of each procedure:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(put &#39;+ &#39;deriv deriv-sum)
+(put &#39;* &#39;deriv deriv-product)
+(put &#39;** &#39;deriv deriv-exponentiation)</code></pre></div>
+<p>Note that you can separate the procedures in different packages if you want (not really needed in this exercise).</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

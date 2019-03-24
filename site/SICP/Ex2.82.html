@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.82</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.82</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.82</h1>
+</div>
+<p>Here is my code, explanation below.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(apply-generic op . args)
+  (<span class="kw">define</span><span class="fu"> </span>(list-eq? <span class="kw">list</span>)
+    (<span class="kw">cond</span> ((<span class="kw">null?</span> (<span class="kw">cdr</span> <span class="kw">list</span>)) true)
+          ((<span class="kw">eq?</span> (<span class="kw">car</span> <span class="kw">list</span>) (<span class="kw">cadr</span> <span class="kw">list</span>)) (list-eq? (<span class="kw">cdr</span> <span class="kw">list</span>)))
+          (<span class="kw">else</span> false)))
+  (<span class="kw">define</span><span class="fu"> </span>(is-true-list? <span class="kw">list</span>)
+    (<span class="kw">cond</span> ((<span class="kw">null?</span> <span class="kw">list</span>) true)
+          ((<span class="kw">car</span> <span class="kw">list</span>) (is-true-list? (<span class="kw">cdr</span> <span class="kw">list</span>)))
+          (<span class="kw">else</span> false)))
+  (<span class="kw">define</span><span class="fu"> </span>(coercion-list type-tags args op)
+    (<span class="kw">define</span><span class="fu"> </span>(coercion-list-iter before current after args op)
+      (<span class="kw">let</span> ((before-convert (map (<span class="kw">lambda</span> (x) (get-coercion x current)) before))
+            (after-convert (map (<span class="kw">lambda</span> (x) (get-coercion x current)) after)))
+        (<span class="kw">let</span>  ((list-conversion (<span class="kw">append</span> before-convert
+                                        (<span class="kw">list</span> (<span class="kw">lambda</span> (x) x))
+                                        after-convert)))
+          (<span class="kw">cond</span> ((is-true-list? list-conversion) (apply-generic-coercion-list
+                                                  list-conversion
+                                                  args
+                                                  op))
+                ((<span class="kw">null?</span> after) (error <span class="st">&quot;No method for these types: APPLY-GENERIC&quot;</span>
+                                      (<span class="kw">append</span> (<span class="kw">list</span> op) before (<span class="kw">list</span> current))))
+                (<span class="kw">else</span> (coercion-list-iter (<span class="kw">append</span> before (<span class="kw">list</span> current))
+                                          (<span class="kw">car</span> after)
+                                          (<span class="kw">cdr</span> after) args op))))))
+    (coercion-list-iter &#39;() (<span class="kw">car</span> type-tags) (<span class="kw">cdr</span> type-tags) args op))
+  (<span class="kw">define</span><span class="fu"> </span>(apply-generic-coercion-list list-conversion args op)
+    (<span class="kw">define</span><span class="fu"> </span>(convert-list-with-converter-list list-converter list-to-be-converted)
+      (<span class="kw">if</span> (<span class="kw">null?</span> list-to-be-converted)
+          &#39;()
+          (<span class="kw">cons</span> ((<span class="kw">car</span> list-converter) (<span class="kw">car</span> list-to-be-converted))
+                (convert-list-with-converter-list (<span class="kw">cdr</span> list-converter)
+                                                  (<span class="kw">cdr</span> list-to-be-converted)))))
+    (<span class="kw">let</span> ((converted-list (convert-list-with-converter-list list-conversion args)))
+      (apply apply-generic op converted-list)))
+  (<span class="kw">let</span> ((type-tags (map type-tag args)))
+    (<span class="kw">let</span> ((proc (get op type-tags)))
+      (<span class="kw">cond</span> (proc (apply proc (map contents args)))
+            ((list-eq? type-tags) (error <span class="st">&quot;No method for these types: APPLY-GENERIC&quot;</span>
+                                         (<span class="kw">list</span> op type-tags)))
+            (<span class="kw">else</span> (coercion-list type-tags args op))))))</code></pre></div>
+<p>Explanation: If there is no specific procedure dealing with the corresponding type and the arguments we call <code>coercion-list</code>. This procedure will iteratively try to find a type in the list from which every other elements can be converted to, if no such type exist an erro is sent. The <code>is-true-list?</code> predicate verify if each conversion procedure exists for every arguments. Then if such a type exist, the list with every conversion procedures is used to convert every elements of the list to the same type. The converted list is then used in the <code>apply-generic</code> procedure, now every arguments are of the same type and the dispatch can be successfull, of course if every elements are of the same type coercion is not applied.</p>
+<p>We can test our code to see if it works correctly, let's try to add 2 complex numbers and a scheme-number. We need a scheme-number to complex number converter:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(scheme-number-&gt;complex n)
+  (make-complex-from-real-imag n <span class="dv">0</span>))
+(put-coercion &#39;scheme-number &#39;complex scheme-number-&gt;complex)</code></pre></div>
+<p>And we need to be able to sum three complex numbers:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span class="co">;; inside the complex package</span>
+(put &#39;add3 &#39;(complex complex complex) (<span class="kw">lambda</span> (x y z)
+     (tag (make-from-real-imag (<span class="kw">+</span> (<span class="kw">real-part</span> x) (<span class="kw">real-part</span> y) (<span class="kw">real-part</span> z))
+                          (<span class="kw">+</span> (<span class="kw">imag-part</span> x) (<span class="kw">imag-part</span> y) (<span class="kw">imag-part</span> z))))))</code></pre></div>
+<p>Now we can define the generic procedure <code>add3</code> to compute the sum of three objects:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(add3 x y z) (apply-generic &#39;add3 x y z))</code></pre></div>
+<p>And we can finally try a little sum.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(add3 (make-complex-from-real-imag <span class="dv">2</span> <span class="dv">3</span>)
+      <span class="dv">5</span>
+      (make-complex-from-real-imag <span class="dv">1</span> <span class="dv">2</span>))
+<span class="co">; =&gt; (complex rectangular 8 . 5)</span></code></pre></div>
+<p>It works perfectly! We can add different convertors to combine more different objects.</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

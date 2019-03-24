@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.66</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.66</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.66</h1>
+</div>
+<p>Here is my solution:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(lookup given-key set-of-records)
+  (<span class="kw">if</span> (<span class="kw">null?</span> set-of-records)
+      false
+      (<span class="kw">let</span> ((current-record (<span class="kw">car</span> set-of-records)))
+        (<span class="kw">cond</span> ((<span class="kw">=</span> given-key (key current-record)) current-record)
+              ((<span class="kw">&lt;</span> given-key (key current-record))
+               (lookup given-key (left-branch set-of-records)))
+              ((<span class="kw">&gt;</span> given-key (key current-record))
+               (lookup given-key (right-branch set-of-records)))))))</code></pre></div>
+<p>As an example to how we can use this procedure, let's represent records as a pair of a key and a name.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> r1 </span>&#39;(<span class="dv">4</span> . <span class="st">&quot;Lucas&quot;</span>))
+(<span class="kw">define</span><span class="fu"> r2 </span>&#39;(<span class="dv">7</span> . <span class="st">&quot;Theo&quot;</span>))
+(<span class="kw">define</span><span class="fu"> r3 </span>&#39;(<span class="dv">9</span> . <span class="st">&quot;Paul&quot;</span>))
+(<span class="kw">define</span><span class="fu"> records </span>(<span class="kw">list</span> r2 (<span class="kw">list</span> r1 &#39;() &#39;()) (<span class="kw">list</span> r3 &#39;() &#39;())))
+
+(<span class="kw">define</span><span class="fu"> key </span><span class="kw">car</span>)</code></pre></div>
+<p>Now for example if we call <code>(lookup 4 records)</code> we get <code>(4 . &quot;Lucas&quot;)</code> as intended. If no records have the desired key the returned value is <code>#f</code> (false). We could easily implement procedures to return only the name of a record from a given key, the possibilities are endless with this convenient representation.</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

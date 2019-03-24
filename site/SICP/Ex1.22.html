@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 1.22</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.22</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 1.22</h1>
+</div>
+<p>Here is my procedure for computing primes in a certain range and display the time needed to check their primality.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(search-for-primes start end)
+  (<span class="kw">cond</span> ((<span class="kw">=</span> start (<span class="kw">+</span> end <span class="dv">1</span>))
+         (<span class="kw">newline</span>) (<span class="kw">display</span> <span class="st">&quot;Done!&quot;</span>))
+        (<span class="kw">else</span> (timed-prime-test start)
+              (search-for-primes (<span class="kw">+</span> start <span class="dv">1</span>) end))))</code></pre></div>
+<p>As my computer is more powerful than the average computer of the 90s, i need to check much bigger numbers to be able to measure a difference in run time. We can recap the results of the procedure in a table:</p>
+<table style="width:29%;">
+<colgroup>
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"><strong>Prime number</strong></th>
+<th align="center"><strong>Factor</strong></th>
+<th align="right"><strong>Time to check in seconds</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">\(100000000003\)<br/>\(100000000019\)<br/>\(100000000057\)</td>
+<td align="center">\(10^{11}\)</td>
+<td align="right">\(0.33\)</td>
+</tr>
+<tr class="even">
+<td align="right">\(1000000000039\)<br/>\(1000000000061\)<br/>\(1000000000063\)</td>
+<td align="center">\(10^{12}\)</td>
+<td align="right">\(1.01\)</td>
+</tr>
+<tr class="odd">
+<td align="right">\(10000000000037\)<br/>\(10000000000051\)<br/>\(10000000000099\)</td>
+<td align="center">\(10^{13}\)</td>
+<td align="right">\(3.19\)</td>
+</tr>
+</tbody>
+</table>
+<p>\(3.16\), \(=3.125\) and \(=3.16\).\ If a prime is approximately \(10\) times bigger than another prime then the time to check this number is approximately \(\) longer than the other.\ This is really interesting to see that computers are pretty much working the same way twenty years after (just much faster).</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

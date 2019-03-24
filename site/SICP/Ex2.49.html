@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.49</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.49</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.49</h1>
+</div>
+<h1 id="a">a</h1>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> outline-frame</span>
+  (segments-&gt;painter
+   (<span class="kw">list</span> (make-segment (make-vect <span class="dv">0</span> <span class="dv">0</span>) (make-vect <span class="dv">1</span> <span class="dv">0</span>))
+         (make-segment (make-vect <span class="dv">0</span> <span class="dv">0</span>) (make-vect <span class="dv">0</span> <span class="dv">1</span>))
+         (make-segment (make-vect <span class="dv">1</span> <span class="dv">0</span>) (make-vect <span class="dv">1</span> <span class="dv">1</span>))
+         (make-segment (make-vect <span class="dv">0</span> <span class="dv">1</span>) (make-vect <span class="dv">1</span> <span class="dv">1</span>)))))</code></pre></div>
+<h1 id="b">b</h1>
+<pre class="schme"><code>(define x-frame
+  (segments-&gt;painter
+   (list (make-segment (make-vect 0 0) (make-vect 1 1))
+         (make-segment (make-vect 0 1) (make-vect 1 0)))))
+</code></pre>
+<h1 id="c">c</h1>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> diamond-frame</span>
+  (segments-&gt;painter
+   (<span class="kw">list</span> (make-segment (make-vect <span class="fl">0.5</span> <span class="dv">0</span>) (make-vect <span class="dv">1</span> <span class="fl">0.5</span>))
+         (make-segment (make-vect <span class="dv">1</span> <span class="fl">0.5</span>) (make-vect <span class="fl">0.5</span> <span class="dv">1</span>))
+         (make-segment (make-vect <span class="fl">0.5</span> <span class="dv">1</span>) (make-vect <span class="dv">0</span> <span class="fl">0.5</span>))
+         (make-segment (make-vect <span class="dv">0</span> <span class="fl">0.5</span>) (make-vect <span class="fl">0.5</span> <span class="dv">0</span>)))))</code></pre></div>
+<h1 id="d">d</h1>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> wave</span>
+  (<span class="kw">let</span> ((p1 (make-vect <span class="dv">0</span> <span class="fl">0.55</span>)) (p2 (make-vect <span class="fl">0.15</span> <span class="fl">0.4</span>)) (p3 (make-vect <span class="fl">0.29</span> <span class="fl">0.55</span>))
+        (p4 (make-vect <span class="fl">0.4</span> <span class="fl">0.47</span>)) (p5 (make-vect <span class="fl">0.14</span> <span class="dv">0</span>)) (p6 (make-vect <span class="fl">0.39</span> <span class="dv">0</span>))
+        (p7 (make-vect <span class="fl">0.5</span> <span class="fl">0.25</span>)) (p8 (make-vect <span class="fl">0.6</span> <span class="dv">0</span>)) (p9 (make-vect <span class="fl">0.85</span> <span class="dv">0</span>))
+        (p10 (make-vect <span class="fl">0.6</span> <span class="fl">0.45</span>)) (p11 (make-vect <span class="dv">1</span> <span class="fl">0.16</span>)) (p12 (make-vect <span class="dv">1</span> <span class="fl">0.32</span>))
+        (p13 (make-vect <span class="fl">0.80</span> <span class="fl">0.62</span>)) (p14 (make-vect <span class="fl">0.6</span> <span class="fl">0.62</span>)) (p15 (make-vect <span class="fl">0.65</span> <span class="fl">0.81</span>))
+        (p16 (make-vect <span class="fl">0.62</span> <span class="dv">1</span>)) (p17 (make-vect <span class="fl">0.37</span> <span class="dv">1</span>)) (p18 (make-vect <span class="fl">0.35</span> <span class="fl">0.81</span>))
+        (p19 (make-vect <span class="fl">0.4</span> <span class="fl">0.62</span>)) (p20 (make-vect <span class="fl">0.29</span> <span class="fl">0.62</span>)) (p21 (make-vect <span class="fl">0.15</span> <span class="fl">0.57</span>))
+        (p22 (make-vect <span class="dv">0</span> <span class="fl">0.78</span>)))   
+    (segments-&gt;painter
+   (<span class="kw">list</span> (make-segment p1 p2)
+         (make-segment p2 p3)      
+         (make-segment p3 p4)
+         (make-segment p4 p5)
+         (make-segment p6 p7)
+         (make-segment p7 p8)
+         (make-segment p9 p10)
+         (make-segment p10 p11)
+         (make-segment p12 p13)
+         (make-segment p13 p14)
+         (make-segment p14 p15)
+         (make-segment p15 p16)
+         (make-segment p17 p18)
+         (make-segment p18 p19)
+         (make-segment p19 p20)
+         (make-segment p20 p21)
+         (make-segment p21 p22)))))</code></pre></div>
+<p>Let's test our new painters to create cool images:</p>
+<p><code>(square-limit outline-frame 6)</code>\ <img src="/assets/Ex2.49a.png" /></p>
+<p><code>(square-limit x-frame 6)</code>\ <img src="/assets/Ex2.49b.png" /></p>
+<p><code>(square-limit diamond-frame 6)</code>\ <img src="/assets/Ex2.49c.png" /></p>
+<p><code>(square-limit wave 6)</code>\ <img src="/assets/Ex2.49d.png" /></p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

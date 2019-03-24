@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.93</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.93</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.93</h1>
+</div>
+<p>We just have to use generic operations, I will post my whole rational package.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(install-rational-package)
+  <span class="co">;; internal procedures</span>
+  (<span class="kw">define</span><span class="fu"> </span>(numer x) (<span class="kw">car</span> x))
+  (<span class="kw">define</span><span class="fu"> </span>(denom x) (<span class="kw">cdr</span> x))
+  (<span class="kw">define</span><span class="fu"> </span>(make-rat n d)
+    (<span class="kw">cons</span> n d))
+  (<span class="kw">define</span><span class="fu"> </span>(add-rat x y)
+    (make-rat (add (mul (numer x) (denom y))
+                   (mul (numer y) (denom x)))
+              (mul (denom x) (denom y))))
+  (<span class="kw">define</span><span class="fu"> </span>(sub-rat x y)
+    (make-rat (sub (mul (numer x) (denom y))
+                   (mul (numer y) (denom x)))
+              (mul (denom x) (denom y))))
+  (<span class="kw">define</span><span class="fu"> </span>(mul-rat x y)
+    (make-rat (mul (numer x) (numer y))
+              (mul (denom x) (denom y))))
+  (<span class="kw">define</span><span class="fu"> </span>(div-rat x y)
+    (make-rat (mul (numer x) (denom y))
+              (mul (denom x) (numer y))))
+  <span class="co">;; interface to rest of the system</span>
+  (<span class="kw">define</span><span class="fu"> </span>(tag x) (attach-tag &#39;rational x))
+  (put &#39;equ? &#39;(rational rational)
+       (<span class="kw">lambda</span> (x y) (<span class="kw">and</span> (equ? (numer x) (numer y))
+                          (equ? (denom x) (denom y)))))
+  (put &#39;=zero? &#39;(rational)
+       (<span class="kw">lambda</span> (x) (=zero? (numer x))))
+  (put &#39;add &#39;(rational rational)
+        (<span class="kw">lambda</span> (x y) (tag (add-rat x y))))
+  (put &#39;sub &#39;(rational rational)
+        (<span class="kw">lambda</span> (x y) (tag (sub-rat x y))))
+  (put &#39;mul &#39;(rational rational)
+        (<span class="kw">lambda</span> (x y) (tag (mul-rat x y))))
+  (put &#39;div &#39;(rational rational)
+        (<span class="kw">lambda</span> (x y) (tag (div-rat x y))))
+  (put &#39;make &#39;rational
+        (<span class="kw">lambda</span> (n d) (tag (make-rat n d))))
+  (put &#39;denom &#39;(rational) denom)
+  (put &#39;numer &#39;(rational) numer)
+  (put &#39;raise &#39;(rational) (<span class="kw">lambda</span> (x) (<span class="kw">/</span> (numer x) (denom x))))
+  (put &#39;cosine &#39;(rational) (<span class="kw">lambda</span> (x) (<span class="kw">cos</span> (<span class="kw">/</span> (numer x) (denom x)))))
+  (put &#39;sine &#39;(rational) (<span class="kw">lambda</span> (x) (<span class="kw">sin</span> (<span class="kw">/</span> (numer x) (denom x)))))
+  (put &#39;neg &#39;(rational) (<span class="kw">lambda</span> (x) (tag (make-rat (sub <span class="dv">0</span> (numer x))
+                                                   (denom x)))))
+  &#39;done)
+(<span class="kw">define</span><span class="fu"> </span>(make-rational n d)
+  ((get &#39;make &#39;rational) n d))
+(install-rational-package)</code></pre></div>
+<p>Now we can test it as asked by the exercise:</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> p1 </span>(make-polynomial &#39;x &#39;((<span class="dv">2</span> <span class="dv">1</span>)(<span class="dv">0</span> <span class="dv">1</span>))))
+(<span class="kw">define</span><span class="fu"> p2 </span>(make-polynomial &#39;x &#39;((<span class="dv">3</span> <span class="dv">1</span>)(<span class="dv">0</span> <span class="dv">1</span>))))
+(<span class="kw">define</span><span class="fu"> rf </span>(make-rational p2 p1))
+(add rf rf)
+<span class="co">; =&gt; (rational (polynomial x (5 2) (3 2) (2 2) (0 2))</span>
+<span class="co">;              polynomial x (4 1) (2 2) (0 1))</span></code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

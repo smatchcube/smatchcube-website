@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.52</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.52</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.52</h1>
+</div>
+<h1 id="a">a</h1>
+<p>I added some segments to my <code>wave</code> painter to add a smile.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> wave</span>
+  (<span class="kw">let</span> ((p1 (make-vect <span class="dv">0</span> <span class="fl">0.55</span>)) (p2 (make-vect <span class="fl">0.15</span> <span class="fl">0.4</span>)) (p3 (make-vect <span class="fl">0.29</span> <span class="fl">0.55</span>))
+        (p4 (make-vect <span class="fl">0.4</span> <span class="fl">0.47</span>)) (p5 (make-vect <span class="fl">0.14</span> <span class="dv">0</span>)) (p6 (make-vect <span class="fl">0.39</span> <span class="dv">0</span>))
+        (p7 (make-vect <span class="fl">0.5</span> <span class="fl">0.25</span>)) (p8 (make-vect <span class="fl">0.6</span> <span class="dv">0</span>)) (p9 (make-vect <span class="fl">0.85</span> <span class="dv">0</span>))
+        (p10 (make-vect <span class="fl">0.6</span> <span class="fl">0.45</span>)) (p11 (make-vect <span class="dv">1</span> <span class="fl">0.16</span>)) (p12 (make-vect <span class="dv">1</span> <span class="fl">0.32</span>))
+        (p13 (make-vect <span class="fl">0.80</span> <span class="fl">0.62</span>)) (p14 (make-vect <span class="fl">0.6</span> <span class="fl">0.62</span>)) (p15 (make-vect <span class="fl">0.65</span> <span class="fl">0.81</span>))
+        (p16 (make-vect <span class="fl">0.62</span> <span class="dv">1</span>)) (p17 (make-vect <span class="fl">0.37</span> <span class="dv">1</span>)) (p18 (make-vect <span class="fl">0.35</span> <span class="fl">0.81</span>))
+        (p19 (make-vect <span class="fl">0.4</span> <span class="fl">0.62</span>)) (p20 (make-vect <span class="fl">0.29</span> <span class="fl">0.62</span>)) (p21 (make-vect <span class="fl">0.15</span> <span class="fl">0.57</span>))
+        (p22 (make-vect <span class="dv">0</span> <span class="fl">0.78</span>))  (p23 (make-vect <span class="fl">0.43</span> <span class="fl">0.73</span>)) (p24 (make-vect <span class="fl">0.45</span> <span class="fl">0.70</span>))
+        (p25 (make-vect <span class="fl">0.55</span> <span class="fl">0.70</span>)) (p26 (make-vect <span class="fl">0.57</span> <span class="fl">0.73</span>)))  
+    (segments-&gt;painter
+   (<span class="kw">list</span> (make-segment p1 p2)
+         (make-segment p2 p3)      
+         (make-segment p3 p4)
+         (make-segment p4 p5)
+         (make-segment p6 p7)
+         (make-segment p7 p8)
+         (make-segment p9 p10)
+         (make-segment p10 p11)
+         (make-segment p12 p13)
+         (make-segment p13 p14)
+         (make-segment p14 p15)
+         (make-segment p15 p16)
+         (make-segment p17 p18)
+         (make-segment p18 p19)
+         (make-segment p19 p20)
+         (make-segment p20 p21)
+         (make-segment p21 p22)
+         (make-segment p23 p24)
+         (make-segment p24 p25)
+         (make-segment p25 p26)))))</code></pre></div>
+<p><code>wave</code>\ <img src="/assets/Ex2.52a.png" /> # b I changed <code>corner-split</code> to have only one copy of the <code>up-split</code> and <code>right-split</code> instead of two.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(corner-split painter n)
+  (<span class="kw">if</span> (<span class="kw">=</span> n <span class="dv">0</span>)
+      painter
+      (<span class="kw">let</span> ((up (up-split painter (<span class="kw">-</span> n <span class="dv">1</span>)))
+            (right (right-split painter (<span class="kw">-</span> n <span class="dv">1</span>))))
+        (<span class="kw">let</span> ((top-left up)
+              (bottom-right right)
+              (corner (corner-split painter (<span class="kw">-</span> n <span class="dv">1</span>))))
+          (beside (below painter up)
+                  (below right corner))))))</code></pre></div>
+<p><code>(corner-split wave 4)</code>\ <img src="/assets/Ex2.52b.png" /></p>
+<h1 id="c">c</h1>
+<p>I changed the orientation of the four images.</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(square-limit painter n)
+  (<span class="kw">let</span> ((combine4 (square-of-four flip-horiz identity
+                                  rotate180 flip-vert)))
+    (combine4 (corner-split (flip-horiz painter) n))))</code></pre></div>
+<p>Here is the <code>square-limit</code> after changing some changes at the three different levels.\ <code>(square-limit wave 3)</code>\ <img src="/assets/Ex2.52c.png" /></p>
+<p>For comparison here is the old result for the same painter before the modifications:\ <img src="/assets/Ex2.52d.png" /></p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 2.60</title>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 2.60</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 2.60</h1>
+</div>
+<p>The <code>element-of-set?</code> procedure is exactly the same, though it's obviously performing worse if there are duplicates in the list.</p>
+<p>The <code>adjoin-set</code> procedure doesn't have to check if the element is already in the list so the number of steps required by <code>adjoin-set</code> is simply \((1)\), with the previous representation the order of growth was \((n)\).</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(adjoin-set x set) (<span class="kw">cons</span> x set))</code></pre></div>
+<p>The <code>union-set</code> procedure is also straightforward, as <code>adjoin-set</code> the order of growth is \((1)\) which is way better than the growth with the previous representation which was \((n^2)\).</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(union-set set1 set2) (<span class="kw">append</span> set1 set2))</code></pre></div>
+<p>For the <code>intersection-set</code> procedure we need to at least check if the elements are in both sets so we need to do a <code>element-of-set?</code> check for each element of <code>set2</code>, hence with this representation the <code>intersection-set</code> procedure is also \((n^2)\). I have transformed the procedure to be iterative so the procedure is now \((1)\) in space compared to \((n)\) in the previous procedure with \(n\) the number of elements in the intersection (because the old procedure used <code>cons</code> recursively).</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(intersection-set set1 set2)
+  (<span class="kw">define</span><span class="fu"> </span>(intersection-iter intersection set2-rest)
+    (<span class="kw">cond</span> ((<span class="kw">null?</span> set2-rest) intersection)
+          ((element-of-set? (<span class="kw">car</span> set2-rest) set1)
+           (intersection-iter (<span class="kw">cons</span> (<span class="kw">car</span> set2-rest) intersection)
+                              (<span class="kw">cdr</span> set2-rest)))
+          (<span class="kw">else</span> (intersection-iter intersection (<span class="kw">cdr</span> set2-rest)))))
+  (intersection-iter &#39;() set2))</code></pre></div>
+<p>Even if it's faster to compute <code>adjoin-set</code> and <code>union-set</code> with this representation I can't really think of applications for which the duplicate representation is better. It may be useful if we are dealing with a lot of union and adjoin operations but that's it. The non-duplicate version is better when dealing with cardinals of sets.</p>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>
