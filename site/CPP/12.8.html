@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 12.8</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../CPP.html">CPP</a>/Exercise 12.8</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 12.8</h1>
+</div>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span>
+
+<span class="dt">int</span> * make_array(<span class="dt">int</span> elem, <span class="dt">int</span> val);
+<span class="dt">void</span> show_array(<span class="dt">const</span> <span class="dt">int</span> ar[], <span class="dt">int</span> n);
+
+<span class="dt">int</span> main(<span class="dt">void</span>)
+{
+    <span class="dt">int</span> * pa;
+    <span class="dt">int</span> size;
+    <span class="dt">int</span> value;
+
+    printf(<span class="st">&quot;Enter the number of elements: &quot;</span>);
+    <span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;size) == <span class="dv">1</span> &amp;&amp; size &gt; <span class="dv">0</span>) {
+        printf(<span class="st">&quot;Enter the initialization values: &quot;</span>);
+        scanf(<span class="st">&quot;%d&quot;</span>, &amp;value);
+        pa = make_array(size, value);
+        <span class="cf">if</span> (pa) {
+            show_array(pa, size);
+            free(pa);
+        }
+        printf(<span class="st">&quot;Enter the number of elements (&lt;1 to quit): &quot;</span>);
+    }
+    printf(<span class="st">&quot;Done.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    <span class="cf">return</span> <span class="dv">0</span>;
+}
+
+<span class="dt">int</span> * make_array(<span class="dt">int</span> elem, <span class="dt">int</span> val)
+{
+    <span class="dt">int</span> * p = (<span class="dt">int</span> *) malloc(elem * <span class="kw">sizeof</span>(<span class="dt">int</span>));
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; elem; ++i)
+        p[i] = val;
+    <span class="cf">return</span> p;
+}
+
+<span class="dt">void</span> show_array(<span class="dt">const</span> <span class="dt">int</span> ar[], <span class="dt">int</span> n)
+{
+    putchar(&#39;[&#39;);
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)
+        printf(<span class="st">&quot;%d,%s&quot;</span>, ar[i], i % <span class="dv">8</span> == <span class="dv">7</span> ? <span class="st">&quot;</span><span class="sc">\n</span><span class="st"> &quot;</span>: <span class="st">&quot;  &quot;</span>);
+    printf(<span class="st">&quot;</span><span class="sc">\b\b\b</span><span class="st">]</span><span class="sc">\n</span><span class="st">&quot;</span>);
+}</code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

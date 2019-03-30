@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 7.11</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../CPP.html">CPP</a>/Exercise 7.11</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 7.11</h1>
+</div>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdbool.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;ctype.h&gt;</span>
+
+<span class="dt">const</span> <span class="dt">float</span> ARTICHOKES_PRICE_PER_POUNDS = <span class="fl">2.05</span>;
+<span class="dt">const</span> <span class="dt">float</span> BEETS_PRICE_PER_POUNDS      = <span class="fl">1.15</span>;
+<span class="dt">const</span> <span class="dt">float</span> CARROTS_PRICE_PER_POUNDS    = <span class="fl">1.09</span>;
+
+<span class="dt">float</span> ask_pounds(<span class="dt">char</span>[]);
+
+<span class="dt">int</span> main(<span class="dt">void</span>)
+{
+    <span class="dt">char</span> vegetable_choice;
+    bool user_still_ordering = true;
+    <span class="dt">float</span> artichokes_pounds, beets_pounds, carrots_pounds;
+    <span class="dt">float</span> cost_artichokes_order, cost_beets_order, cost_carrots_order;
+    <span class="dt">float</span> cost_vegetables;
+    <span class="dt">float</span> discount;
+    <span class="dt">float</span> total_pounds;
+    <span class="dt">float</span> shipping_costs;
+    <span class="dt">float</span> grand_total;
+    artichokes_pounds = beets_pounds = carrots_pounds = <span class="dv">0</span>;
+
+    <span class="cf">while</span> (user_still_ordering) {
+        printf(<span class="st">&quot; *** Choose the vegetable you want to order ***</span><span class="sc">\n</span><span class="st">&quot;</span>
+               <span class="st">&quot;a for artichokes, b for beets, c for carrots and q to exit the ordering process.</span><span class="sc">\n</span><span class="st">&quot;</span>
+               <span class="st">&quot;input: &quot;</span>);
+        <span class="cf">while</span> ((vegetable_choice = getchar()) == <span class="ch">&#39;\n&#39;</span>)
+            <span class="cf">continue</span>; <span class="co">// clear newlines in input buffer and prompt a char</span>
+        <span class="cf">switch</span> (vegetable_choice) {
+        <span class="cf">case</span> &#39;a&#39;:
+            artichokes_pounds += ask_pounds(<span class="st">&quot;artichokes&quot;</span>);
+            <span class="cf">break</span>;
+        <span class="cf">case</span> &#39;b&#39;:
+            beets_pounds += ask_pounds(<span class="st">&quot;beets&quot;</span>);
+            <span class="cf">break</span>;
+        <span class="cf">case</span> &#39;c&#39;:
+            carrots_pounds += ask_pounds(<span class="st">&quot;carrots&quot;</span>);
+            <span class="cf">break</span>;
+        <span class="cf">case</span> &#39;q&#39;:
+            user_still_ordering = false;
+            <span class="cf">break</span>;
+        <span class="cf">default</span>:
+            printf(<span class="st">&quot;please enter a correct action</span><span class="sc">\n</span><span class="st">&quot;</span>);
+        }
+    }
+    
+    cost_artichokes_order = artichokes_pounds * ARTICHOKES_PRICE_PER_POUNDS;
+    cost_beets_order = beets_pounds * BEETS_PRICE_PER_POUNDS;
+    cost_carrots_order = carrots_pounds * CARROTS_PRICE_PER_POUNDS;
+
+    cost_vegetables = cost_artichokes_order + cost_beets_order + cost_carrots_order;
+    <span class="cf">if</span> (cost_vegetables &gt;= <span class="dv">100</span>)
+        discount = <span class="fl">0.05</span> * cost_vegetables;
+    <span class="cf">else</span> 
+        discount = <span class="dv">0</span>;
+
+    total_pounds = artichokes_pounds + beets_pounds + carrots_pounds;
+    <span class="cf">if</span> (total_pounds &lt;= <span class="fl">5.00</span>)
+           shipping_costs = <span class="fl">6.50</span>;
+    <span class="cf">else</span> <span class="cf">if</span> (total_pounds &lt;= <span class="fl">20.00</span>)
+        shipping_costs = <span class="fl">14.00</span>;
+    <span class="cf">else</span>
+        shipping_costs = <span class="fl">14.00</span> + <span class="fl">0.50</span> * (total_pounds - <span class="fl">20.00</span>);
+
+    grand_total = cost_vegetables - discount + shipping_costs;
+    
+    <span class="cf">if</span> (total_pounds &lt;= <span class="dv">0</span>) {
+        printf(<span class="st">&quot;Bye</span><span class="sc">\n</span><span class="st">&quot;</span>);
+        <span class="cf">return</span> <span class="dv">0</span>;
+    }
+
+    printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">      ***  Purchase informations  ***</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    <span class="cf">if</span> (artichokes_pounds &gt; <span class="dv">0</span>)
+        printf(<span class="st">&quot;%.2f pounds of artichokes for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+               artichokes_pounds, ARTICHOKES_PRICE_PER_POUNDS, cost_artichokes_order);
+    <span class="cf">if</span> (beets_pounds &gt; <span class="dv">0</span>)
+        printf(<span class="st">&quot;%.2f pounds of beets for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+               beets_pounds, BEETS_PRICE_PER_POUNDS, cost_beets_order);
+    <span class="cf">if</span> (carrots_pounds &gt; <span class="dv">0</span>)
+        printf(<span class="st">&quot;%.2f pounds of carrots for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+               carrots_pounds, CARROTS_PRICE_PER_POUNDS, cost_carrots_order);
+    <span class="cf">if</span> (discount &gt; <span class="dv">0</span>)
+    printf(<span class="st">&quot;Discount: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, discount);
+    printf(<span class="st">&quot;Shipping costs: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, shipping_costs);
+    printf(<span class="st">&quot;Grand total: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, grand_total);
+    printf(<span class="st">&quot;Thank you for your visit.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    <span class="cf">return</span> <span class="dv">0</span>;
+}
+
+<span class="dt">float</span> ask_pounds(<span class="dt">char</span> product_name[])
+{
+    <span class="dt">float</span> pounds;
+    printf(<span class="st">&quot;Enter how many pounds of %s you want: &quot;</span>, product_name);
+    scanf(<span class="st">&quot;%f&quot;</span>, &amp;pounds);
+    <span class="cf">return</span> pounds;
+}</code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

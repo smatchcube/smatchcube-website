@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 10.13</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../CPP.html">CPP</a>/Exercise 10.13</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 10.13</h1>
+</div>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#define ROWS 3</span>
+<span class="pp">#define COLS 5</span>
+
+<span class="dt">void</span> prompt_data(<span class="dt">double</span> [ROWS][COLS]);           <span class="co">// a.</span>
+<span class="dt">double</span> average_row(<span class="dt">const</span> <span class="dt">double</span> [COLS]);         <span class="co">// b.</span>
+<span class="dt">double</span> average_2D(<span class="dt">const</span> <span class="dt">double</span> [ROWS][COLS]);    <span class="co">// c.</span>
+<span class="dt">double</span> largest_2D(<span class="dt">const</span> <span class="dt">double</span> [ROWS][COLS]);    <span class="co">// d.</span>
+<span class="dt">void</span> report_result(<span class="dt">const</span> <span class="dt">double</span> [ROWS][COLS]);   <span class="co">// e.</span>
+
+<span class="dt">int</span> main(<span class="dt">void</span>)
+{
+    <span class="dt">double</span> arr[ROWS][COLS];
+    prompt_data(arr);
+    report_result(arr);
+}
+
+<span class="dt">void</span> prompt_data(<span class="dt">double</span> arr[ROWS][COLS])
+<span class="co">// prompt user for 3 sets of 5 numbers and fill the array</span>
+{
+    printf(<span class="st">&quot;Enter 3 sets of 5 numbers:</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
+        <span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col)
+            scanf(<span class="st">&quot;%lf&quot;</span>, &amp;arr[row][col]);
+    }
+}
+
+<span class="dt">double</span> average_row(<span class="dt">const</span> <span class="dt">double</span> arr[COLS])
+<span class="co">// return the average of a row</span>
+{
+    <span class="dt">double</span> sum = <span class="dv">0</span>;
+    <span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col)
+        sum += arr[col];
+    <span class="cf">return</span> sum / COLS;
+}
+
+<span class="dt">double</span> average_2D(<span class="dt">const</span> <span class="dt">double</span> arr[ROWS][COLS])
+<span class="co">// return the average of a 2D array</span>
+{
+    <span class="dt">double</span> sum = <span class="dv">0</span>;
+    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row)
+        sum += average_row(arr[row]);
+    <span class="cf">return</span> sum / ROWS;
+}
+
+<span class="dt">double</span> largest_2D(<span class="dt">const</span> <span class="dt">double</span> arr[ROWS][COLS])
+<span class="co">// return the largest element of a 2D array</span>
+{
+    <span class="dt">double</span> max = arr[<span class="dv">0</span>][<span class="dv">0</span>];
+    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
+        <span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col) {
+            <span class="cf">if</span> (arr[row][col] &gt; max)
+                max = arr[row][col];
+        }
+    }
+    <span class="cf">return</span> max;
+}
+
+<span class="dt">void</span> report_result(<span class="dt">const</span> <span class="dt">double</span> arr[ROWS][COLS])
+{
+    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
+        printf(<span class="st">&quot;The average of the set number %d is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+               row + <span class="dv">1</span>, average_row(arr[row]));
+    }
+    printf(<span class="st">&quot;The total average is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, average_2D(arr));
+    printf(<span class="st">&quot;The largest element is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, largest_2D(arr));
+}</code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

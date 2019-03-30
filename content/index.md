@@ -20,5 +20,5 @@ Feel free to send me any questions or death threats at [smatchcube@tfwno.gf](mai
 
 # About
 
-This site is built with [pandoc](https://www.pandoc.org) using a simple template and is hosted generously on [neocities](https://neocities.org).
-The whole source code of this website (including the pandoc template) will be available soon on a git repo.
+This site is built with [pandoc](https://www.pandoc.org) using a simple template and is hosted generously on [neocities](https://neocities.org).  
+Source code of the site (including the pandoc template) available [here](https://gitlab.com/smatchcube/smatchcube-website).

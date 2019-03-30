@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 10.2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../CPP.html">CPP</a>/Exercise 10.2</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 10.2</h1>
+</div>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+
+<span class="dt">void</span> copy_arr(<span class="dt">double</span> target[], <span class="dt">const</span> <span class="dt">double</span> source[], <span class="dt">int</span> size);
+<span class="dt">void</span> copy_ptr(<span class="dt">double</span> * target, <span class="dt">const</span> <span class="dt">double</span> * source, <span class="dt">int</span> size);
+<span class="dt">void</span> copy_ptrs(<span class="dt">double</span> * target, <span class="dt">const</span> <span class="dt">double</span> * source, <span class="dt">const</span> <span class="dt">double</span> * following_last);
+<span class="dt">void</span> print_array(<span class="dt">const</span> <span class="dt">double</span> arr[], <span class="dt">int</span> size);
+
+<span class="dt">int</span> main(<span class="dt">void</span>)
+{
+    <span class="dt">double</span> source[<span class="dv">5</span>] = {<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>};
+    <span class="dt">double</span> target1[<span class="dv">5</span>];
+    <span class="dt">double</span> target2[<span class="dv">5</span>];
+    <span class="dt">double</span> target3[<span class="dv">5</span>];
+    copy_arr(target1, source, <span class="dv">5</span>);
+    copy_ptr(target2, source, <span class="dv">5</span>);
+    copy_ptrs(target3, source, source + <span class="dv">5</span>);
+
+    printf(<span class="st">&quot;source[5]  = &quot;</span>);
+    print_array(source, <span class="dv">5</span>);
+    printf(<span class="st">&quot;target1[5] = &quot;</span>);
+    print_array(target1, <span class="dv">5</span>);
+    printf(<span class="st">&quot;target2[5] = &quot;</span>);
+    print_array(target2, <span class="dv">5</span>);
+    printf(<span class="st">&quot;target3[5] = &quot;</span>);
+    print_array(target3, <span class="dv">5</span>);
+
+    <span class="cf">return</span> <span class="dv">0</span>;
+}
+
+<span class="dt">void</span> copy_arr(<span class="dt">double</span> target[],<span class="dt">const</span> <span class="dt">double</span> source[], <span class="dt">int</span> size)
+<span class="co">// copy content of the source array to target</span>
+{
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+        target[i] = source[i];
+    }
+}
+
+<span class="dt">void</span> copy_ptr(<span class="dt">double</span> * target, <span class="dt">const</span> <span class="dt">double</span> * source, <span class="dt">int</span> size)
+<span class="co">// copy content of the source array to target</span>
+{
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+        *(target + i) = *(source + i);
+    }
+}
+
+<span class="dt">void</span> copy_ptrs(
+    <span class="dt">double</span> * target,
+    <span class="dt">const</span> <span class="dt">double</span> * source,
+    <span class="dt">const</span> <span class="dt">double</span> * following_last)
+<span class="co">// copy content of the source array to target</span>
+{
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; source + i &lt; following_last; ++i) {
+        target[i] = source[i];
+    }
+}
+
+<span class="dt">void</span> print_array(<span class="dt">const</span> <span class="dt">double</span> arr[], <span class="dt">int</span> size)
+<span class="co">// print the content of an array of doubles (literal representation)</span>
+{
+    putchar(&#39;{&#39;);
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+        printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
+    }
+    printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// delete last &#39;,&#39; and &#39; &#39; chars and close curly brackets</span>
+}</code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>
