@@ -54,16 +54,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Exercise 1.9</h1>
 </div>
-<p><strong>First procedure</strong>\ Substitution model:</p>
+<p><strong>First procedure</strong><br />
+Substitution model:</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">+</span> <span class="dv">4</span> <span class="dv">5</span>)
-(inc (<span class="kw">+</span> (dec <span class="dv">4</span>) <span class="dv">5</span>))
 (inc (<span class="kw">+</span> <span class="dv">3</span> <span class="dv">5</span>))
-(inc (inc (<span class="kw">+</span> (dec <span class="dv">3</span>) <span class="dv">5</span>)))
 (inc (inc (<span class="kw">+</span> <span class="dv">2</span> <span class="dv">5</span>)))
-(inc (inc (inc (<span class="kw">+</span> (dec <span class="dv">2</span>) <span class="dv">5</span>))))
 (inc (inc (inc (<span class="kw">+</span> <span class="dv">1</span> <span class="dv">5</span>))))
-(inc (inc (inc (inc (<span class="kw">+</span> (dec <span class="dv">1</span>) <span class="dv">5</span>)))))
-(inc (inc (inc (inc (<span class="kw">+</span> <span class="dv">0</span> <span class="dv">5</span>)))))
 (inc (inc (inc (inc (<span class="kw">+</span> <span class="dv">0</span> <span class="dv">5</span>)))))
 (inc (inc (inc (inc <span class="dv">5</span>))))
 (inc (inc (inc <span class="dv">6</span>)))
@@ -71,15 +67,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 (inc <span class="dv">8</span>)
 <span class="dv">9</span></code></pre></div>
 <p>This process is recursive.</p>
-<p><strong>Second Procedure</strong>\ Substitution model:</p>
+<p><strong>Second Procedure</strong><br />
+Substitution model:</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">+</span> <span class="dv">4</span> <span class="dv">5</span>)
-(<span class="kw">+</span> (dec <span class="dv">4</span>) (inc <span class="dv">5</span>))
 (<span class="kw">+</span> <span class="dv">3</span> <span class="dv">6</span>)
-(<span class="kw">+</span> (dec <span class="dv">3</span>) (inc <span class="dv">6</span>))
 (<span class="kw">+</span> <span class="dv">2</span> <span class="dv">7</span>)
-(<span class="kw">+</span> (dec <span class="dv">2</span>) (inc <span class="dv">7</span>))
 (<span class="kw">+</span> <span class="dv">1</span> <span class="dv">8</span>)
-(<span class="kw">+</span> (dec <span class="dv">1</span>) (inc <span class="dv">8</span>))
 (<span class="kw">+</span> <span class="dv">0</span> <span class="dv">9</span>)
 <span class="dv">9</span></code></pre></div>
 <p>This process is iterative.</p>

@@ -57,7 +57,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Procedures for the cube root are similar to the square root, only the improve procedure is different.</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(cbrt-iter old-guess guess x)
   (<span class="kw">if</span> (good-enough? old-guess guess x) guess
-        (sqrt-iter guess (improve guess x) x)))
+        (cbrt-iter guess (improve guess x) x)))
 
 (<span class="kw">define</span><span class="fu"> </span>(improve guess x)
   (<span class="kw">/</span> (<span class="kw">+</span> (<span class="kw">/</span> x (square guess))

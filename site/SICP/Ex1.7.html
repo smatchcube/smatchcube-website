@@ -54,7 +54,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Exercise 1.7</h1>
 </div>
-<p>The problem of the <code>good-enough?</code> procedure is that 0.001 is arbitrary small and is not optimal for small or big numbers for instance, <code>(sqrt 0.001)</code> return <code>0.001</code>, which is obviously not the square root.\ Below is an alternative code which introduce a new variable (<code>old-guess</code>) to keep tracking of the change during two iterations to find the approximation of any square root.</p>
+<p>The problem of the <code>good-enough?</code> procedure is that 0.001 is arbitrary small and is not optimal for small or big numbers.<br />
+For instance, <code>(sqrt 1.e-10)</code> return <code>0.03125000106562499</code>, which is obviously not even close to the exact <code>1e-5</code> solution. For big numbers, the program hangs on my system: <code>(sqrt 1e60)</code> never terminates. Below is an alternative code which introduces a new variable <code>old-guess</code> to keep tracking of the change during two iterations to find the approximation of any square root. Here a guess is considered good enough if the ratio between the old guess and the new guess is close enough to one.</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(sqrt-iter old-guess guess x)
   (<span class="kw">if</span> (good-enough? old-guess guess x) guess
         (sqrt-iter guess (improve guess x) x)))
@@ -70,6 +71,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 (<span class="kw">define</span><span class="fu"> </span>(<span class="kw">sqrt</span> x)
   (sqrt-iter <span class="fl">0.1</span> <span class="fl">1.0</span> x))</code></pre></div>
+<p>Now we can easily compute the square root or small and big numbers.<br />
+<code>(sqrt 1e-10)</code> returns <code>1.0000000015603234e-5</code>.<br />
+<code>(sqrt 1e60)</code> returns <code>1.0000000031080746e30</code>.<br />
+Our new version works way better for small or big numbers.</p>
 </main>
 <footer>
 <hr>

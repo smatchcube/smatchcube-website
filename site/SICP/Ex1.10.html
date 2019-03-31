@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 1.10</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -74,7 +75,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 (A <span class="dv">0</span> (A <span class="dv">0</span> <span class="dv">256</span>))
 (A <span class="dv">0</span> <span class="dv">512</span>)
 <span class="dv">1024</span></code></pre></div>
-<p><code>(A 1 10)</code> computes \(2^{10}\).</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(A <span class="dv">2</span> <span class="dv">4</span>)
 (A <span class="dv">1</span> (A <span class="dv">2</span> <span class="dv">3</span>))
 (A <span class="dv">1</span> (A <span class="dv">1</span> (A <span class="dv">2</span> <span class="dv">2</span>)))
@@ -121,7 +121,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 (A <span class="dv">0</span> (A <span class="dv">0</span> <span class="dv">16384</span>))
 (A <span class="dv">0</span> <span class="dv">32768</span>)
 <span class="dv">65536</span></code></pre></div>
-<p><code>(A 2 4)</code> computes \(2<sup>{16}=2</sup>{(2<sup>4)}=2</sup>{(4^2)}\) <code>scheme (A 3 3) (A 2 (A 3 2)) (A 2 (A 2 (A 3 1))) (A 2 (A 2 2)) (A 2 (A 1 (A 2 1))) (A 2 (A 1 2)) (A 2 (A 0 (A 1 1))) (A 2 4) 65536 ; we already found the value of (A 2 4) previously</code> <code>(f n)</code> computes \(2n\).\ <code>(g n)</code> computes \(2^n\).\ <code>(h n)</code> computes \(2n\).</p>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(A <span class="dv">3</span> <span class="dv">3</span>)
+(A <span class="dv">2</span> (A <span class="dv">3</span> <span class="dv">2</span>))
+(A <span class="dv">2</span> (A <span class="dv">2</span> (A <span class="dv">3</span> <span class="dv">1</span>)))
+(A <span class="dv">2</span> (A <span class="dv">2</span> <span class="dv">2</span>))
+(A <span class="dv">2</span> (A <span class="dv">1</span> (A <span class="dv">2</span> <span class="dv">1</span>)))
+(A <span class="dv">2</span> (A <span class="dv">1</span> <span class="dv">2</span>))
+(A <span class="dv">2</span> (A <span class="dv">0</span> (A <span class="dv">1</span> <span class="dv">1</span>)))
+(A <span class="dv">2</span> <span class="dv">4</span>)
+<span class="dv">65536</span> <span class="co">; we already found the value of (A 2 4) previously</span></code></pre></div>
+<p><code>(f n)</code> computes <span class="math inline">\(2n\)</span>.<br />
+<code>(g n)</code> computes <span class="math inline">\(2^n\)</span>.<br />
+<code>(h n)</code> computes <span class="math inline">\(2\uparrow\uparrow n\)</span> using <a href="https://en.wikipedia.org/wiki/Knuth%27s_up-arrow_notation">Knuth's up-arrow notation</a>.</p>
 </main>
 <footer>
 <hr>

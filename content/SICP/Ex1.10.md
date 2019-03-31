@@ -26,7 +26,6 @@ categories: SICP
 (A 0 512)
 1024
 ```
-`(A 1 10)` computes \\(2^{10}\\).
 ```scheme
 (A 2 4)
 (A 1 (A 2 3))
@@ -75,7 +74,6 @@ categories: SICP
 (A 0 32768)
 65536
 ```
-`(A 2 4)` computes \\(2^{16}=2^{\left(2^4\right)}=2^{\left(4^2\right)}\\)
 ```scheme
 (A 3 3)
 (A 2 (A 3 2))
@@ -86,7 +84,7 @@ categories: SICP
 (A 2 (A 0 (A 1 1)))
 (A 2 4)
 65536 ; we already found the value of (A 2 4) previously
-  ```
-`(f n)` computes \\(2n\\).\\
-`(g n)` computes \\(2^n\\).\\
-`(h n)` computes \\(2\uparrow\uparrow n\\).
+```
+`(f n)` computes $2n$.  
+`(g n)` computes $2^n$.  
+`(h n)` computes $2\uparrow\uparrow n$ using [Knuth's up-arrow notation](https://en.wikipedia.org/wiki/Knuth%27s_up-arrow_notation).

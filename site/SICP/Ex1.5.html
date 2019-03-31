@@ -17,7 +17,9 @@
 <div id="header">
 <h1 class="title">Exercise 1.5</h1>
 </div>
-<p>Firstly, the first line define an infinite loop because the procedure <code>(p)</code> call itself.\ If the interpreter uses normal-order evaluation Ben will observe a <code>0</code> printed on the screen because x = 0 in the test procedure, the infinite loop is not called because there is no need to call the <code>(p)</code> procedure.\ If the interpreter uses applicative-order evaluation, the test procedure will firstly evaluate the argument and call the infinite loop so the interpreter will be stuck.</p>
+<p>Firstly, the first line define an infinite loop because the procedure <code>p</code> calls itself ad infinitum.<br />
+If the interpreter uses normal-order evaluation Ben will observe a <code>0</code> printed on the screen because x = 0 in the <code>test</code> procedure. The infinite loop is not called because there is no need to evaluate the argument <code>(p)</code>.<br />
+If the interpreter uses applicative-order evaluation, the <code>test</code> procedure will start evaluating the arguments and call the infinite loop so the interpreter will be stuck.</p>
 </main>
 <footer>
 <hr>

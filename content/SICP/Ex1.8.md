@@ -8,7 +8,7 @@ Procedures for the cube root are similar to the square root, only the improve pr
 ```scheme
 (define (cbrt-iter old-guess guess x)
   (if (good-enough? old-guess guess x) guess
-        (sqrt-iter guess (improve guess x) x)))
+        (cbrt-iter guess (improve guess x) x)))
 
 (define (improve guess x)
   (/ (+ (/ x (square guess))
