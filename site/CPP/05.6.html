@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 5.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,17 +59,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> count, sum, upper;
+	<span class="dt">int</span> count, sum, upper;
 
-    count = <span class="dv">0</span>;
-    sum = <span class="dv">0</span>;
-    printf(<span class="st">&quot;Enter an integer: &quot;</span>);
-    scanf(<span class="st">&quot;%d&quot;</span>, &amp;upper);
-    <span class="cf">while</span> (count++ &lt; upper)
-        sum = sum + count * count;
-    printf(<span class="st">&quot;sum of squares = %d</span><span class="sc">\n</span><span class="st">&quot;</span>, sum);
+	count = <span class="dv">0</span>;
+	sum = <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter an integer: &quot;</span>);
+	scanf(<span class="st">&quot;%d&quot;</span>, &amp;upper);
+	<span class="cf">while</span> (count++ &lt; upper)
+		sum = sum + count * count;
+	printf(<span class="st">&quot;sum of squares = %d</span><span class="sc">\n</span><span class="st">&quot;</span>, sum);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 <span class="co">/* We could also use the fact that the sum of the first</span>
 <span class="co"> * n integers is equal to n * (n + 1) * (2 * n + 1) / 6</span>

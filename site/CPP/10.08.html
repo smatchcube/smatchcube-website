@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,21 +61,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> arr1[<span class="dv">7</span>] = {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>};
-    <span class="dt">int</span> arr2[<span class="dv">3</span>];
-    copy_arr(<span class="dv">3</span>, arr2, arr1 + <span class="dv">3</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">3</span>; ++i)
-        printf(<span class="st">&quot;%d &quot;</span>, arr2[i]);
-    putchar(<span class="ch">&#39;\n&#39;</span>);
+	<span class="dt">int</span> arr1[<span class="dv">7</span>] = {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>};
+	<span class="dt">int</span> arr2[<span class="dv">3</span>];
+	copy_arr(<span class="dv">3</span>, arr2, arr1 + <span class="dv">3</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">3</span>; ++i)
+		printf(<span class="st">&quot;%d &quot;</span>, arr2[i]);
+	putchar(<span class="ch">&#39;\n&#39;</span>);
 }
 
 
 <span class="dt">void</span> copy_arr(<span class="dt">int</span> size, <span class="dt">int</span> target[size],<span class="dt">const</span> <span class="dt">int</span> source[size])
 <span class="co">// copy content of the source array to target</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        target[i] = source[i];
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		target[i] = source[i];
+	}
 }</code></pre></div>
 </main>
 <footer>

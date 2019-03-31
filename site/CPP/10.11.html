@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.11</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,38 +64,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> arr[ROWS][COLS] = {
-        {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>},
-        {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>},
-        {<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>},
-    };
-    printf(<span class="st">&quot;Array before:</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    print_2D(ROWS, COLS, arr);
-    double_2D(ROWS, COLS, arr);
-    printf(<span class="st">&quot;Array after doubling:</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    print_2D(ROWS, COLS, arr);
+	<span class="dt">int</span> arr[ROWS][COLS] = {
+		{<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>},
+		{<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>},
+		{<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>},
+	};
+	printf(<span class="st">&quot;Array before:</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	print_2D(ROWS, COLS, arr);
+	double_2D(ROWS, COLS, arr);
+	printf(<span class="st">&quot;Array after doubling:</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	print_2D(ROWS, COLS, arr);
 }
 
 <span class="dt">void</span> double_2D(<span class="dt">int</span> rows, <span class="dt">int</span> cols, <span class="dt">int</span> arr[rows][cols])
 <span class="co">// double the content of the 2D array</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i) {
-        <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; cols; ++j)
-            arr[i][j] *= <span class="dv">2</span>;
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i) {
+		<span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; cols; ++j)
+			arr[i][j] *= <span class="dv">2</span>;
+	}
 }
 
 <span class="dt">void</span> print_2D(<span class="dt">int</span> rows, <span class="dt">int</span> cols, <span class="dt">const</span> <span class="dt">int</span> arr[rows][cols])
 <span class="co">// print the 2D array (literal representation)</span>
 {
-    printf(<span class="st">&quot;{</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i) {
-        printf(<span class="st">&quot;</span><span class="sc">\t</span><span class="st">{&quot;</span>);
-        <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; cols; ++j)
-            printf(<span class="st">&quot;%d, &quot;</span>, arr[i][j]);
-        printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">},</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    }
-    printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	printf(<span class="st">&quot;{</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i) {
+		printf(<span class="st">&quot;</span><span class="sc">\t</span><span class="st">{&quot;</span>);
+		<span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; cols; ++j)
+			printf(<span class="st">&quot;%d, &quot;</span>, arr[i][j]);
+		printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">},</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	}
+	printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>);
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,61 +64,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> source[<span class="dv">5</span>] = {<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>};
-    <span class="dt">double</span> target1[<span class="dv">5</span>];
-    <span class="dt">double</span> target2[<span class="dv">5</span>];
-    <span class="dt">double</span> target3[<span class="dv">5</span>];
-    copy_arr(target1, source, <span class="dv">5</span>);
-    copy_ptr(target2, source, <span class="dv">5</span>);
-    copy_ptrs(target3, source, source + <span class="dv">5</span>);
+	<span class="dt">double</span> source[<span class="dv">5</span>] = {<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>};
+	<span class="dt">double</span> target1[<span class="dv">5</span>];
+	<span class="dt">double</span> target2[<span class="dv">5</span>];
+	<span class="dt">double</span> target3[<span class="dv">5</span>];
+	copy_arr(target1, source, <span class="dv">5</span>);
+	copy_ptr(target2, source, <span class="dv">5</span>);
+	copy_ptrs(target3, source, source + <span class="dv">5</span>);
 
-    printf(<span class="st">&quot;source[5]  = &quot;</span>);
-    print_array(source, <span class="dv">5</span>);
-    printf(<span class="st">&quot;target1[5] = &quot;</span>);
-    print_array(target1, <span class="dv">5</span>);
-    printf(<span class="st">&quot;target2[5] = &quot;</span>);
-    print_array(target2, <span class="dv">5</span>);
-    printf(<span class="st">&quot;target3[5] = &quot;</span>);
-    print_array(target3, <span class="dv">5</span>);
+	printf(<span class="st">&quot;source[5]  = &quot;</span>);
+	print_array(source, <span class="dv">5</span>);
+	printf(<span class="st">&quot;target1[5] = &quot;</span>);
+	print_array(target1, <span class="dv">5</span>);
+	printf(<span class="st">&quot;target2[5] = &quot;</span>);
+	print_array(target2, <span class="dv">5</span>);
+	printf(<span class="st">&quot;target3[5] = &quot;</span>);
+	print_array(target3, <span class="dv">5</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> copy_arr(<span class="dt">double</span> target[],<span class="dt">const</span> <span class="dt">double</span> source[], <span class="dt">int</span> size)
 <span class="co">// copy content of the source array to target</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        target[i] = source[i];
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		target[i] = source[i];
+	}
 }
 
 <span class="dt">void</span> copy_ptr(<span class="dt">double</span> * target, <span class="dt">const</span> <span class="dt">double</span> * source, <span class="dt">int</span> size)
 <span class="co">// copy content of the source array to target</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        *(target + i) = *(source + i);
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		*(target + i) = *(source + i);
+	}
 }
 
 <span class="dt">void</span> copy_ptrs(
-    <span class="dt">double</span> * target,
-    <span class="dt">const</span> <span class="dt">double</span> * source,
-    <span class="dt">const</span> <span class="dt">double</span> * following_last)
+	<span class="dt">double</span> * target,
+	<span class="dt">const</span> <span class="dt">double</span> * source,
+	<span class="dt">const</span> <span class="dt">double</span> * following_last)
 <span class="co">// copy content of the source array to target</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; source + i &lt; following_last; ++i) {
-        target[i] = source[i];
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; source + i &lt; following_last; ++i) {
+		target[i] = source[i];
+	}
 }
 
 <span class="dt">void</span> print_array(<span class="dt">const</span> <span class="dt">double</span> arr[], <span class="dt">int</span> size)
 <span class="co">// print the content of an array of doubles (literal representation)</span>
 {
-    putchar(&#39;{&#39;);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
-    }
-    printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// delete last &#39;,&#39; and &#39; &#39; chars and close curly brackets</span>
+	putchar(&#39;{&#39;);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
+	}
+	printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// delete last &#39;,&#39; and &#39; &#39; chars and close curly brackets</span>
 }</code></pre></div>
 </main>
 <footer>

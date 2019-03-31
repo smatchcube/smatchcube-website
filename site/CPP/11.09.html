@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.9</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,26 +64,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> s[SIZE];
-    printf(<span class="st">&quot;Enter some text: &quot;</span>);
-    <span class="cf">while</span> (fgets(s, SIZE, stdin), strcmp(s, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
-        reverse(s);
-        fputs(s, stdout);
-        printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Enter some text (q to quit): &quot;</span>);
-    }
-    puts(<span class="st">&quot;Bye&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> s[SIZE];
+	printf(<span class="st">&quot;Enter some text: &quot;</span>);
+	<span class="cf">while</span> (fgets(s, SIZE, stdin), strcmp(s, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
+		reverse(s);
+		fputs(s, stdout);
+		printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Enter some text (q to quit): &quot;</span>);
+	}
+	puts(<span class="st">&quot;Bye&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> reverse(<span class="dt">char</span> *s)
 {
-    <span class="dt">int</span> len = strlen(s);
-    <span class="dt">char</span> temp;
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; len / <span class="dv">2</span>; i++) {
-        temp = s[i];
-        s[i] = s[len-i<span class="dv">-1</span>];
-        s[len-i<span class="dv">-1</span>] = temp;
-    }
+	<span class="dt">int</span> len = strlen(s);
+	<span class="dt">char</span> temp;
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; len / <span class="dv">2</span>; i++) {
+		temp = s[i];
+		s[i] = s[len-i<span class="dv">-1</span>];
+		s[len-i<span class="dv">-1</span>] = temp;
+	}
 }</code></pre></div>
 </main>
 <footer>

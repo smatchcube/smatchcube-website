@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 9.10</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,31 +61,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">unsigned</span> <span class="dt">long</span> n;
-    <span class="dt">unsigned</span> base;
+	<span class="dt">unsigned</span> <span class="dt">long</span> n;
+	<span class="dt">unsigned</span> base;
 
-    printf(<span class="st">&quot;Enter a positive integer and a base in the range 2-8: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%lu %u&quot;</span>, &amp;n, &amp;base) != <span class="dv">2</span> &amp;&amp; <span class="dv">2</span> &lt;= base &amp;&amp; base &lt;= <span class="dv">8</span>) {
-        <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-            <span class="cf">continue</span>; <span class="co">// clear bad input</span>
-        printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">Try again: &quot;</span>);
-    }
+	printf(<span class="st">&quot;Enter a positive integer and a base in the range 2-8: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%lu %u&quot;</span>, &amp;n, &amp;base) != <span class="dv">2</span> &amp;&amp; <span class="dv">2</span> &lt;= base &amp;&amp; base &lt;= <span class="dv">8</span>) {
+		<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+			<span class="cf">continue</span>; <span class="co">// clear bad input</span>
+		printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">Try again: &quot;</span>);
+	}
 
-    printf(<span class="st">&quot;%lu in base %u is &quot;</span>, n, base);
-    to_base_n(n, base);
-    putchar(<span class="ch">&#39;\n&#39;</span>);
+	printf(<span class="st">&quot;%lu in base %u is &quot;</span>, n, base);
+	to_base_n(n, base);
+	putchar(<span class="ch">&#39;\n&#39;</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> to_base_n(<span class="dt">unsigned</span> <span class="dt">long</span> n, <span class="dt">unsigned</span> base)
 {
-    <span class="dt">int</span> r;
+	<span class="dt">int</span> r;
 
-    r = n % base;
-    <span class="cf">if</span> (n &gt;= base)
-        to_base_n(n / base, base);
-    putchar(&#39;<span class="dv">0</span>&#39; + r);
+	r = n % base;
+	<span class="cf">if</span> (n &gt;= base)
+		to_base_n(n / base, base);
+	putchar(&#39;<span class="dv">0</span>&#39; + r);
 }</code></pre></div>
 </main>
 <footer>

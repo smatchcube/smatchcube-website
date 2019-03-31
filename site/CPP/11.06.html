@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,28 +64,28 @@ bool is_within(<span class="dt">char</span>, <span class="dt">const</span> <span
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> s[SIZE];
-    <span class="dt">char</span> c;
-    printf(<span class="st">&quot;Enter some text: &quot;</span>);
-    <span class="cf">while</span> (fgets(s, SIZE, stdin), strcmp(s, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
-        printf(<span class="st">&quot;Enter a character: &quot;</span>);
-        c = getchar();
-        getchar(); <span class="co">// discard newline char</span>
-        printf(<span class="st">&quot;%c is%s in the string.</span><span class="sc">\n</span><span class="st">&quot;</span>, c, is_within(c, s) ? <span class="st">&quot;&quot;</span> : <span class="st">&quot; not&quot;</span>);
-        printf(<span class="st">&quot;Enter some text (q to quit): &quot;</span>);
-    }
-    puts(<span class="st">&quot;Bye&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> s[SIZE];
+	<span class="dt">char</span> c;
+	printf(<span class="st">&quot;Enter some text: &quot;</span>);
+	<span class="cf">while</span> (fgets(s, SIZE, stdin), strcmp(s, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
+		printf(<span class="st">&quot;Enter a character: &quot;</span>);
+		c = getchar();
+		getchar(); <span class="co">// discard newline char</span>
+		printf(<span class="st">&quot;%c is%s in the string.</span><span class="sc">\n</span><span class="st">&quot;</span>, c, is_within(c, s) ? <span class="st">&quot;&quot;</span> : <span class="st">&quot; not&quot;</span>);
+		printf(<span class="st">&quot;Enter some text (q to quit): &quot;</span>);
+	}
+	puts(<span class="st">&quot;Bye&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 bool is_within(<span class="dt">char</span> c, <span class="dt">const</span> <span class="dt">char</span> *str)
 {
-    <span class="cf">while</span> (*str) {
-        <span class="cf">if</span> (c == *str)
-            <span class="cf">return</span> true;
-        str++;
-    }
-    <span class="cf">return</span> false;
+	<span class="cf">while</span> (*str) {
+		<span class="cf">if</span> (c == *str)
+			<span class="cf">return</span> true;
+		str++;
+	}
+	<span class="cf">return</span> false;
 }</code></pre></div>
 </main>
 <footer>

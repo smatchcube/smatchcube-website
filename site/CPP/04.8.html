@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 4.8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,17 +61,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> distance, gasoline;
-    printf(<span class="st">&quot;Enter the number of miles traveled: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;distance);
-    printf(<span class="st">&quot;Enter the number of gallons of gasoline consumed: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;gasoline);
+	<span class="dt">float</span> distance, gasoline;
+	printf(<span class="st">&quot;Enter the number of miles traveled: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;distance);
+	printf(<span class="st">&quot;Enter the number of gallons of gasoline consumed: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;gasoline);
 
-    printf(<span class="st">&quot;Miles-per-gallon: %.1f</span><span class="sc">\n</span><span class="st">&quot;</span>, distance / gasoline);
-    printf(<span class="st">&quot;Liters-per-100-km: %.1f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-        (gasoline * LITERS_PER_GALLON * <span class="dv">100</span>) / (distance * KILOMETERS_PER_MILE));
+	printf(<span class="st">&quot;Miles-per-gallon: %.1f</span><span class="sc">\n</span><span class="st">&quot;</span>, distance / gasoline);
+	printf(<span class="st">&quot;Liters-per-100-km: %.1f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+		(gasoline * LITERS_PER_GALLON * <span class="dv">100</span>) / (distance * KILOMETERS_PER_MILE));
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.7</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,31 +64,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> s1[SIZE1];
-    <span class="dt">char</span> s2[SIZE2];
-    printf(<span class="st">&quot;Enter some text: &quot;</span>);
-    <span class="cf">while</span> (fgets(s2, SIZE2, stdin), strcmp(s2, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
-        mystrncpy(s1, s2, SIZE1);
-        printf(<span class="st">&quot;The first %d characters copied: %s</span><span class="sc">\n</span><span class="st">&quot;</span>, SIZE1, s1);
-        <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; SIZE1; ++i)
-            printf(<span class="st">&quot;&#39;%d&#39;&quot;</span>, s1[i]);
-        putchar(<span class="ch">&#39;\n&#39;</span>);
-        printf(<span class="st">&quot;Enter some text (q to quit): &quot;</span>);
-    }
-    puts(<span class="st">&quot;Bye&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> s1[SIZE1];
+	<span class="dt">char</span> s2[SIZE2];
+	printf(<span class="st">&quot;Enter some text: &quot;</span>);
+	<span class="cf">while</span> (fgets(s2, SIZE2, stdin), strcmp(s2, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
+		mystrncpy(s1, s2, SIZE1);
+		printf(<span class="st">&quot;The first %d characters copied: %s</span><span class="sc">\n</span><span class="st">&quot;</span>, SIZE1, s1);
+		<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; SIZE1; ++i)
+			printf(<span class="st">&quot;&#39;%d&#39;&quot;</span>, s1[i]);
+		putchar(<span class="ch">&#39;\n&#39;</span>);
+		printf(<span class="st">&quot;Enter some text (q to quit): &quot;</span>);
+	}
+	puts(<span class="st">&quot;Bye&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">char</span> *mystrncpy(<span class="dt">char</span> *target, <span class="dt">const</span> <span class="dt">char</span> *source, <span class="dt">int</span> n)
 {
-    <span class="dt">char</span> *ret = target;
-    <span class="cf">while</span> (*source &amp;&amp; n &gt; <span class="dv">0</span>) {
-        *target++ = *source++;
-        n--;
-    }
-    <span class="cf">if</span> (n &gt; <span class="dv">0</span>)
-        *target = &#39;\<span class="dv">0</span>&#39;;
-    <span class="cf">return</span> ret;
+	<span class="dt">char</span> *ret = target;
+	<span class="cf">while</span> (*source &amp;&amp; n &gt; <span class="dv">0</span>) {
+		*target++ = *source++;
+		n--;
+	}
+	<span class="cf">if</span> (n &gt; <span class="dv">0</span>)
+		*target = &#39;\<span class="dv">0</span>&#39;;
+	<span class="cf">return</span> ret;
 }</code></pre></div>
 </main>
 <footer>

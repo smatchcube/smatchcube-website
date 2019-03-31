@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 4.2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -59,16 +60,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> name[<span class="dv">20</span>];
-    printf(<span class="st">&quot;What is your first name?</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    scanf(<span class="st">&quot;%s&quot;</span>, name);
+	<span class="dt">char</span> name[<span class="dv">20</span>];
+	printf(<span class="st">&quot;What is your first name?</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	scanf(<span class="st">&quot;%s&quot;</span>, name);
 
-    printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;\n</span><span class="st">&quot;</span>, name); 
-    printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">%20s</span><span class="sc">\&quot;\n</span><span class="st">&quot;</span>, name);
-    printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">%-20s</span><span class="sc">\&quot;\n</span><span class="st">&quot;</span>, name);
-    printf(<span class="st">&quot;%*s</span><span class="sc">\n</span><span class="st">&quot;</span>, strlen(name) + <span class="dv">3</span>, name);
+	printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;\n</span><span class="st">&quot;</span>, name); 
+	printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">%20s</span><span class="sc">\&quot;\n</span><span class="st">&quot;</span>, name);
+	printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">%-20s</span><span class="sc">\&quot;\n</span><span class="st">&quot;</span>, name);
+	printf(<span class="st">&quot;%*s</span><span class="sc">\n</span><span class="st">&quot;</span>, strlen(name) + <span class="dv">3</span>, name);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

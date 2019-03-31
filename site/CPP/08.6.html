@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -61,23 +62,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> ch;
+	<span class="dt">char</span> ch;
 
-    printf(<span class="st">&quot;Please enter some text: &quot;</span>);
-    ch = get_first();
-    printf(<span class="st">&quot;The first non-whitespace character you entered is %c.</span><span class="sc">\n</span><span class="st">&quot;</span>, ch);
+	printf(<span class="st">&quot;Please enter some text: &quot;</span>);
+	ch = get_first();
+	printf(<span class="st">&quot;The first non-whitespace character you entered is %c.</span><span class="sc">\n</span><span class="st">&quot;</span>, ch);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">char</span> get_first(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> ch;
-    <span class="cf">while</span> (isspace((ch = getchar ())))
-        <span class="cf">continue</span>; <span class="co">// get the first non-whitespace character</span>
-    <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-        <span class="cf">continue</span>; <span class="co">// skip rest of input</span>
-    <span class="cf">return</span> ch;
+	<span class="dt">int</span> ch;
+	<span class="cf">while</span> (isspace((ch = getchar ())))
+		<span class="cf">continue</span>; <span class="co">// get the first non-whitespace character</span>
+	<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+		<span class="cf">continue</span>; <span class="co">// skip rest of input</span>
+	<span class="cf">return</span> ch;
 }</code></pre></div>
 </main>
 <footer>

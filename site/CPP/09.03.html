@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 9.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,29 +61,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> ch;
-    <span class="dt">int</span> width, height;
+	<span class="dt">char</span> ch;
+	<span class="dt">int</span> width, height;
 
-    printf(<span class="st">&quot;Enter a character and two integers: &quot;</span>);
-    <span class="cf">while</span> (ch = getchar(), scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;width, &amp;height) != <span class="dv">2</span>) {
-        <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-            <span class="cf">continue</span>; <span class="co">// clean rest of bad input</span>
-        printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;Input should look like: p 9 3</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;Try again: &quot;</span>);
-    }
-    print_char_rectangle(ch, width, height);
-    printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Bye.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter a character and two integers: &quot;</span>);
+	<span class="cf">while</span> (ch = getchar(), scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;width, &amp;height) != <span class="dv">2</span>) {
+		<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+			<span class="cf">continue</span>; <span class="co">// clean rest of bad input</span>
+		printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;Input should look like: p 9 3</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;Try again: &quot;</span>);
+	}
+	print_char_rectangle(ch, width, height);
+	printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Bye.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> print_char_rectangle(<span class="dt">char</span> ch, <span class="dt">int</span> width, <span class="dt">int</span> height)
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; height; ++i) {
-        <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; width; ++j)
-            putchar(ch);
-        putchar(<span class="ch">&#39;\n&#39;</span>);
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; height; ++i) {
+		<span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; width; ++j)
+			putchar(ch);
+		putchar(<span class="ch">&#39;\n&#39;</span>);
+	}
 }</code></pre></div>
 </main>
 <footer>

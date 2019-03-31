@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -59,27 +60,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> ch;
-    <span class="dt">int</span> number_of_pairs_on_current_line = <span class="dv">0</span>;
-    
-    <span class="cf">while</span> ((ch = getchar()) != EOF) {
-        number_of_pairs_on_current_line++;
-        putchar(&#39;(&#39;);
-        <span class="cf">if</span> (isprint(ch)) 
-            printf(<span class="st">&quot;%c : %d&quot;</span>, ch, ch); 
-        <span class="cf">else</span> <span class="cf">if</span> (ch == <span class="ch">&#39;\t&#39;</span>)
-            printf(<span class="st">&quot;</span><span class="sc">\t</span><span class="st"> : %d&quot;</span>, <span class="ch">&#39;\t&#39;</span>);
-        <span class="cf">else</span> <span class="cf">if</span> (ch == <span class="ch">&#39;\n&#39;</span>)
-            printf(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">n : %d&quot;</span>, <span class="ch">&#39;\n&#39;</span>);
-        <span class="cf">else</span>
-            printf(<span class="st">&quot;^%c : %d&quot;</span>, ch + <span class="dv">64</span>, ch);
-        printf(<span class="st">&quot;),&quot;</span>);
-        <span class="cf">if</span> (number_of_pairs_on_current_line == <span class="dv">10</span> || ch == <span class="ch">&#39;\n&#39;</span>) {
-            putchar(<span class="ch">&#39;\n&#39;</span>);
-            number_of_pairs_on_current_line = <span class="dv">0</span>;
-        }
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">int</span> ch;
+	<span class="dt">int</span> number_of_pairs_on_current_line = <span class="dv">0</span>;
+	
+	<span class="cf">while</span> ((ch = getchar()) != EOF) {
+		number_of_pairs_on_current_line++;
+		putchar(&#39;(&#39;);
+		<span class="cf">if</span> (isprint(ch)) 
+			printf(<span class="st">&quot;%c : %d&quot;</span>, ch, ch); 
+		<span class="cf">else</span> <span class="cf">if</span> (ch == <span class="ch">&#39;\t&#39;</span>)
+			printf(<span class="st">&quot;</span><span class="sc">\t</span><span class="st"> : %d&quot;</span>, <span class="ch">&#39;\t&#39;</span>);
+		<span class="cf">else</span> <span class="cf">if</span> (ch == <span class="ch">&#39;\n&#39;</span>)
+			printf(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">n : %d&quot;</span>, <span class="ch">&#39;\n&#39;</span>);
+		<span class="cf">else</span>
+			printf(<span class="st">&quot;^%c : %d&quot;</span>, ch + <span class="dv">64</span>, ch);
+		printf(<span class="st">&quot;),&quot;</span>);
+		<span class="cf">if</span> (number_of_pairs_on_current_line == <span class="dv">10</span> || ch == <span class="ch">&#39;\n&#39;</span>) {
+			putchar(<span class="ch">&#39;\n&#39;</span>);
+			number_of_pairs_on_current_line = <span class="dv">0</span>;
+		}
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

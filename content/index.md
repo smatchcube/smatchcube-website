@@ -1,7 +1,7 @@
 ---
 path: /[home](index.html)
 ---
-Work in progress, many pages are not ready yet, old website [here](https://smatchcube.github.io).
+Work in progress, many pages are not ready yet.
 
 # Programming
 

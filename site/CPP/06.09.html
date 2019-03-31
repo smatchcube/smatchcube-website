@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.9</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,18 +61,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> f1, f2;
-    printf(<span class="st">&quot;Enter two numbers: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%f%f&quot;</span>, &amp;f1, &amp;f2) == <span class="dv">2</span>) {
-        printf(<span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span>, fun(f1, f2));
-        printf(<span class="st">&quot;Enter two numbers (enter q to quit): &quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">float</span> f1, f2;
+	printf(<span class="st">&quot;Enter two numbers: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%f%f&quot;</span>, &amp;f1, &amp;f2) == <span class="dv">2</span>) {
+		printf(<span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span>, fun(f1, f2));
+		printf(<span class="st">&quot;Enter two numbers (enter q to quit): &quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">float</span> fun(<span class="dt">float</span> f1, <span class="dt">float</span> f2)
 {
-    <span class="cf">return</span> (f1 - f2) / (f1 * f2);
+	<span class="cf">return</span> (f1 - f2) / (f1 * f2);
 }</code></pre></div>
 </main>
 <footer>

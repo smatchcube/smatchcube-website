@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -62,31 +63,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> arr[SIZE];
-    <span class="dt">char</span> c;
-    <span class="dt">char</span> *ptr;
-    puts(<span class="st">&quot;Enter some text: &quot;</span>);
-    <span class="cf">while</span> (fgets(arr, SIZE, stdin), strcmp(arr, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
-        puts(<span class="st">&quot;Enter a character: &quot;</span>);
-        c = getchar();
-        getchar();
-        <span class="cf">if</span> (ptr = mystrchr(arr, c))  <span class="co">// only if c is found</span>
-            printf(<span class="st">&quot;End of line starting from %c: %s&quot;</span>, c, ptr);
-        <span class="cf">else</span>
-            puts(<span class="st">&quot;Character not found.&quot;</span>);
-        puts(<span class="st">&quot;Enter another text (q to quit): &quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> arr[SIZE];
+	<span class="dt">char</span> c;
+	<span class="dt">char</span> *ptr;
+	puts(<span class="st">&quot;Enter some text: &quot;</span>);
+	<span class="cf">while</span> (fgets(arr, SIZE, stdin), strcmp(arr, <span class="st">&quot;q</span><span class="sc">\n</span><span class="st">&quot;</span>)) {
+		puts(<span class="st">&quot;Enter a character: &quot;</span>);
+		c = getchar();
+		getchar();
+		<span class="cf">if</span> (ptr = mystrchr(arr, c))  <span class="co">// only if c is found</span>
+			printf(<span class="st">&quot;End of line starting from %c: %s&quot;</span>, c, ptr);
+		<span class="cf">else</span>
+			puts(<span class="st">&quot;Character not found.&quot;</span>);
+		puts(<span class="st">&quot;Enter another text (q to quit): &quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">char</span> *mystrchr(<span class="dt">char</span> *s, <span class="dt">char</span> c)
 {
-    <span class="cf">while</span> (*s) {
-        <span class="cf">if</span> (*s == c)
-            <span class="cf">return</span> s;
-        ++s;
-    }
-    <span class="cf">return</span> NULL;
+	<span class="cf">while</span> (*s) {
+		<span class="cf">if</span> (*s == c)
+			<span class="cf">return</span> s;
+		++s;
+	}
+	<span class="cf">return</span> NULL;
 }</code></pre></div>
 </main>
 <footer>

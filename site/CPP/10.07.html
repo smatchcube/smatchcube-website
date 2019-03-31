@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.7</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,9 +61,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">void</span> copy_row(<span class="dt">double</span> target[],<span class="dt">const</span> <span class="dt">double</span> source[], <span class="dt">int</span> size);
 <span class="dt">void</span> copy_2D_array(<span class="dt">int</span> rows,
-           <span class="dt">int</span> cols,
-           <span class="dt">double</span> target[rows][cols],
-           <span class="dt">const</span> <span class="dt">double</span> source[rows][cols]);
+		   <span class="dt">int</span> cols,
+		   <span class="dt">double</span> target[rows][cols],
+		   <span class="dt">const</span> <span class="dt">double</span> source[rows][cols]);
 <span class="dt">void</span> print_row(<span class="dt">int</span> size, <span class="dt">const</span> <span class="dt">double</span> arr[size]);
 <span class="dt">void</span> print_2D_array(<span class="dt">int</span> rows, <span class="dt">int</span> cols, <span class="dt">const</span> <span class="dt">double</span> [rows][cols]);
 
@@ -71,17 +72,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="dt">int</span> main(<span class="dt">void</span>)
 <span class="co">// copy content of arr1 to arr2</span>
 {
-    <span class="dt">const</span> <span class="dt">double</span> arr1[ROWS][COLS] = {
-        {<span class="dv">0</span>, <span class="dv">1</span>,  <span class="dv">2</span>,  <span class="dv">3</span>},
-        {<span class="dv">4</span>, <span class="dv">5</span>,  <span class="dv">6</span>,  <span class="dv">7</span>},
-        {<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>}
-    };
-    <span class="dt">double</span> arr2[ROWS][COLS];
-    copy_2D_array(ROWS, COLS, arr2, arr1);
-    printf(<span class="st">&quot;Here is the content of the first array :</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    print_2D_array(ROWS, COLS, arr1);
-    printf(<span class="st">&quot;Here is the content of the copy array :</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    print_2D_array(ROWS, COLS, arr2);
+	<span class="dt">const</span> <span class="dt">double</span> arr1[ROWS][COLS] = {
+		{<span class="dv">0</span>, <span class="dv">1</span>,  <span class="dv">2</span>,  <span class="dv">3</span>},
+		{<span class="dv">4</span>, <span class="dv">5</span>,  <span class="dv">6</span>,  <span class="dv">7</span>},
+		{<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>}
+	};
+	<span class="dt">double</span> arr2[ROWS][COLS];
+	copy_2D_array(ROWS, COLS, arr2, arr1);
+	printf(<span class="st">&quot;Here is the content of the first array :</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	print_2D_array(ROWS, COLS, arr1);
+	printf(<span class="st">&quot;Here is the content of the copy array :</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	print_2D_array(ROWS, COLS, arr2);
 }
 
 
@@ -89,43 +90,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="dt">void</span> copy_arr(<span class="dt">double</span> target[],<span class="dt">const</span> <span class="dt">double</span> source[], <span class="dt">int</span> size)
 <span class="co">// copy content of the source array to target</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        target[i] = source[i];
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		target[i] = source[i];
+	}
 }
 
 <span class="dt">void</span> copy_2D_array(<span class="dt">int</span> rows,
-           <span class="dt">int</span> cols,
-           <span class="dt">double</span> target[rows][cols],
-           <span class="dt">const</span> <span class="dt">double</span> source[rows][cols])
+		   <span class="dt">int</span> cols,
+		   <span class="dt">double</span> target[rows][cols],
+		   <span class="dt">const</span> <span class="dt">double</span> source[rows][cols])
 <span class="co">// copy content of the source array to the target array</span>
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i)
-        copy_arr(target[i], source[i], cols);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i)
+		copy_arr(target[i], source[i], cols);
 }
 
 
 <span class="dt">void</span> print_row(<span class="dt">int</span> size, <span class="dt">const</span> <span class="dt">double</span> arr[])
 <span class="co">// print the content of an array of doubles (literal representation)</span>
 {
-    putchar(&#39;{&#39;);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
-    }
-    printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">},</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// delete chars before closing the braces</span>
+	putchar(&#39;{&#39;);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
+	}
+	printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">},</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// delete chars before closing the braces</span>
 }
 
 <span class="dt">void</span> print_2D_array(<span class="dt">int</span> rows, <span class="dt">int</span> cols, <span class="dt">const</span> <span class="dt">double</span> arr[rows][cols])
 <span class="co">// print the content of a 2D array (literal representation)</span>
 {
-    printf(<span class="st">&quot;{</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i) {
-        putchar(<span class="ch">&#39;\t&#39;</span>);
-        print_row(cols, arr[i]);
-    }
-    printf(<span class="st">&quot;</span><span class="sc">\b</span><span class="st"> </span><span class="sc">\b</span><span class="st">&quot;</span>); <span class="co">// remove the last &#39;\n&#39; char</span>
-    printf(<span class="st">&quot;</span><span class="sc">\b</span><span class="st"> </span><span class="sc">\b</span><span class="st">&quot;</span>); <span class="co">// remove the last &#39;,&#39; char</span>
-    printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	printf(<span class="st">&quot;{</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; rows; ++i) {
+		putchar(<span class="ch">&#39;\t&#39;</span>);
+		print_row(cols, arr[i]);
+	}
+	printf(<span class="st">&quot;</span><span class="sc">\b</span><span class="st"> </span><span class="sc">\b</span><span class="st">&quot;</span>); <span class="co">// remove the last &#39;\n&#39; char</span>
+	printf(<span class="st">&quot;</span><span class="sc">\b</span><span class="st"> </span><span class="sc">\b</span><span class="st">&quot;</span>); <span class="co">// remove the last &#39;,&#39; char</span>
+	printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>);
 }</code></pre></div>
 </main>
 <footer>

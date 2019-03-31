@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -62,33 +63,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> s1[LENGTH], s2[LENGTH];
-    <span class="dt">const</span> <span class="dt">char</span> *ptr;
-    puts (<span class="st">&quot;Enter a string:&quot;</span>);
-    <span class="cf">while</span> (fgets(s1, LENGTH, stdin)[<span class="dv">0</span>] != <span class="ch">&#39;\n&#39;</span>) {
-        puts(<span class="st">&quot;Enter a string to search:&quot;</span>);
-        fgets(s2, LENGTH, stdin);
-        s2[strlen(s2)-<span class="dv">1</span>] = &#39;\<span class="dv">0</span>&#39;;
-        <span class="cf">if</span> (ptr = string_in(s1, s2)) {
-            puts(<span class="st">&quot;End of line beginning from your string found:&quot;</span>);
-            fputs(ptr, stdout);
-        } <span class="cf">else</span> {
-            puts(<span class="st">&quot;String not found.&quot;</span>);
-        }
-        puts(<span class="st">&quot;Enter a new string (empty line to quit):&quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> s1[LENGTH], s2[LENGTH];
+	<span class="dt">const</span> <span class="dt">char</span> *ptr;
+	puts (<span class="st">&quot;Enter a string:&quot;</span>);
+	<span class="cf">while</span> (fgets(s1, LENGTH, stdin)[<span class="dv">0</span>] != <span class="ch">&#39;\n&#39;</span>) {
+		puts(<span class="st">&quot;Enter a string to search:&quot;</span>);
+		fgets(s2, LENGTH, stdin);
+		s2[strlen(s2)-<span class="dv">1</span>] = &#39;\<span class="dv">0</span>&#39;;
+		<span class="cf">if</span> (ptr = string_in(s1, s2)) {
+			puts(<span class="st">&quot;End of line beginning from your string found:&quot;</span>);
+			fputs(ptr, stdout);
+		} <span class="cf">else</span> {
+			puts(<span class="st">&quot;String not found.&quot;</span>);
+		}
+		puts(<span class="st">&quot;Enter a new string (empty line to quit):&quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">const</span> <span class="dt">char</span> *string_in(<span class="dt">const</span> <span class="dt">char</span> *search_in, <span class="dt">const</span> <span class="dt">char</span> *search_for)
 {
-    <span class="dt">size_t</span> string_length = strlen(search_for);
-    <span class="cf">while</span> (*search_in) {
-        <span class="cf">if</span> (!strncmp(search_in, search_for, string_length))
-            <span class="cf">return</span> search_in;
-        ++search_in;
-    }
-    <span class="cf">return</span> NULL;
+	<span class="dt">size_t</span> string_length = strlen(search_for);
+	<span class="cf">while</span> (*search_in) {
+		<span class="cf">if</span> (!strncmp(search_in, search_for, string_length))
+			<span class="cf">return</span> search_in;
+		++search_in;
+	}
+	<span class="cf">return</span> NULL;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 7.10</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -59,45 +60,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> tax_category;
-    <span class="dt">float</span> upper_limit_first_bracket, taxable_income, tax;
+	<span class="dt">int</span> tax_category;
+	<span class="dt">float</span> upper_limit_first_bracket, taxable_income, tax;
 
-    <span class="cf">while</span> (true) {
-        printf(<span class="st">&quot;Choose your category or action.</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;1) Single       2) Head of Household</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;3) Married, Joint   4) Married, Separate</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;5) quit</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;input: &quot;</span>);
-        scanf(<span class="st">&quot;%d&quot;</span>, &amp;tax_category);
-        <span class="cf">switch</span> (tax_category) {
-        <span class="cf">case</span> <span class="dv">1</span>:
-            upper_limit_first_bracket = <span class="dv">17850</span>;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> <span class="dv">2</span>:
-            upper_limit_first_bracket = <span class="dv">23900</span>;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> <span class="dv">3</span>:
-            upper_limit_first_bracket = <span class="dv">23900</span>;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> <span class="dv">4</span>:
-            upper_limit_first_bracket = <span class="dv">29750</span>;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> <span class="dv">5</span>:
-            printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            <span class="cf">return</span> <span class="dv">0</span>;
-        <span class="cf">default</span>:
-            printf(<span class="st">&quot;Category or action not available.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            <span class="cf">continue</span>;
-        }
-        printf(<span class="st">&quot;Enter your taxable income: &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;taxable_income);
-        <span class="cf">if</span> (taxable_income &lt; upper_limit_first_bracket)
-            tax = <span class="fl">0.15</span> * taxable_income;
-        <span class="cf">else</span>
-            tax = <span class="fl">0.15</span> * upper_limit_first_bracket 
-                  + <span class="fl">0.28</span> * (taxable_income - upper_limit_first_bracket);
-        printf(<span class="st">&quot;You owe $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, tax);
-    }
+	<span class="cf">while</span> (true) {
+		printf(<span class="st">&quot;Choose your category or action.</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;1) Single		2) Head of Household</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;3) Married, Joint	4) Married, Separate</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;5) quit</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;input: &quot;</span>);
+		scanf(<span class="st">&quot;%d&quot;</span>, &amp;tax_category);
+		<span class="cf">switch</span> (tax_category) {
+		<span class="cf">case</span> <span class="dv">1</span>:
+			upper_limit_first_bracket = <span class="dv">17850</span>;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> <span class="dv">2</span>:
+			upper_limit_first_bracket = <span class="dv">23900</span>;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> <span class="dv">3</span>:
+			upper_limit_first_bracket = <span class="dv">23900</span>;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> <span class="dv">4</span>:
+			upper_limit_first_bracket = <span class="dv">29750</span>;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> <span class="dv">5</span>:
+			printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			<span class="cf">return</span> <span class="dv">0</span>;
+		<span class="cf">default</span>:
+			printf(<span class="st">&quot;Category or action not available.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			<span class="cf">continue</span>;
+		}
+		printf(<span class="st">&quot;Enter your taxable income: &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;taxable_income);
+		<span class="cf">if</span> (taxable_income &lt; upper_limit_first_bracket)
+			tax = <span class="fl">0.15</span> * taxable_income;
+		<span class="cf">else</span>
+			tax = <span class="fl">0.15</span> * upper_limit_first_bracket 
+			      + <span class="fl">0.28</span> * (taxable_income - upper_limit_first_bracket);
+		printf(<span class="st">&quot;You owe $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, tax);
+	}
 }</code></pre></div>
 </main>
 <footer>

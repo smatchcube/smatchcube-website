@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 12.7</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -62,28 +63,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> sets, sides, dice, sum;
-    srand((<span class="dt">unsigned</span> <span class="dt">int</span>) time(<span class="dv">0</span>));
-    printf(<span class="st">&quot;Enter the number of sets; enter q to stop: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;sets) == <span class="dv">1</span>) {
-        printf(<span class="st">&quot;How many sides and how many dice? &quot;</span>);
-        scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;sides, &amp;dice);
-        printf(<span class="st">&quot;Here are %d set%s of %d %d-sided throw%s.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-               sets, sets &gt; <span class="dv">1</span> ? <span class="st">&quot;s&quot;</span> : <span class="st">&quot;&quot;</span>, dice, sides, dice &gt; <span class="dv">1</span> ? <span class="st">&quot;s&quot;</span> : <span class="st">&quot;&quot;</span>);
-        <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; sets; ++i) {
-            sum = <span class="dv">0</span>;
-            <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; dice; ++i)
-                sum += roll_dice(sides);
-            printf(<span class="st">&quot;%4d&quot;</span>, sum);
-        }
-        printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">How many sets? Enter q to stop: &quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">int</span> sets, sides, dice, sum;
+	srand((<span class="dt">unsigned</span> <span class="dt">int</span>) time(<span class="dv">0</span>));
+	printf(<span class="st">&quot;Enter the number of sets; enter q to stop: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;sets) == <span class="dv">1</span>) {
+		printf(<span class="st">&quot;How many sides and how many dice? &quot;</span>);
+		scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;sides, &amp;dice);
+		printf(<span class="st">&quot;Here are %d set%s of %d %d-sided throw%s.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+		       sets, sets &gt; <span class="dv">1</span> ? <span class="st">&quot;s&quot;</span> : <span class="st">&quot;&quot;</span>, dice, sides, dice &gt; <span class="dv">1</span> ? <span class="st">&quot;s&quot;</span> : <span class="st">&quot;&quot;</span>);
+		<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; sets; ++i) {
+			sum = <span class="dv">0</span>;
+			<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; dice; ++i)
+				sum += roll_dice(sides);
+			printf(<span class="st">&quot;%4d&quot;</span>, sum);
+		}
+		printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">How many sets? Enter q to stop: &quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">int</span> roll_dice(<span class="dt">int</span> sides)
 {
-    <span class="cf">return</span> (rand() % sides) + <span class="dv">1</span>;
+	<span class="cf">return</span> (rand() % sides) + <span class="dv">1</span>;
 }</code></pre></div>
 </main>
 <footer>

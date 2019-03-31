@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.18</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,17 +61,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> week = <span class="dv">0</span>;
-    <span class="dt">int</span> friend_count = <span class="dv">5</span>;
-    
-    printf(<span class="st">&quot; week | friends</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;------+---------</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">while</span> (friend_count &lt;= DUNBAR_NUMBER) {
-        friend_count -= ++week;
-        friend_count *= <span class="dv">2</span>;
-        printf(<span class="st">&quot;%5d |%8d</span><span class="sc">\n</span><span class="st">&quot;</span>, week, friend_count);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">int</span> week = <span class="dv">0</span>;
+	<span class="dt">int</span> friend_count = <span class="dv">5</span>;
+	
+	printf(<span class="st">&quot; week | friends</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;------+---------</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">while</span> (friend_count &lt;= DUNBAR_NUMBER) {
+		friend_count -= ++week;
+		friend_count *= <span class="dv">2</span>;
+		printf(<span class="st">&quot;%5d |%8d</span><span class="sc">\n</span><span class="st">&quot;</span>, week, friend_count);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 7.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,31 +59,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> odd_count, odd_sum, even_count, even_sum;
-    odd_count = odd_sum = even_count = even_sum = <span class="dv">0</span>;
-    <span class="dt">int</span> n;
+	<span class="dt">int</span> odd_count, odd_sum, even_count, even_sum;
+	odd_count = odd_sum = even_count = even_sum = <span class="dv">0</span>;
+	<span class="dt">int</span> n;
 
-    printf(<span class="st">&quot;Enter some numbers (0 to stop): &quot;</span>);
+	printf(<span class="st">&quot;Enter some numbers (0 to stop): &quot;</span>);
 
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;n) == <span class="dv">1</span> &amp;&amp; n != <span class="dv">0</span>) {
-        <span class="cf">if</span> (n % <span class="dv">2</span> == <span class="dv">0</span>) {
-            even_count++;
-            even_sum += n;
-        } <span class="cf">else</span> {
-            odd_count++;
-            odd_sum += n;
-        }
-    }
-    printf(<span class="st">&quot;Number of even integers: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Number of odd integers: %d</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           even_count, odd_count);
-    <span class="cf">if</span> (even_count != <span class="dv">0</span>)
-        printf(<span class="st">&quot;Average value of even integers: %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-                (<span class="dt">float</span>) even_sum / even_count);
-    <span class="cf">if</span> (odd_count != <span class="dv">0</span>)
-        printf(<span class="st">&quot;Average value of odd integers: %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-                (<span class="dt">float</span>) odd_sum / odd_count);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;n) == <span class="dv">1</span> &amp;&amp; n != <span class="dv">0</span>) {
+		<span class="cf">if</span> (n % <span class="dv">2</span> == <span class="dv">0</span>) {
+			even_count++;
+			even_sum += n;
+		} <span class="cf">else</span> {
+			odd_count++;
+			odd_sum += n;
+		}
+	}
+	printf(<span class="st">&quot;Number of even integers: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Number of odd integers: %d</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       even_count, odd_count);
+	<span class="cf">if</span> (even_count != <span class="dv">0</span>)
+		printf(<span class="st">&quot;Average value of even integers: %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+				(<span class="dt">float</span>) even_sum / even_count);
+	<span class="cf">if</span> (odd_count != <span class="dv">0</span>)
+		printf(<span class="st">&quot;Average value of odd integers: %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+				(<span class="dt">float</span>) odd_sum / odd_count);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

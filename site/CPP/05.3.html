@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 5.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,18 +59,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> days;
+	<span class="dt">int</span> days;
 
-    printf(<span class="st">&quot;Enter the number of days: &quot;</span>);
-    scanf(<span class="st">&quot;%d&quot;</span>, &amp;days);
-    <span class="cf">while</span> (days &gt; <span class="dv">0</span>) {
-        printf(<span class="st">&quot;%d days are %d weeks, %d days.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-                days, days / <span class="dv">7</span>, days % <span class="dv">7</span>);
-        printf(<span class="st">&quot;Enter a number of days (&lt;=0 to quit): &quot;</span>);
-        scanf(<span class="st">&quot;%d&quot;</span>, &amp;days);
-    }
-    printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter the number of days: &quot;</span>);
+	scanf(<span class="st">&quot;%d&quot;</span>, &amp;days);
+	<span class="cf">while</span> (days &gt; <span class="dv">0</span>) {
+		printf(<span class="st">&quot;%d days are %d weeks, %d days.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+				days, days / <span class="dv">7</span>, days % <span class="dv">7</span>);
+		printf(<span class="st">&quot;Enter a number of days (&lt;=0 to quit): &quot;</span>);
+		scanf(<span class="st">&quot;%d&quot;</span>, &amp;days);
+	}
+	printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

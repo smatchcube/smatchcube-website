@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,36 +59,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> lower_bound = <span class="dv">1</span>;
-    <span class="dt">int</span> upper_bound = <span class="dv">100</span>;
-    <span class="dt">int</span> guess = (lower_bound + upper_bound) / <span class="dv">2</span>; 
-    <span class="dt">int</span> ch;
+	<span class="dt">int</span> lower_bound = <span class="dv">1</span>;
+	<span class="dt">int</span> upper_bound = <span class="dv">100</span>;
+	<span class="dt">int</span> guess = (lower_bound + upper_bound) / <span class="dv">2</span>; 
+	<span class="dt">int</span> ch;
 
-    printf(<span class="st">&quot;Pick an integer from %d to %d. I will try to guess it.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           lower_bound, upper_bound);
-    printf(<span class="st">&quot;Respond with an l if my guess is low, with an h if &quot;</span>
-           <span class="st">&quot;my guess is high and c if my guess is correct.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    printf(<span class="st">&quot;Uh...is your number %d?</span><span class="sc">\n</span><span class="st">&quot;</span>, guess);
-    <span class="cf">while</span> ((ch = getchar()) != &#39;c&#39;) {
-        <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-            <span class="cf">continue</span>; <span class="co">/* clean rest of line */</span>
-        <span class="cf">switch</span> (ch) {
-        <span class="cf">case</span> &#39;l&#39;:
-            lower_bound = guess;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;h&#39;:
-            upper_bound = guess;
-            <span class="cf">break</span>;
-        <span class="cf">default</span>:
-            printf(<span class="st">&quot;Please enter a valid response.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            <span class="cf">continue</span>;
-        }
-        guess = (lower_bound + upper_bound) / <span class="dv">2</span>;
-        printf(<span class="st">&quot;Well, then, is it %d?</span><span class="sc">\n</span><span class="st">&quot;</span>, guess);
-    }
-    printf(<span class="st">&quot;I knew I could do it!</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	printf(<span class="st">&quot;Pick an integer from %d to %d. I will try to guess it.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       lower_bound, upper_bound);
+	printf(<span class="st">&quot;Respond with an l if my guess is low, with an h if &quot;</span>
+	       <span class="st">&quot;my guess is high and c if my guess is correct.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	printf(<span class="st">&quot;Uh...is your number %d?</span><span class="sc">\n</span><span class="st">&quot;</span>, guess);
+	<span class="cf">while</span> ((ch = getchar()) != &#39;c&#39;) {
+		<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+			<span class="cf">continue</span>; <span class="co">/* clean rest of line */</span>
+		<span class="cf">switch</span> (ch) {
+		<span class="cf">case</span> &#39;l&#39;:
+			lower_bound = guess;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;h&#39;:
+			upper_bound = guess;
+			<span class="cf">break</span>;
+		<span class="cf">default</span>:
+			printf(<span class="st">&quot;Please enter a valid response.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			<span class="cf">continue</span>;
+		}
+		guess = (lower_bound + upper_bound) / <span class="dv">2</span>;
+		printf(<span class="st">&quot;Well, then, is it %d?</span><span class="sc">\n</span><span class="st">&quot;</span>, guess);
+	}
+	printf(<span class="st">&quot;I knew I could do it!</span><span class="sc">\n</span><span class="st">&quot;</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

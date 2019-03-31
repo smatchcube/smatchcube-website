@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 7.7</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -71,36 +72,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> hours_of_work, gross_pay, taxes, net_pay;
+	<span class="dt">float</span> hours_of_work, gross_pay, taxes, net_pay;
 
-    printf(<span class="st">&quot;Enter the number of hours worked in a week: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;hours_of_work);
-    gross_pay = calculate_gross_pay(hours_of_work);
-    taxes = calculate_taxes(gross_pay);
-    net_pay = gross_pay - taxes;
-    printf(<span class="st">&quot;Gross pay : $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Taxes :     $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Net pay :   $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           gross_pay, taxes, net_pay);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter the number of hours worked in a week: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;hours_of_work);
+	gross_pay = calculate_gross_pay(hours_of_work);
+	taxes = calculate_taxes(gross_pay);
+	net_pay = gross_pay - taxes;
+	printf(<span class="st">&quot;Gross pay : $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Taxes :     $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Net pay :   $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       gross_pay, taxes, net_pay);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">float</span> calculate_gross_pay(<span class="dt">float</span> hours_of_work)
 {
-    <span class="cf">if</span> (hours_of_work &gt; OVERTIME_HOURS)
-        <span class="cf">return</span> BASIC_PAY_RATE * (OVERTIME_HOURS + 
-                        (hours_of_work - OVERTIME_HOURS) * OVERTIME_MULTIPLIER);
-    <span class="cf">return</span> BASIC_PAY_RATE * hours_of_work;
+	<span class="cf">if</span> (hours_of_work &gt; OVERTIME_HOURS)
+		<span class="cf">return</span> BASIC_PAY_RATE * (OVERTIME_HOURS + 
+				        (hours_of_work - OVERTIME_HOURS) * OVERTIME_MULTIPLIER);
+	<span class="cf">return</span> BASIC_PAY_RATE * hours_of_work;
 }
 
 <span class="dt">float</span> calculate_taxes(<span class="dt">float</span> gross_pay)
 {
-    <span class="cf">if</span> (gross_pay &lt;= BREAK1)
-        <span class="cf">return</span> RATE1 * gross_pay;
-    <span class="cf">else</span> <span class="cf">if</span> (gross_pay &lt;= BREAK2)
-        <span class="cf">return</span> BASE1 + (RATE2 * (gross_pay - BREAK1));
-    <span class="cf">else</span>
-        <span class="cf">return</span> BASE2 + (RATE3 * (gross_pay - BREAK2));
+	<span class="cf">if</span> (gross_pay &lt;= BREAK1)
+		<span class="cf">return</span> RATE1 * gross_pay;
+	<span class="cf">else</span> <span class="cf">if</span> (gross_pay &lt;= BREAK2)
+		<span class="cf">return</span> BASE1 + (RATE2 * (gross_pay - BREAK1));
+	<span class="cf">else</span>
+		<span class="cf">return</span> BASE2 + (RATE3 * (gross_pay - BREAK2));
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 12.1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,21 +61,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> units = <span class="dv">0</span>;
+	<span class="dt">int</span> units = <span class="dv">0</span>;
 
-    printf(<span class="st">&quot;How many pounds to a firkin of butter?</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    scanf(<span class="st">&quot;%d&quot;</span>, &amp;units);
-    <span class="cf">while</span> (units != <span class="dv">56</span>)
-        critic(&amp;units);
-    printf(<span class="st">&quot;You must have looked it up!</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	printf(<span class="st">&quot;How many pounds to a firkin of butter?</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	scanf(<span class="st">&quot;%d&quot;</span>, &amp;units);
+	<span class="cf">while</span> (units != <span class="dv">56</span>)
+		critic(&amp;units);
+	printf(<span class="st">&quot;You must have looked it up!</span><span class="sc">\n</span><span class="st">&quot;</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> critic(<span class="dt">int</span> * units)
 {
-    printf(<span class="st">&quot;No luck, my friend. Try again.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    scanf(<span class="st">&quot;%d&quot;</span>, units);
+	printf(<span class="st">&quot;No luck, my friend. Try again.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	scanf(<span class="st">&quot;%d&quot;</span>, units);
 }</code></pre></div>
 </main>
 <footer>

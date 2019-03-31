@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 12.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,36 +64,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> array[<span class="dv">10</span>][<span class="dv">1000</span>];
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">10</span>; ++i)
-        randomize_array(i, <span class="dv">1000</span>, array[i]);
-    printf(<span class="st">&quot;Seed |&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">11</span>; ++i)
-        printf(<span class="st">&quot;#%-4d&quot;</span>, i);
-    printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">     |------------------------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">10</span>; ++i) {
-        printf(<span class="st">&quot;  %d  |&quot;</span>, i);
-        print_array_stat(<span class="dv">1000</span>, array[i]);
-    }
+	<span class="dt">int</span> array[<span class="dv">10</span>][<span class="dv">1000</span>];
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">10</span>; ++i)
+		randomize_array(i, <span class="dv">1000</span>, array[i]);
+	printf(<span class="st">&quot;Seed |&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">11</span>; ++i)
+		printf(<span class="st">&quot;#%-4d&quot;</span>, i);
+	printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">     |------------------------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">10</span>; ++i) {
+		printf(<span class="st">&quot;  %d  |&quot;</span>, i);
+		print_array_stat(<span class="dv">1000</span>, array[i]);
+	}
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> randomize_array(<span class="dt">unsigned</span> seed, <span class="dt">int</span> size, <span class="dt">int</span> *arr)
 {
-    srand(seed);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i)
-        arr[i] = (rand() % <span class="dv">10</span>) + <span class="dv">1</span>;
+	srand(seed);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i)
+		arr[i] = (rand() % <span class="dv">10</span>) + <span class="dv">1</span>;
 }
 
 <span class="dt">void</span> print_array_stat(<span class="dt">int</span> size, <span class="dt">const</span> <span class="dt">int</span> arr[size])
 {
-    <span class="dt">int</span> count[<span class="dv">11</span>] = { <span class="dv">0</span> };
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i)
-        ++count[arr[i]];
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">11</span>; ++i)
-        printf(<span class="st">&quot;%-5d&quot;</span>, count[i]);
-    printf(<span class="st">&quot;</span><span class="sc">\b\n</span><span class="st">&quot;</span>);
+	<span class="dt">int</span> count[<span class="dv">11</span>] = { <span class="dv">0</span> };
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i)
+		++count[arr[i]];
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">11</span>; ++i)
+		printf(<span class="st">&quot;%-5d&quot;</span>, count[i]);
+	printf(<span class="st">&quot;</span><span class="sc">\b\n</span><span class="st">&quot;</span>);
 }</code></pre></div>
 </main>
 <footer>

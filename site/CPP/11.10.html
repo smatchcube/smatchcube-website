@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.10</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -63,29 +64,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> T[NB_STRING][STRING_SIZE];
-    printf(<span class="st">&quot;Enter %d sentence%s:</span><span class="sc">\n</span><span class="st">&quot;</span>, NB_STRING, (NB_STRING &gt; <span class="dv">1</span>) ? <span class="st">&quot;s&quot;</span> : <span class="st">&quot;&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; NB_STRING; ++i)
-        fgets(T[i], STRING_SIZE, stdin);
-    puts(<span class="st">&quot;Here is what you entered with the spaces removed:&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; NB_STRING; ++i) {
-        remove_spaces(T[i]);
-        printf(T[i]);
-    }
-    puts(<span class="st">&quot;Bye&quot;</span>);
+	<span class="dt">char</span> T[NB_STRING][STRING_SIZE];
+	printf(<span class="st">&quot;Enter %d sentence%s:</span><span class="sc">\n</span><span class="st">&quot;</span>, NB_STRING, (NB_STRING &gt; <span class="dv">1</span>) ? <span class="st">&quot;s&quot;</span> : <span class="st">&quot;&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; NB_STRING; ++i)
+		fgets(T[i], STRING_SIZE, stdin);
+	puts(<span class="st">&quot;Here is what you entered with the spaces removed:&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; NB_STRING; ++i) {
+		remove_spaces(T[i]);
+		printf(T[i]);
+	}
+	puts(<span class="st">&quot;Bye&quot;</span>);
 }
 
 <span class="dt">void</span> remove_spaces(<span class="dt">char</span> *s)
 {
-    <span class="dt">char</span> *i, *j;
-    i = j = s;
-    <span class="cf">while</span> (*j) {
-        <span class="cf">if</span> (*j == &#39; &#39;)
-            ++j;
-        <span class="cf">else</span>
-            *i++ = *j++;
-    }
-    *i = &#39;\<span class="dv">0</span>&#39;;
+	<span class="dt">char</span> *i, *j;
+	i = j = s;
+	<span class="cf">while</span> (*j) {
+		<span class="cf">if</span> (*j == &#39; &#39;)
+			++j;
+		<span class="cf">else</span>
+			*i++ = *j++;
+	}
+	*i = &#39;\<span class="dv">0</span>&#39;;
 }</code></pre></div>
 </main>
 <footer>

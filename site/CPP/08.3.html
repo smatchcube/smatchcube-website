@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -59,24 +60,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> ch;
-    <span class="dt">unsigned</span> number_of_lowercase_letters = <span class="dv">0</span>;
-    <span class="dt">unsigned</span> number_of_uppercase_letters = <span class="dv">0</span>;
-    <span class="dt">unsigned</span> other_characters = <span class="dv">0</span>;
-    printf(<span class="st">&quot;Enter some text: &quot;</span>);
-    <span class="cf">while</span> ((ch = getchar()) != EOF) {
-        <span class="cf">if</span> (islower(ch))
-            number_of_lowercase_letters++;
-        <span class="cf">else</span> <span class="cf">if</span> (isupper(ch))
-            number_of_uppercase_letters++;
-        <span class="cf">else</span>
-            other_characters++;
-    }
-    printf(<span class="st">&quot;There are %u lowercase letters, %u uppercase letters and %u other characters.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-            number_of_lowercase_letters,
-            number_of_uppercase_letters,
-            other_characters);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">int</span> ch;
+	<span class="dt">unsigned</span> number_of_lowercase_letters = <span class="dv">0</span>;
+	<span class="dt">unsigned</span> number_of_uppercase_letters = <span class="dv">0</span>;
+	<span class="dt">unsigned</span> other_characters = <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter some text: &quot;</span>);
+	<span class="cf">while</span> ((ch = getchar()) != EOF) {
+		<span class="cf">if</span> (islower(ch))
+			number_of_lowercase_letters++;
+		<span class="cf">else</span> <span class="cf">if</span> (isupper(ch))
+			number_of_uppercase_letters++;
+		<span class="cf">else</span>
+			other_characters++;
+	}
+	printf(<span class="st">&quot;There are %u lowercase letters, %u uppercase letters and %u other characters.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+			number_of_lowercase_letters,
+			number_of_uppercase_letters,
+			other_characters);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

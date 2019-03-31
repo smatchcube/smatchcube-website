@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 9.7</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -61,21 +62,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> ch, position;
-    <span class="cf">while</span> ((ch = getchar()) != EOF) {
-        position = letter_alphabet_position(ch);
-        <span class="cf">if</span> (position != -<span class="dv">1</span>)
-            printf(<span class="st">&quot;%c is letter %u.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-                    ch, letter_alphabet_position(ch));
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> ch, position;
+	<span class="cf">while</span> ((ch = getchar()) != EOF) {
+		position = letter_alphabet_position(ch);
+		<span class="cf">if</span> (position != -<span class="dv">1</span>)
+			printf(<span class="st">&quot;%c is letter %u.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+					ch, letter_alphabet_position(ch));
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">int</span> letter_alphabet_position(<span class="dt">char</span> letter)
 {
-    <span class="cf">if</span> (isalpha(letter))
-        <span class="cf">return</span> tolower(letter) - &#39;a&#39; + <span class="dv">1</span>;
-    <span class="cf">return</span> -<span class="dv">1</span>;
+	<span class="cf">if</span> (isalpha(letter))
+		<span class="cf">return</span> tolower(letter) - &#39;a&#39; + <span class="dv">1</span>;
+	<span class="cf">return</span> -<span class="dv">1</span>;
 }</code></pre></div>
 </main>
 <footer>

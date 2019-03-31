@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.12</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,26 +59,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> upper, sign;
-    <span class="dt">float</span> sum_1, sum_2, term;
+	<span class="dt">int</span> upper, sign;
+	<span class="dt">float</span> sum_1, sum_2, term;
 
-    printf(<span class="st">&quot;Enter the number of terms to evaluate: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;upper) == <span class="dv">1</span>) {
-        sum_1 = <span class="dv">0</span>;
-        sum_2 = <span class="dv">0</span>;
-        <span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">1</span>, sign = <span class="dv">1</span>; k &lt;= upper; k++, sign *= -<span class="dv">1</span>) {
-            term = (<span class="dt">float</span>) <span class="dv">1</span> / k;
-            sum_1 += term;
-            sum_2 += sign * term;
-        }
-        printf(<span class="st">&quot;The %dth partial sum of the harmonic series &quot;</span>
-               <span class="st">&quot;is equal to %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, upper, sum_1);
-        printf(<span class="st">&quot;The %dth partial sum of the alternating &quot;</span>
-               <span class="st">&quot;harmonic series is equal to %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, upper, sum_2);
-        printf(<span class="st">&quot;Enter the next number of terms to evaluate &quot;</span>
-               <span class="st">&quot;(q to quit): &quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter the number of terms to evaluate: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;upper) == <span class="dv">1</span>) {
+		sum_1 = <span class="dv">0</span>;
+		sum_2 = <span class="dv">0</span>;
+		<span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">1</span>, sign = <span class="dv">1</span>; k &lt;= upper; k++, sign *= -<span class="dv">1</span>) {
+			term = (<span class="dt">float</span>) <span class="dv">1</span> / k;
+			sum_1 += term;
+			sum_2 += sign * term;
+		}
+		printf(<span class="st">&quot;The %dth partial sum of the harmonic series &quot;</span>
+		       <span class="st">&quot;is equal to %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, upper, sum_1);
+		printf(<span class="st">&quot;The %dth partial sum of the alternating &quot;</span>
+		       <span class="st">&quot;harmonic series is equal to %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, upper, sum_2);
+		printf(<span class="st">&quot;Enter the next number of terms to evaluate &quot;</span>
+		       <span class="st">&quot;(q to quit): &quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 <span class="co">/* The first sum seems divergent and is indeed divergent (harmonic series).</span>
 <span class="co"> * The second sum seems to be converging and is indeed converging to ln(2).*/</span></code></pre></div>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 12.2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -68,33 +69,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">void</span> set_mode(<span class="dt">int</span> m)
 {
-    <span class="cf">if</span> (m != <span class="dv">0</span> &amp;&amp; m != <span class="dv">1</span>)
-        printf(<span class="st">&quot;Invalid mode specified. Mode %s used.</span><span class="sc">\n</span><span class="st">&quot;</span>, mode ? <span class="st">&quot;1(US)&quot;</span> : <span class="st">&quot;0(metric)&quot;</span>);
-    <span class="cf">else</span>
-        mode = m;
+	<span class="cf">if</span> (m != <span class="dv">0</span> &amp;&amp; m != <span class="dv">1</span>)
+		printf(<span class="st">&quot;Invalid mode specified. Mode %s used.</span><span class="sc">\n</span><span class="st">&quot;</span>, mode ? <span class="st">&quot;1(US)&quot;</span> : <span class="st">&quot;0(metric)&quot;</span>);
+	<span class="cf">else</span>
+		mode = m;
 }
 
 <span class="dt">void</span> get_info(<span class="dt">void</span>)
 {
-    <span class="cf">if</span> (mode) {
-        printf(<span class="st">&quot;Enter distance traveled in miles: &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;distance);
-        printf(<span class="st">&quot;Enter fuel consumed in gallons: &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;fuel);
-    } <span class="cf">else</span> {
-        printf(<span class="st">&quot;Enter distance traveled in kilometer: &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;distance);
-        printf(<span class="st">&quot;Enter fuel consumed in liters: &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;fuel);
-    }
+	<span class="cf">if</span> (mode) {
+		printf(<span class="st">&quot;Enter distance traveled in miles: &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;distance);
+		printf(<span class="st">&quot;Enter fuel consumed in gallons: &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;fuel);
+	} <span class="cf">else</span> {
+		printf(<span class="st">&quot;Enter distance traveled in kilometer: &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;distance);
+		printf(<span class="st">&quot;Enter fuel consumed in liters: &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;fuel);
+	}
 }
 
 <span class="dt">void</span> show_info(<span class="dt">void</span>)
 {
-    <span class="cf">if</span> (mode)
-        printf(<span class="st">&quot;Fuel consumption is %.1f miles per gallon.</span><span class="sc">\n</span><span class="st">&quot;</span>, distance / fuel);
-    <span class="cf">else</span>
-        printf(<span class="st">&quot;Fuel consumption is %.2f liters per 100 km.</span><span class="sc">\n</span><span class="st">&quot;</span>, fuel * <span class="dv">100</span> / distance);
+	<span class="cf">if</span> (mode)
+		printf(<span class="st">&quot;Fuel consumption is %.1f miles per gallon.</span><span class="sc">\n</span><span class="st">&quot;</span>, distance / fuel);
+	<span class="cf">else</span>
+		printf(<span class="st">&quot;Fuel consumption is %.2f liters per 100 km.</span><span class="sc">\n</span><span class="st">&quot;</span>, fuel * <span class="dv">100</span> / distance);
 }</code></pre></div>
 <p>Second file: 2b.c</p>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// filename: 2b.c</span>
@@ -104,21 +105,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> mode;
+	<span class="dt">int</span> mode;
 
-    printf(<span class="st">&quot;Enter 0 for metric mode, 1 for US mode: &quot;</span>);
-    scanf(<span class="st">&quot;%d&quot;</span>, &amp;mode);
-    <span class="cf">while</span> (mode &gt;= <span class="dv">0</span>)
-    {
-        set_mode(mode);
-        get_info();
-        show_info();
-        printf(<span class="st">&quot;Enter 0 for metric mode, 1 for US mode&quot;</span>);
-        printf(<span class="st">&quot; (-1 to quit): &quot;</span>);
-        scanf(<span class="st">&quot;%d&quot;</span>, &amp;mode);
-    }
-    printf(<span class="st">&quot;Done.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter 0 for metric mode, 1 for US mode: &quot;</span>);
+	scanf(<span class="st">&quot;%d&quot;</span>, &amp;mode);
+	<span class="cf">while</span> (mode &gt;= <span class="dv">0</span>)
+	{
+		set_mode(mode);
+		get_info();
+		show_info();
+		printf(<span class="st">&quot;Enter 0 for metric mode, 1 for US mode&quot;</span>);
+		printf(<span class="st">&quot; (-1 to quit): &quot;</span>);
+		scanf(<span class="st">&quot;%d&quot;</span>, &amp;mode);
+	}
+	printf(<span class="st">&quot;Done.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 <p>Third and last file: 2a.h</p>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// header file for 2a.c</span>

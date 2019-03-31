@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,28 +61,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> arr1[] = {<span class="dv">1</span>, <span class="fl">2.4</span>, <span class="dv">2</span>};
-    <span class="dt">const</span> <span class="dt">double</span> arr2[] = {-<span class="dv">1</span>, <span class="fl">5.5</span>, <span class="fl">7.5</span>, <span class="dv">1</span>};
-    printf(<span class="st">&quot;Difference of max and min of arr1 = %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           diff_largest_smallest(<span class="dv">3</span>, arr1));
-    printf(<span class="st">&quot;Difference of max and min of arr2 = %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           diff_largest_smallest(<span class="dv">4</span>, arr2));
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">double</span> arr1[] = {<span class="dv">1</span>, <span class="fl">2.4</span>, <span class="dv">2</span>};
+	<span class="dt">const</span> <span class="dt">double</span> arr2[] = {-<span class="dv">1</span>, <span class="fl">5.5</span>, <span class="fl">7.5</span>, <span class="dv">1</span>};
+	printf(<span class="st">&quot;Difference of max and min of arr1 = %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       diff_largest_smallest(<span class="dv">3</span>, arr1));
+	printf(<span class="st">&quot;Difference of max and min of arr2 = %f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       diff_largest_smallest(<span class="dv">4</span>, arr2));
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">double</span> diff_largest_smallest(<span class="dt">int</span> size, <span class="dt">const</span> <span class="dt">double</span> arr[size])
 <span class="co">// return the difference of the largest and the smallest element of an array</span>
 {
-    <span class="dt">double</span> max, min, current;
-    max = min = arr[<span class="dv">0</span>];
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; size; ++i) {
-        current = arr[i];
-        <span class="cf">if</span> (current &gt; max)
-            max = current;
-        <span class="cf">else</span> <span class="cf">if</span> (current &lt; min)
-            min = current;
-    }
-    <span class="cf">return</span> max - min;
+	<span class="dt">double</span> max, min, current;
+	max = min = arr[<span class="dv">0</span>];
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; size; ++i) {
+		current = arr[i];
+		<span class="cf">if</span> (current &gt; max)
+			max = current;
+		<span class="cf">else</span> <span class="cf">if</span> (current &lt; min)
+			min = current;
+	}
+	<span class="cf">return</span> max - min;
 }</code></pre></div>
 </main>
 <footer>

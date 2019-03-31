@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 4.5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,18 +59,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> download_speed, size;
-    printf(<span class="st">&quot;Enter your download speed in megabits per seconds: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;download_speed);
-    printf(<span class="st">&quot;Enter the size of the file in megabytes: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;size);
+	<span class="dt">float</span> download_speed, size;
+	printf(<span class="st">&quot;Enter your download speed in megabits per seconds: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;download_speed);
+	printf(<span class="st">&quot;Enter the size of the file in megabytes: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;size);
 
-    printf(<span class="st">&quot;At %.2f megabits per second, a file of %.2f megabytes downloads in %.2f seconds.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-            download_speed,
-            size,
-            size * <span class="dv">8</span> / download_speed);
+	printf(<span class="st">&quot;At %.2f megabits per second, a file of %.2f megabytes downloads in %.2f seconds.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+			download_speed,
+			size,
+			size * <span class="dv">8</span> / download_speed);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,13 +59,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> letter_1, letter_2;
-    <span class="cf">for</span> (letter_1 = &#39;F&#39;; letter_1 &gt;= &#39;A&#39;; letter_1--) {
-        <span class="cf">for</span> (letter_2 = &#39;F&#39;; letter_2 &gt;= letter_1; letter_2--)
-            printf(<span class="st">&quot;%c&quot;</span>, letter_2);
-        printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> letter_1, letter_2;
+	<span class="cf">for</span> (letter_1 = &#39;F&#39;; letter_1 &gt;= &#39;A&#39;; letter_1--) {
+		<span class="cf">for</span> (letter_2 = &#39;F&#39;; letter_2 &gt;= letter_1; letter_2--)
+			printf(<span class="st">&quot;%c&quot;</span>, letter_2);
+		printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

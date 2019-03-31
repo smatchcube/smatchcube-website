@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 7.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,18 +59,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> old_char, new_char;
-    <span class="dt">int</span> ei_count = <span class="dv">0</span>;
-    old_char = &#39;a&#39;;
-    
-    printf(<span class="st">&quot;Enter some text (# to quit): &quot;</span>);
-    <span class="cf">while</span> ((new_char = getchar()) != &#39;#&#39;) {
-        <span class="cf">if</span> (old_char == &#39;e&#39; &amp;&amp; new_char == &#39;i&#39;)
-            ei_count++;
-        old_char = new_char;
-    }
-    printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">ei</span><span class="sc">\&quot;</span><span class="st"> appears %d time%s</span><span class="sc">\n</span><span class="st">&quot;</span>, ei_count, (ei_count == <span class="dv">1</span>) ? <span class="st">&quot;.&quot;</span> : <span class="st">&quot;s.&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> old_char, new_char;
+	<span class="dt">int</span> ei_count = <span class="dv">0</span>;
+	old_char = &#39;a&#39;;
+	
+	printf(<span class="st">&quot;Enter some text (# to quit): &quot;</span>);
+	<span class="cf">while</span> ((new_char = getchar()) != &#39;#&#39;) {
+		<span class="cf">if</span> (old_char == &#39;e&#39; &amp;&amp; new_char == &#39;i&#39;)
+			ei_count++;
+		old_char = new_char;
+	}
+	printf(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">ei</span><span class="sc">\&quot;</span><span class="st"> appears %d time%s</span><span class="sc">\n</span><span class="st">&quot;</span>, ei_count, (ei_count == <span class="dv">1</span>) ? <span class="st">&quot;.&quot;</span> : <span class="st">&quot;s.&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

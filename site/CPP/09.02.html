@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 9.2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,27 +61,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> ch;
-    <span class="dt">int</span> column, line;
-    printf(<span class="st">&quot;Enter a character and two integers: &quot;</span>);
-    <span class="cf">while</span> (ch = getchar(), scanf(<span class="st">&quot;%d %d&quot;</span>, &amp;column, &amp;line) != <span class="dv">2</span>) {
-        <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-            <span class="cf">continue</span>; <span class="co">// clear bad input</span>
-        printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;Input should look like: k 3 7</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;Try again: &quot;</span>);
-    }
-    chline(ch, column, line);
-    printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Bye.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> ch;
+	<span class="dt">int</span> column, line;
+	printf(<span class="st">&quot;Enter a character and two integers: &quot;</span>);
+	<span class="cf">while</span> (ch = getchar(), scanf(<span class="st">&quot;%d %d&quot;</span>, &amp;column, &amp;line) != <span class="dv">2</span>) {
+		<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+			<span class="cf">continue</span>; <span class="co">// clear bad input</span>
+		printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;Input should look like: k 3 7</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;Try again: &quot;</span>);
+	}
+	chline(ch, column, line);
+	printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Bye.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> chline(<span class="dt">char</span> ch, <span class="dt">int</span> i, <span class="dt">int</span> j)
 {
-    <span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">0</span>; k &lt; i; ++k)
-        putchar(&#39; &#39;);
-    <span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">0</span>; k &lt; j; ++k)
-        putchar(ch);
+	<span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">0</span>; k &lt; i; ++k)
+		putchar(&#39; &#39;);
+	<span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">0</span>; k &lt; j; ++k)
+		putchar(ch);
 }</code></pre></div>
 </main>
 <footer>

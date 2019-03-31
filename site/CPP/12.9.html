@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 12.9</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,28 +61,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> ** p;
-    <span class="dt">int</span> nb_words;
-    <span class="dt">char</span> temp_word[<span class="dv">40</span>];
-    <span class="dt">size_t</span> char_array_len;
+	<span class="dt">char</span> ** p;
+	<span class="dt">int</span> nb_words;
+	<span class="dt">char</span> temp_word[<span class="dv">40</span>];
+	<span class="dt">size_t</span> char_array_len;
 
-    printf(<span class="st">&quot;How many words do you wish to enter? &quot;</span>);
-    scanf(<span class="st">&quot;%d&quot;</span>, &amp;nb_words);
-    p = malloc(nb_words * <span class="kw">sizeof</span>(<span class="dt">char</span> *));
+	printf(<span class="st">&quot;How many words do you wish to enter? &quot;</span>);
+	scanf(<span class="st">&quot;%d&quot;</span>, &amp;nb_words);
+	p = malloc(nb_words * <span class="kw">sizeof</span>(<span class="dt">char</span> *));
 
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_words; ++i) {
-        scanf(<span class="st">&quot;%39s&quot;</span>, temp_word);
-        char_array_len = strlen(temp_word) + <span class="dv">1</span>;
-        p[i] = malloc(char_array_len * <span class="kw">sizeof</span>(<span class="dt">char</span>));
-        strncpy(p[i], temp_word, char_array_len);
-    }
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_words; ++i) {
+		scanf(<span class="st">&quot;%39s&quot;</span>, temp_word);
+		char_array_len = strlen(temp_word) + <span class="dv">1</span>;
+		p[i] = malloc(char_array_len * <span class="kw">sizeof</span>(<span class="dt">char</span>));
+		strncpy(p[i], temp_word, char_array_len);
+	}
 
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_words; ++i) {
-        puts(p[i]);
-        free(p[i]);
-    }
-    free(p);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_words; ++i) {
+		puts(p[i]);
+		free(p[i]);
+	}
+	free(p);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

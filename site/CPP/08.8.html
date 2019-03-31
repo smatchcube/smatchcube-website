@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -67,129 +68,129 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> first_operand, second_operand, result;
-    <span class="dt">char</span> ch, operator;
+	<span class="dt">float</span> first_operand, second_operand, result;
+	<span class="dt">char</span> ch, operator;
 
-    <span class="cf">while</span> ((ch = get_choice()) != &#39;q&#39;) {
-        <span class="cf">switch</span> (ch) {
-        <span class="cf">case</span> &#39;a&#39;:
-            operator = &#39;+&#39;;
-            first_operand = get_first_operand();
-            second_operand = get_second_operand();
-            result = first_operand + second_operand;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;s&#39;:
-            operator = &#39;-&#39;;
-            first_operand = get_first_operand();
-            second_operand = get_second_operand();
-            result = first_operand - second_operand;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;m&#39;:
-            operator = &#39;*&#39;;
-            first_operand = get_first_operand();
-            second_operand = get_second_operand();
-            result = first_operand * second_operand;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;d&#39;:
-            operator = &#39;/&#39;;
-            first_operand = get_first_operand();
-            second_operand = get_denominator();
-            result = first_operand / second_operand;
-            <span class="cf">break</span>;
-        <span class="cf">default</span>:
-            printf(<span class="st">&quot;Operation not available, try again.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            <span class="cf">continue</span>;
-        }
-        print_result(operator, first_operand, second_operand, result);
-    }
-    printf(<span class="st">&quot;Bye.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">while</span> ((ch = get_choice()) != &#39;q&#39;) {
+		<span class="cf">switch</span> (ch) {
+		<span class="cf">case</span> &#39;a&#39;:
+			operator = &#39;+&#39;;
+			first_operand = get_first_operand();
+			second_operand = get_second_operand();
+			result = first_operand + second_operand;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;s&#39;:
+			operator = &#39;-&#39;;
+			first_operand = get_first_operand();
+			second_operand = get_second_operand();
+			result = first_operand - second_operand;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;m&#39;:
+			operator = &#39;*&#39;;
+			first_operand = get_first_operand();
+			second_operand = get_second_operand();
+			result = first_operand * second_operand;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;d&#39;:
+			operator = &#39;/&#39;;
+			first_operand = get_first_operand();
+			second_operand = get_denominator();
+			result = first_operand / second_operand;
+			<span class="cf">break</span>;
+		<span class="cf">default</span>:
+			printf(<span class="st">&quot;Operation not available, try again.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			<span class="cf">continue</span>;
+		}
+		print_result(operator, first_operand, second_operand, result);
+	}
+	printf(<span class="st">&quot;Bye.</span><span class="sc">\n</span><span class="st">&quot;</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">char</span> get_choice(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> ch;
-    printf(<span class="st">&quot;Enter the operation of your choice:</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;a. add           s. substract</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;m. multiply      d. divide</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;q. quit</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">while</span> (true) {
-        <span class="cf">switch</span> (ch = get_first()) {
-        <span class="cf">case</span> &#39;a&#39;:
-        <span class="cf">case</span> &#39;s&#39;:
-        <span class="cf">case</span> &#39;m&#39;:
-        <span class="cf">case</span> &#39;d&#39;:
-        <span class="cf">case</span> &#39;q&#39;:
-            <span class="cf">break</span>;
-        <span class="cf">default</span>:
-            printf(<span class="st">&quot;Please respond with a, s, m, d or q.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            <span class="cf">continue</span>;
-        }
-        <span class="cf">break</span>;
-    }
-    <span class="cf">return</span> ch;
+	<span class="dt">char</span> ch;
+	printf(<span class="st">&quot;Enter the operation of your choice:</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;a. add           s. substract</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;m. multiply      d. divide</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;q. quit</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">while</span> (true) {
+		<span class="cf">switch</span> (ch = get_first()) {
+		<span class="cf">case</span> &#39;a&#39;:
+		<span class="cf">case</span> &#39;s&#39;:
+		<span class="cf">case</span> &#39;m&#39;:
+		<span class="cf">case</span> &#39;d&#39;:
+		<span class="cf">case</span> &#39;q&#39;:
+			<span class="cf">break</span>;
+		<span class="cf">default</span>:
+			printf(<span class="st">&quot;Please respond with a, s, m, d or q.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			<span class="cf">continue</span>;
+		}
+		<span class="cf">break</span>;
+	}
+	<span class="cf">return</span> ch;
 }
 
 <span class="dt">char</span> get_first(<span class="dt">void</span>) <span class="co">// same as exercise 6 from the same chapter</span>
 {
-    <span class="dt">int</span> ch;
-    <span class="cf">while</span> (isspace((ch = getchar())))
-        <span class="cf">continue</span>;
-    <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-        <span class="cf">continue</span>;
-    <span class="cf">return</span> ch;
+	<span class="dt">int</span> ch;
+	<span class="cf">while</span> (isspace((ch = getchar())))
+		<span class="cf">continue</span>;
+	<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+		<span class="cf">continue</span>;
+	<span class="cf">return</span> ch;
 }
 
 <span class="dt">float</span> get_first_operand(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> operand;
-    <span class="dt">char</span> ch;
-    printf(<span class="st">&quot;Enter first number: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%f&quot;</span>, &amp;operand) != <span class="dv">1</span>) {
-        <span class="cf">while</span> ((ch = getchar()) != <span class="ch">&#39;\n&#39;</span>) <span class="co">// echo input</span>
-            putchar(ch);
-        printf(<span class="st">&quot; is not a number.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-        printf(<span class="st">&quot;Please enter a number, such as 2.5, -1.78E8, or 3: &quot;</span>);
-    }
-    <span class="cf">return</span> operand;
+	<span class="dt">float</span> operand;
+	<span class="dt">char</span> ch;
+	printf(<span class="st">&quot;Enter first number: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%f&quot;</span>, &amp;operand) != <span class="dv">1</span>) {
+		<span class="cf">while</span> ((ch = getchar()) != <span class="ch">&#39;\n&#39;</span>) <span class="co">// echo input</span>
+			putchar(ch);
+		printf(<span class="st">&quot; is not a number.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+		printf(<span class="st">&quot;Please enter a number, such as 2.5, -1.78E8, or 3: &quot;</span>);
+	}
+	<span class="cf">return</span> operand;
 }
 
 <span class="dt">float</span> get_second_operand(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> operand;
-    <span class="dt">char</span> ch;
-    printf(<span class="st">&quot;Enter second number: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%f&quot;</span>, &amp;operand) != <span class="dv">1</span>) {
-        <span class="cf">while</span> ((ch = getchar()) != <span class="ch">&#39;\n&#39;</span>) <span class="co">// echo input</span>
-            putchar(ch);
-        printf(<span class="st">&quot; is not a number.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-        printf(<span class="st">&quot;Please enter a number, such as 2.5, -1.78E8, or 3: &quot;</span>);
-    }
-    <span class="cf">return</span> operand;
+	<span class="dt">float</span> operand;
+	<span class="dt">char</span> ch;
+	printf(<span class="st">&quot;Enter second number: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%f&quot;</span>, &amp;operand) != <span class="dv">1</span>) {
+		<span class="cf">while</span> ((ch = getchar()) != <span class="ch">&#39;\n&#39;</span>) <span class="co">// echo input</span>
+			putchar(ch);
+		printf(<span class="st">&quot; is not a number.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+		printf(<span class="st">&quot;Please enter a number, such as 2.5, -1.78E8, or 3: &quot;</span>);
+	}
+	<span class="cf">return</span> operand;
 }
 
 <span class="dt">float</span> get_denominator(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> denominator;
-    <span class="dt">char</span> ch;
-    printf(<span class="st">&quot;Enter first number: &quot;</span>);
-    <span class="cf">while</span> (true) {
-        <span class="cf">while</span> (scanf(<span class="st">&quot;%f&quot;</span>, &amp;denominator) != <span class="dv">1</span>) {
-            <span class="cf">while</span> ((ch = getchar()) != <span class="ch">&#39;\n&#39;</span>) <span class="co">// echo input</span>
-                putchar(ch);
-            printf(<span class="st">&quot; is not a number.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            printf(<span class="st">&quot;Please enter a number, such as 2.5, -1.78E8, or 3: &quot;</span>);
-        }
-        <span class="cf">if</span> (denominator != <span class="dv">0</span>)
-            <span class="cf">return</span> denominator;
-        printf(<span class="st">&quot;Enter a number other than 0: &quot;</span>);
-    }
+	<span class="dt">float</span> denominator;
+	<span class="dt">char</span> ch;
+	printf(<span class="st">&quot;Enter first number: &quot;</span>);
+	<span class="cf">while</span> (true) {
+		<span class="cf">while</span> (scanf(<span class="st">&quot;%f&quot;</span>, &amp;denominator) != <span class="dv">1</span>) {
+			<span class="cf">while</span> ((ch = getchar()) != <span class="ch">&#39;\n&#39;</span>) <span class="co">// echo input</span>
+				putchar(ch);
+			printf(<span class="st">&quot; is not a number.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			printf(<span class="st">&quot;Please enter a number, such as 2.5, -1.78E8, or 3: &quot;</span>);
+		}
+		<span class="cf">if</span> (denominator != <span class="dv">0</span>)
+			<span class="cf">return</span> denominator;
+		printf(<span class="st">&quot;Enter a number other than 0: &quot;</span>);
+	}
 }
 
 <span class="dt">void</span> print_result(<span class="dt">char</span> operator, <span class="dt">float</span> first_operand, <span class="dt">float</span> second_operand, <span class="dt">float</span> result)
 {
-    printf(<span class="st">&quot;%f %c %f = %f</span><span class="sc">\n</span><span class="st">&quot;</span>, first_operand, operator, second_operand, result);
+	printf(<span class="st">&quot;%f %c %f = %f</span><span class="sc">\n</span><span class="st">&quot;</span>, first_operand, operator, second_operand, result);
 }</code></pre></div>
 </main>
 <footer>

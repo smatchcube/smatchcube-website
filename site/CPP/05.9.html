@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 5.1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,26 +61,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> temp;
+	<span class="dt">double</span> temp;
 
-    printf(<span class="st">&quot;Enter a Fahrenheit temperature: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%lf&quot;</span>, &amp;temp) == <span class="dv">1</span>) {
-        Temperatures(temp);
-        printf(<span class="st">&quot;Enter a Fahrenheit temperature (q to quit): &quot;</span>);
-    }
-    printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	printf(<span class="st">&quot;Enter a Fahrenheit temperature: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%lf&quot;</span>, &amp;temp) == <span class="dv">1</span>) {
+		Temperatures(temp);
+		printf(<span class="st">&quot;Enter a Fahrenheit temperature (q to quit): &quot;</span>);
+	}
+	printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> Temperatures(<span class="dt">double</span> fahrenheit)
 {
-    <span class="dt">const</span> <span class="dt">double</span> c1 = <span class="fl">5.0</span> / <span class="fl">9.0</span>, c2 = <span class="fl">32.0</span>, c3 = <span class="fl">273.16</span>;
-    <span class="dt">double</span> celcius = c1 * (fahrenheit - c2);
-    printf(<span class="st">&quot;%.2f °F is also %.2f°C or %.2f K.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-            fahrenheit,
-            celcius,
-            celcius + c3);
+	<span class="dt">const</span> <span class="dt">double</span> c1 = <span class="fl">5.0</span> / <span class="fl">9.0</span>, c2 = <span class="fl">32.0</span>, c3 = <span class="fl">273.16</span>;
+	<span class="dt">double</span> celcius = c1 * (fahrenheit - c2);
+	printf(<span class="st">&quot;%.2f °F is also %.2f°C or %.2f K.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+			fahrenheit,
+			celcius,
+			celcius + c3);
 }</code></pre></div>
 </main>
 <footer>

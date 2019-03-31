@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 9.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,40 +61,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> x, y, z;
+	<span class="dt">double</span> x, y, z;
 
-    printf(<span class="st">&quot;x = &quot;</span>);
-    scanf(<span class="st">&quot;%lf&quot;</span>, &amp;x);
-    printf(<span class="st">&quot;y = &quot;</span>);
-    scanf(<span class="st">&quot;%lf&quot;</span>, &amp;y);
-    printf(<span class="st">&quot;z = &quot;</span>);
-    scanf(<span class="st">&quot;%lf&quot;</span>, &amp;z);
+	printf(<span class="st">&quot;x = &quot;</span>);
+	scanf(<span class="st">&quot;%lf&quot;</span>, &amp;x);
+	printf(<span class="st">&quot;y = &quot;</span>);
+	scanf(<span class="st">&quot;%lf&quot;</span>, &amp;y);
+	printf(<span class="st">&quot;z = &quot;</span>);
+	scanf(<span class="st">&quot;%lf&quot;</span>, &amp;z);
 
-    sort(&amp;x, &amp;y, &amp;z);
-    printf(<span class="st">&quot;x = %f</span><span class="sc">\n</span><span class="st">y = %f</span><span class="sc">\n</span><span class="st">z = %f</span><span class="sc">\n</span><span class="st">&quot;</span>, x, y, z);
+	sort(&amp;x, &amp;y, &amp;z);
+	printf(<span class="st">&quot;x = %f</span><span class="sc">\n</span><span class="st">y = %f</span><span class="sc">\n</span><span class="st">z = %f</span><span class="sc">\n</span><span class="st">&quot;</span>, x, y, z);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">void</span> sort(<span class="dt">double</span> * x, <span class="dt">double</span> * y, <span class="dt">double</span> * z)
 {
-    <span class="dt">double</span> temp;
+	<span class="dt">double</span> temp;
 
-    <span class="cf">if</span> (*x &gt; *z) {
-        temp = *x;
-        *x = *z;
-        *z = temp;
-    } 
-    <span class="cf">if</span> (*x &gt; *y) {
-        temp = *x;
-        *x = *y;
-        *y = temp;
-    }
-    <span class="cf">if</span> (*y &gt; *z) {
-        temp = *y;
-        *y = *z;
-        *z = temp;
-    }
+	<span class="cf">if</span> (*x &gt; *z) {
+		temp = *x;
+		*x = *z;
+		*z = temp;
+	} 
+	<span class="cf">if</span> (*x &gt; *y) {
+		temp = *x;
+		*x = *y;
+		*y = temp;
+	}
+	<span class="cf">if</span> (*y &gt; *z) {
+		temp = *y;
+		*y = *z;
+		*z = temp;
+	}
 }</code></pre></div>
 </main>
 <footer>

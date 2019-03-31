@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,20 +59,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> max_letter;
-    <span class="dt">int</span> i;
-    printf(<span class="st">&quot;Enter a letter: &quot;</span>);
-    scanf(<span class="st">&quot;%c&quot;</span>, &amp;max_letter);
-    <span class="cf">for</span> (<span class="dt">char</span> letter = &#39;A&#39;; letter &lt;= max_letter; letter++) {
-        <span class="cf">for</span> (i = <span class="dv">1</span>; i &lt;= max_letter - letter; i++)
-            printf(<span class="st">&quot; &quot;</span>);
-        <span class="cf">for</span> (i = &#39;A&#39;; i &lt;= letter; i++)
-            printf(<span class="st">&quot;%c&quot;</span>, i);
-        <span class="cf">for</span> (i -= <span class="dv">2</span>; i &gt;= &#39;A&#39;; i--)
-            printf(<span class="st">&quot;%c&quot;</span>, i);
-        printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> max_letter;
+	<span class="dt">int</span> i;
+	printf(<span class="st">&quot;Enter a letter: &quot;</span>);
+	scanf(<span class="st">&quot;%c&quot;</span>, &amp;max_letter);
+	<span class="cf">for</span> (<span class="dt">char</span> letter = &#39;A&#39;; letter &lt;= max_letter; letter++) {
+		<span class="cf">for</span> (i = <span class="dv">1</span>; i &lt;= max_letter - letter; i++)
+			printf(<span class="st">&quot; &quot;</span>);
+		<span class="cf">for</span> (i = &#39;A&#39;; i &lt;= letter; i++)
+			printf(<span class="st">&quot;%c&quot;</span>, i);
+		<span class="cf">for</span> (i -= <span class="dv">2</span>; i &gt;= &#39;A&#39;; i--)
+			printf(<span class="st">&quot;%c&quot;</span>, i);
+		printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

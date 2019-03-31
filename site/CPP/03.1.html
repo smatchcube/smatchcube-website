@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 3.1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -61,27 +62,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>) <span class="co">// demonstration of overflow and underflow behavior of int and float types</span>
 {
-    printf(<span class="st">&quot;INT_MAX </span><span class="sc">\t</span><span class="st">=  %d</span><span class="sc">\n</span><span class="st">&quot;</span>, INT_MAX);
-    printf(<span class="st">&quot;INT_MAX + 1 </span><span class="sc">\t</span><span class="st">= %d</span><span class="sc">\n\n</span><span class="st">&quot;</span>, INT_MAX + <span class="dv">1</span>);
+	printf(<span class="st">&quot;INT_MAX </span><span class="sc">\t</span><span class="st">=  %d</span><span class="sc">\n</span><span class="st">&quot;</span>, INT_MAX);
+	printf(<span class="st">&quot;INT_MAX + 1 </span><span class="sc">\t</span><span class="st">= %d</span><span class="sc">\n\n</span><span class="st">&quot;</span>, INT_MAX + <span class="dv">1</span>);
 
-    printf(<span class="st">&quot;FLT_MAX </span><span class="sc">\t</span><span class="st">=  %e</span><span class="sc">\n</span><span class="st">&quot;</span>, FLT_MAX);
-    printf(<span class="st">&quot;FLT_MAX * 10 </span><span class="sc">\t</span><span class="st">=  %e</span><span class="sc">\n\n</span><span class="st">&quot;</span>, FLT_MAX * <span class="dv">10</span>);
+	printf(<span class="st">&quot;FLT_MAX </span><span class="sc">\t</span><span class="st">=  %e</span><span class="sc">\n</span><span class="st">&quot;</span>, FLT_MAX);
+	printf(<span class="st">&quot;FLT_MAX * 10 </span><span class="sc">\t</span><span class="st">=  %e</span><span class="sc">\n\n</span><span class="st">&quot;</span>, FLT_MAX * <span class="dv">10</span>);
 
-    printf(<span class="st">&quot;0.000001 / 2 </span><span class="sc">\t</span><span class="st">= %f</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fl">0.000001</span> / <span class="dv">2</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;0.000001 / 2 </span><span class="sc">\t</span><span class="st">= %f</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fl">0.000001</span> / <span class="dv">2</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="co">/* Rest of file is not compiled, it&#39;s just explanation.</span>
 
 <span class="co">OUTPUT:</span>
 
-<span class="co">NT_MAX  =  2147483647</span>
-<span class="co">INT_MAX + 1     = -2147483648</span>
+<span class="co">NT_MAX 	=  2147483647</span>
+<span class="co">INT_MAX + 1 	= -2147483648</span>
 
-<span class="co">FLT_MAX     =  3.402823e+38</span>
-<span class="co">FLT_MAX * 10    =  inf</span>
+<span class="co">FLT_MAX 	=  3.402823e+38</span>
+<span class="co">FLT_MAX * 10 	=  inf</span>
 
-<span class="co">0.000001 / 2    = 0.000000</span>
+<span class="co">0.000001 / 2 	= 0.000000</span>
 
 <span class="co">EXPLANATION:</span>
 

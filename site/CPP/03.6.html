@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 3.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,14 +59,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>) <span class="co">// ask amount of water and print the number of molecules</span>
 {
-    <span class="dt">float</span> quarts, molecules;
-    printf(<span class="st">&quot;Enter an amount of water in quarts: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;quarts);
+	<span class="dt">float</span> quarts, molecules;
+	printf(<span class="st">&quot;Enter an amount of water in quarts: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;quarts);
 
-    molecules = (quarts * <span class="dv">95</span>) / <span class="dv">3</span>;
-    printf(<span class="st">&quot;That&#39;s %fe24 molecules!</span><span class="sc">\n</span><span class="st">&quot;</span>, molecules);
+	molecules = (quarts * <span class="dv">95</span>) / <span class="dv">3</span>;
+	printf(<span class="st">&quot;That&#39;s %fe24 molecules!</span><span class="sc">\n</span><span class="st">&quot;</span>, molecules);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -66,60 +67,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> arr[ROWS][COLS];
-    prompt_data(arr);
-    report_result(arr);
+	<span class="dt">double</span> arr[ROWS][COLS];
+	prompt_data(arr);
+	report_result(arr);
 }
 
 <span class="dt">void</span> prompt_data(<span class="dt">double</span> arr[ROWS][COLS])
 <span class="co">// prompt user for 3 sets of 5 numbers and fill the array</span>
 {
-    printf(<span class="st">&quot;Enter 3 sets of 5 numbers:</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
-        <span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col)
-            scanf(<span class="st">&quot;%lf&quot;</span>, &amp;arr[row][col]);
-    }
+	printf(<span class="st">&quot;Enter 3 sets of 5 numbers:</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
+		<span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col)
+			scanf(<span class="st">&quot;%lf&quot;</span>, &amp;arr[row][col]);
+	}
 }
 
 <span class="dt">double</span> average_row(<span class="dt">const</span> <span class="dt">double</span> arr[COLS])
 <span class="co">// return the average of a row</span>
 {
-    <span class="dt">double</span> sum = <span class="dv">0</span>;
-    <span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col)
-        sum += arr[col];
-    <span class="cf">return</span> sum / COLS;
+	<span class="dt">double</span> sum = <span class="dv">0</span>;
+	<span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col)
+		sum += arr[col];
+	<span class="cf">return</span> sum / COLS;
 }
 
 <span class="dt">double</span> average_2D(<span class="dt">const</span> <span class="dt">double</span> arr[ROWS][COLS])
 <span class="co">// return the average of a 2D array</span>
 {
-    <span class="dt">double</span> sum = <span class="dv">0</span>;
-    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row)
-        sum += average_row(arr[row]);
-    <span class="cf">return</span> sum / ROWS;
+	<span class="dt">double</span> sum = <span class="dv">0</span>;
+	<span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row)
+		sum += average_row(arr[row]);
+	<span class="cf">return</span> sum / ROWS;
 }
 
 <span class="dt">double</span> largest_2D(<span class="dt">const</span> <span class="dt">double</span> arr[ROWS][COLS])
 <span class="co">// return the largest element of a 2D array</span>
 {
-    <span class="dt">double</span> max = arr[<span class="dv">0</span>][<span class="dv">0</span>];
-    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
-        <span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col) {
-            <span class="cf">if</span> (arr[row][col] &gt; max)
-                max = arr[row][col];
-        }
-    }
-    <span class="cf">return</span> max;
+	<span class="dt">double</span> max = arr[<span class="dv">0</span>][<span class="dv">0</span>];
+	<span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
+		<span class="cf">for</span> (<span class="dt">int</span> col = <span class="dv">0</span>; col &lt; COLS; ++col) {
+			<span class="cf">if</span> (arr[row][col] &gt; max)
+				max = arr[row][col];
+		}
+	}
+	<span class="cf">return</span> max;
 }
 
 <span class="dt">void</span> report_result(<span class="dt">const</span> <span class="dt">double</span> arr[ROWS][COLS])
 {
-    <span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
-        printf(<span class="st">&quot;The average of the set number %d is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-               row + <span class="dv">1</span>, average_row(arr[row]));
-    }
-    printf(<span class="st">&quot;The total average is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, average_2D(arr));
-    printf(<span class="st">&quot;The largest element is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, largest_2D(arr));
+	<span class="cf">for</span> (<span class="dt">int</span> row = <span class="dv">0</span>; row &lt; ROWS; ++row) {
+		printf(<span class="st">&quot;The average of the set number %d is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+		       row + <span class="dv">1</span>, average_row(arr[row]));
+	}
+	printf(<span class="st">&quot;The total average is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, average_2D(arr));
+	printf(<span class="st">&quot;The largest element is %f.</span><span class="sc">\n</span><span class="st">&quot;</span>, largest_2D(arr));
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 5.4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -61,21 +62,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> height, feet;
-    printf(<span class="st">&quot;Enter a height in centimeters: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;height);
+	<span class="dt">float</span> height, feet;
+	printf(<span class="st">&quot;Enter a height in centimeters: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;height);
 
-    <span class="cf">while</span> (height &gt; <span class="dv">0</span>) {
-        feet = height / CENTIMETERS_IN_FOOT;
-        printf(<span class="st">&quot;%.1f cm = %d feet, %.1f inches</span><span class="sc">\n</span><span class="st">&quot;</span>, 
-                height, 
-                (<span class="dt">int</span>) feet, 
-                (feet - (<span class="dt">int</span>) feet) * INCHES_IN_FEET);
-        printf(<span class="st">&quot;Enter a height in centimeters (&lt;=0 to quit): &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;height);
-    }
-    printf(<span class="st">&quot;bye</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">while</span> (height &gt; <span class="dv">0</span>) {
+		feet = height / CENTIMETERS_IN_FOOT;
+		printf(<span class="st">&quot;%.1f cm = %d feet, %.1f inches</span><span class="sc">\n</span><span class="st">&quot;</span>, 
+				height, 
+				(<span class="dt">int</span>) feet, 
+				(feet - (<span class="dt">int</span>) feet) * INCHES_IN_FEET);
+		printf(<span class="st">&quot;Enter a height in centimeters (&lt;=0 to quit): &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;height);
+	}
+	printf(<span class="st">&quot;bye</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

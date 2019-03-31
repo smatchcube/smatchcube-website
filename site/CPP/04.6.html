@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 4.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -59,27 +60,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> first_name[<span class="dv">20</span>], last_name[<span class="dv">20</span>];
-    <span class="dt">int</span> first_name_len, last_name_len;
+	<span class="dt">char</span> first_name[<span class="dv">20</span>], last_name[<span class="dv">20</span>];
+	<span class="dt">int</span> first_name_len, last_name_len;
 
-    printf(<span class="st">&quot;Enter your first name: &quot;</span>);
-    scanf(<span class="st">&quot;%s&quot;</span>, first_name);
-    printf(<span class="st">&quot;Enter your last name: &quot;</span>);
-    scanf(<span class="st">&quot;%s&quot;</span>, last_name);
+	printf(<span class="st">&quot;Enter your first name: &quot;</span>);
+	scanf(<span class="st">&quot;%s&quot;</span>, first_name);
+	printf(<span class="st">&quot;Enter your last name: &quot;</span>);
+	scanf(<span class="st">&quot;%s&quot;</span>, last_name);
 
-    first_name_len = strlen(first_name);
-    last_name_len = strlen(last_name);
+	first_name_len = strlen(first_name);
+	last_name_len = strlen(last_name);
 
-    printf(<span class="st">&quot;%s %s</span><span class="sc">\n</span><span class="st">&quot;</span>, first_name, last_name);
-    printf(<span class="st">&quot;%*d %*d</span><span class="sc">\n</span><span class="st">&quot;</span>,
-            first_name_len, first_name_len,
-            last_name_len, last_name_len);
-    printf(<span class="st">&quot;%s %s</span><span class="sc">\n</span><span class="st">&quot;</span>, first_name, last_name);
-    printf(<span class="st">&quot;%-*d %-*d</span><span class="sc">\n</span><span class="st">&quot;</span>,
-            first_name_len, first_name_len,
-            last_name_len, last_name_len);
+	printf(<span class="st">&quot;%s %s</span><span class="sc">\n</span><span class="st">&quot;</span>, first_name, last_name);
+	printf(<span class="st">&quot;%*d %*d</span><span class="sc">\n</span><span class="st">&quot;</span>,
+			first_name_len, first_name_len,
+			last_name_len, last_name_len);
+	printf(<span class="st">&quot;%s %s</span><span class="sc">\n</span><span class="st">&quot;</span>, first_name, last_name);
+	printf(<span class="st">&quot;%-*d %-*d</span><span class="sc">\n</span><span class="st">&quot;</span>,
+			first_name_len, first_name_len,
+			last_name_len, last_name_len);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

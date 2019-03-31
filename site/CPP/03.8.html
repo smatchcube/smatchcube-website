@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 3.8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,19 +59,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>) <span class="co">// convert cups in other in pints, ounces, tablespoons and teaspoons</span>
 {
-    <span class="dt">float</span> cups, pints, ounces, tablespoons, teaspoons;
-    printf(<span class="st">&quot;Enter a volume in cups: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;cups);
+	<span class="dt">float</span> cups, pints, ounces, tablespoons, teaspoons;
+	printf(<span class="st">&quot;Enter a volume in cups: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;cups);
 
-    pints = cups / <span class="dv">2</span>;
-    ounces = cups * <span class="dv">8</span>;
-    tablespoons = ounces * <span class="dv">2</span>;
-    teaspoons = tablespoons * <span class="dv">3</span>;
+	pints = cups / <span class="dv">2</span>;
+	ounces = cups * <span class="dv">8</span>;
+	tablespoons = ounces * <span class="dv">2</span>;
+	teaspoons = tablespoons * <span class="dv">3</span>;
 
-    printf(<span class="st">&quot;This is equal to:</span><span class="sc">\n</span><span class="st">%f pints</span><span class="sc">\n</span><span class="st">%f ounces</span><span class="sc">\n</span><span class="st">%f tablespoons</span><span class="sc">\n</span><span class="st">%f teaspoons</span><span class="sc">\n</span><span class="st">&quot;</span>,
-        pints, ounces, tablespoons, teaspoons);
+	printf(<span class="st">&quot;This is equal to:</span><span class="sc">\n</span><span class="st">%f pints</span><span class="sc">\n</span><span class="st">%f ounces</span><span class="sc">\n</span><span class="st">%f tablespoons</span><span class="sc">\n</span><span class="st">%f teaspoons</span><span class="sc">\n</span><span class="st">&quot;</span>,
+		pints, ounces, tablespoons, teaspoons);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 <span class="co">/* It makes more sense to use a floating-point type </span>
 <span class="co"> * because volumes are not always integers and we can get round-off errors </span>

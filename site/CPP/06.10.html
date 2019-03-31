@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.10</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,29 +61,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>) <span class="co">// compute the sum of squares</span>
 {
-    <span class="dt">int</span> lower = <span class="dv">0</span>, upper = <span class="dv">1</span>;
-    <span class="dt">int</span> sum;
+	<span class="dt">int</span> lower = <span class="dv">0</span>, upper = <span class="dv">1</span>;
+	<span class="dt">int</span> sum;
 
-    printf(<span class="st">&quot;Enter lower and upper integer limits: &quot;</span>);
-    scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;lower, &amp;upper);
-    <span class="cf">while</span> (lower &lt; upper) {
-        printf(<span class="st">&quot;The sums of the squares from &quot;</span>
-               <span class="st">&quot;%d to %d is %d</span><span class="sc">\n</span><span class="st">&quot;</span>,
-               lower * lower, upper * upper,
-               sum_of_squares(lower , upper));
-        printf(<span class="st">&quot;Enter next set of limits: &quot;</span>);
-        scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;lower, &amp;upper);
-    }
-    printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter lower and upper integer limits: &quot;</span>);
+	scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;lower, &amp;upper);
+	<span class="cf">while</span> (lower &lt; upper) {
+		printf(<span class="st">&quot;The sums of the squares from &quot;</span>
+		       <span class="st">&quot;%d to %d is %d</span><span class="sc">\n</span><span class="st">&quot;</span>,
+		       lower * lower, upper * upper,
+		       sum_of_squares(lower , upper));
+		printf(<span class="st">&quot;Enter next set of limits: &quot;</span>);
+		scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;lower, &amp;upper);
+	}
+	printf(<span class="st">&quot;Done</span><span class="sc">\n</span><span class="st">&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">int</span> sum_of_squares(<span class="dt">int</span> lower, <span class="dt">int</span> upper) 
 {
-    <span class="dt">int</span> sum = <span class="dv">0</span>;
-    <span class="cf">for</span> (<span class="dt">int</span> i = lower; i &lt;= upper; i++)
-        sum += i * i;
-    <span class="cf">return</span> sum;
+	<span class="dt">int</span> sum = <span class="dv">0</span>;
+	<span class="cf">for</span> (<span class="dt">int</span> i = lower; i &lt;= upper; i++)
+		sum += i * i;
+	<span class="cf">return</span> sum;
 }</code></pre></div>
 </main>
 <footer>

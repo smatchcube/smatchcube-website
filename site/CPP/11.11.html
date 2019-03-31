@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.11</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -69,111 +70,111 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> s[<span class="dv">10</span>][LENGTH];
-    <span class="dt">int</span> nb_strings = <span class="dv">0</span>;
+	<span class="dt">char</span> s[<span class="dv">10</span>][LENGTH];
+	<span class="dt">int</span> nb_strings = <span class="dv">0</span>;
         <span class="dt">char</span> menu_choice;
-    bool want_to_quit = false;
-    puts(<span class="st">&quot;Reading 10 strings or until EOF:&quot;</span>);
-    <span class="cf">while</span> (nb_strings &lt; <span class="dv">10</span> &amp;&amp; fgets(s[nb_strings], LENGTH, stdin))
-        ++nb_strings;
-    <span class="cf">while</span> (!want_to_quit) {
-        menu_choice = prompt_menu_choice();
-        <span class="cf">switch</span>(menu_choice) {
-        <span class="cf">case</span> &#39;q&#39;:
-            want_to_quit = true;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;a&#39;:
-            print_strings(nb_strings, s);
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;b&#39;:
-            print_ASCII_collating_sequence(nb_strings, s);
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;c&#39;:
-            print_in_ascending_order(nb_strings, s);
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;d&#39;:
-            print_in_ascending_first_word_length(nb_strings, s);
-            <span class="cf">break</span>;
-        <span class="cf">default</span>:
-            puts(<span class="st">&quot;Action requested not found.&quot;</span>);
-        }
-    }
-    puts(<span class="st">&quot;Bye&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	bool want_to_quit = false;
+	puts(<span class="st">&quot;Reading 10 strings or until EOF:&quot;</span>);
+	<span class="cf">while</span> (nb_strings &lt; <span class="dv">10</span> &amp;&amp; fgets(s[nb_strings], LENGTH, stdin))
+		++nb_strings;
+	<span class="cf">while</span> (!want_to_quit) {
+		menu_choice = prompt_menu_choice();
+		<span class="cf">switch</span>(menu_choice) {
+		<span class="cf">case</span> &#39;q&#39;:
+			want_to_quit = true;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;a&#39;:
+			print_strings(nb_strings, s);
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;b&#39;:
+			print_ASCII_collating_sequence(nb_strings, s);
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;c&#39;:
+			print_in_ascending_order(nb_strings, s);
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;d&#39;:
+			print_in_ascending_first_word_length(nb_strings, s);
+			<span class="cf">break</span>;
+		<span class="cf">default</span>:
+			puts(<span class="st">&quot;Action requested not found.&quot;</span>);
+		}
+	}
+	puts(<span class="st">&quot;Bye&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">char</span> prompt_menu_choice(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> c;
-    printf(<span class="st">&quot;Enter the letter corresponding to the desired action:</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;a) print strings                b) print ASCII values</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;c) print sorted by length       d) print by length of first word</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;q) quit</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;input: &quot;</span>);
-    scanf(<span class="st">&quot;%c&quot;</span>, &amp;c);
-    <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-        <span class="cf">continue</span>;
-    <span class="cf">return</span> c;
+	<span class="dt">char</span> c;
+	printf(<span class="st">&quot;Enter the letter corresponding to the desired action:</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;a) print strings                b) print ASCII values</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;c) print sorted by length       d) print by length of first word</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;q) quit</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;input: &quot;</span>);
+	scanf(<span class="st">&quot;%c&quot;</span>, &amp;c);
+	<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+		<span class="cf">continue</span>;
+	<span class="cf">return</span> c;
 }
 
 <span class="dt">void</span> print_strings(<span class="dt">int</span> nb_strings, <span class="dt">const</span> <span class="dt">char</span> s[nb_strings][LENGTH])
 {
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i)
-        fputs(s[i], stdout);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i)
+		fputs(s[i], stdout);
 }
 
 <span class="dt">void</span> print_ASCII_collating_sequence(<span class="dt">int</span> nb_strings, <span class="dt">const</span> <span class="dt">char</span> s[nb_strings][LENGTH])
 {
-    <span class="dt">const</span> <span class="dt">char</span> * ptr;
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i) {
-        ptr = s[i];
-        <span class="cf">while</span> (*ptr)
-            printf(<span class="st">&quot;%d &quot;</span>, *ptr++);
-        printf(<span class="st">&quot;</span><span class="sc">\b\n</span><span class="st">&quot;</span>);
-    }
+	<span class="dt">const</span> <span class="dt">char</span> * ptr;
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i) {
+		ptr = s[i];
+		<span class="cf">while</span> (*ptr)
+			printf(<span class="st">&quot;%d &quot;</span>, *ptr++);
+		printf(<span class="st">&quot;</span><span class="sc">\b\n</span><span class="st">&quot;</span>);
+	}
 }
 
 <span class="dt">void</span> print_in_ascending_order(<span class="dt">int</span> nb_strings, <span class="dt">const</span> <span class="dt">char</span> s[nb_strings][LENGTH])
 {
-    <span class="dt">const</span> <span class="dt">char</span>* p[nb_strings];
-    <span class="dt">const</span> <span class="dt">char</span>* tmp;
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i)
-        p[i] = s[i];
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i) {
-        <span class="cf">for</span> (<span class="dt">int</span> j = i; j &lt; nb_strings; ++j) {
-            <span class="cf">if</span> (strlen(p[j]) &lt; strlen(p[i])) {
-                tmp = p[j];
-                p[j] = p[i];
-                p[i] =tmp;
-            }
-        }
-        fputs(p[i], stdout);
-    }
+	<span class="dt">const</span> <span class="dt">char</span>* p[nb_strings];
+	<span class="dt">const</span> <span class="dt">char</span>* tmp;
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i)
+		p[i] = s[i];
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i) {
+		<span class="cf">for</span> (<span class="dt">int</span> j = i; j &lt; nb_strings; ++j) {
+			<span class="cf">if</span> (strlen(p[j]) &lt; strlen(p[i])) {
+				tmp = p[j];
+				p[j] = p[i];
+				p[i] =tmp;
+			}
+		}
+		fputs(p[i], stdout);
+	}
 }
 
 <span class="dt">void</span> print_in_ascending_first_word_length(<span class="dt">int</span> nb_strings, <span class="dt">const</span> <span class="dt">char</span> s[nb_strings][LENGTH])
 {
-    <span class="dt">const</span> <span class="dt">char</span>* p[nb_strings];
-    <span class="dt">const</span> <span class="dt">char</span>* tmp;
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i)
-        p[i] = s[i];
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i) {
-        <span class="cf">for</span> (<span class="dt">int</span> j = i; j &lt; nb_strings; ++j) {
-            <span class="cf">if</span> (size_word(p[j]) &lt; size_word(p[i])) {
-                tmp = p[j];
-                p[j] = p[i];
-                p[i] =tmp;
-            }
-        }
-        fputs(p[i], stdout);
-    }
+	<span class="dt">const</span> <span class="dt">char</span>* p[nb_strings];
+	<span class="dt">const</span> <span class="dt">char</span>* tmp;
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i)
+		p[i] = s[i];
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nb_strings; ++i) {
+		<span class="cf">for</span> (<span class="dt">int</span> j = i; j &lt; nb_strings; ++j) {
+			<span class="cf">if</span> (size_word(p[j]) &lt; size_word(p[i])) {
+				tmp = p[j];
+				p[j] = p[i];
+				p[i] =tmp;
+			}
+		}
+		fputs(p[i], stdout);
+	}
 }
 
 <span class="dt">size_t</span> size_word(<span class="dt">const</span> <span class="dt">char</span> *s)
 {
-    <span class="dt">size_t</span> i = <span class="dv">0</span>;
+	<span class="dt">size_t</span> i = <span class="dv">0</span>;
         <span class="cf">while</span> (!isspace(s[i]))
-            ++i;
+	        ++i;
         <span class="cf">return</span> i;
 }</code></pre></div>
 </main>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 4.4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,17 +59,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> height;
-    <span class="dt">char</span> name[<span class="dv">20</span>];
+	<span class="dt">float</span> height;
+	<span class="dt">char</span> name[<span class="dv">20</span>];
 
-    printf(<span class="st">&quot;Enter your name: &quot;</span>);
-    scanf(<span class="st">&quot;%s&quot;</span>, name);
-    printf(<span class="st">&quot;Enter your height in centimeters: &quot;</span>);
-    scanf(<span class="st">&quot;%f&quot;</span>, &amp;height);
+	printf(<span class="st">&quot;Enter your name: &quot;</span>);
+	scanf(<span class="st">&quot;%s&quot;</span>, name);
+	printf(<span class="st">&quot;Enter your height in centimeters: &quot;</span>);
+	scanf(<span class="st">&quot;%f&quot;</span>, &amp;height);
 
-    printf(<span class="st">&quot;%s, you are %.3f meter tall.</span><span class="sc">\n</span><span class="st">&quot;</span>, name, height / <span class="dv">100</span>);
+	printf(<span class="st">&quot;%s, you are %.3f meter tall.</span><span class="sc">\n</span><span class="st">&quot;</span>, name, height / <span class="dv">100</span>);
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

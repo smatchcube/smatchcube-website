@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 9.4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,21 +61,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> a, b;
-    printf(<span class="st">&quot;Enter two nonzero numbers: &quot;</span>);
-    <span class="cf">while</span> (scanf(<span class="st">&quot;%lf %lf&quot;</span>, &amp;a, &amp;b) != <span class="dv">2</span> || a == <span class="dv">0</span> || b == <span class="dv">0</span>) {
-        <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-            <span class="cf">continue</span>; <span class="co">// clear wrong input</span>
-        printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">Try again: &quot;</span>);
-    }
-    printf(<span class="st">&quot;The harmonic mean of %f and %f is %f</span><span class="sc">\n</span><span class="st">.&quot;</span>,
-            a, b, harmonic_mean(a, b));   
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">double</span> a, b;
+	printf(<span class="st">&quot;Enter two nonzero numbers: &quot;</span>);
+	<span class="cf">while</span> (scanf(<span class="st">&quot;%lf %lf&quot;</span>, &amp;a, &amp;b) != <span class="dv">2</span> || a == <span class="dv">0</span> || b == <span class="dv">0</span>) {
+		<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+			<span class="cf">continue</span>; <span class="co">// clear wrong input</span>
+		printf(<span class="st">&quot;Wrong input.</span><span class="sc">\n</span><span class="st">Try again: &quot;</span>);
+	}
+	printf(<span class="st">&quot;The harmonic mean of %f and %f is %f</span><span class="sc">\n</span><span class="st">.&quot;</span>,
+			a, b, harmonic_mean(a, b));   
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">double</span> harmonic_mean(<span class="dt">double</span> a, <span class="dt">double</span> b)
 {
-    <span class="cf">return</span> <span class="dv">1</span> / (((<span class="dv">1</span> / a) + (<span class="dv">1</span> / b)) / <span class="dv">2</span>);
+	<span class="cf">return</span> <span class="dv">1</span> / (((<span class="dv">1</span> / a) + (<span class="dv">1</span> / b)) / <span class="dv">2</span>);
 }</code></pre></div>
 </main>
 <footer>

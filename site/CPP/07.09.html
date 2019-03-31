@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 7.9</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -62,24 +63,24 @@ bool is_prime(<span class="dt">unsigned</span> <span class="dt">int</span>);
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">unsigned</span> upper_limit = <span class="dv">7919</span>;
+	<span class="dt">unsigned</span> upper_limit = <span class="dv">7919</span>;
 
-    printf(<span class="st">&quot;Enter a positive integer: &quot;</span>);
-    scanf(<span class="st">&quot;%u&quot;</span>, &amp;upper_limit);
-    <span class="cf">for</span> (<span class="dt">unsigned</span> i = <span class="dv">2</span>; i &lt;= upper_limit; i++) {
-        <span class="cf">if</span> (is_prime(i))
-            printf(<span class="st">&quot;%u</span><span class="sc">\n</span><span class="st">&quot;</span>, i);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter a positive integer: &quot;</span>);
+	scanf(<span class="st">&quot;%u&quot;</span>, &amp;upper_limit);
+	<span class="cf">for</span> (<span class="dt">unsigned</span> i = <span class="dv">2</span>; i &lt;= upper_limit; i++) {
+		<span class="cf">if</span> (is_prime(i))
+			printf(<span class="st">&quot;%u</span><span class="sc">\n</span><span class="st">&quot;</span>, i);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 bool is_prime(<span class="dt">unsigned</span> n) 
 {
-    <span class="cf">for</span> (<span class="dt">unsigned</span> d = <span class="dv">2</span>; d * d &lt;= n; d++) {
-        <span class="cf">if</span> (n % d == <span class="dv">0</span>)
-            <span class="cf">return</span> false;
-    }
-    <span class="cf">return</span> true;
+	<span class="cf">for</span> (<span class="dt">unsigned</span> d = <span class="dv">2</span>; d * d &lt;= n; d++) {
+		<span class="cf">if</span> (n % d == <span class="dv">0</span>)
+			<span class="cf">return</span> false;
+	}
+	<span class="cf">return</span> true;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 6.1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -58,15 +59,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> alphabet[<span class="dv">26</span>];
-    <span class="dt">char</span> letter;
-    <span class="dt">int</span> i;
+	<span class="dt">char</span> alphabet[<span class="dv">26</span>];
+	<span class="dt">char</span> letter;
+	<span class="dt">int</span> i;
 
-    <span class="cf">for</span> (letter = &#39;a&#39;, i = <span class="dv">0</span>; letter &lt;= &#39;z&#39;; letter++, i++) {
-        alphabet[i] = letter;
-        printf(<span class="st">&quot;%c</span><span class="sc">\n</span><span class="st">&quot;</span>, alphabet[i]);
-    }
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">for</span> (letter = &#39;a&#39;, i = <span class="dv">0</span>; letter &lt;= &#39;z&#39;; letter++, i++) {
+		alphabet[i] = letter;
+		printf(<span class="st">&quot;%c</span><span class="sc">\n</span><span class="st">&quot;</span>, alphabet[i]);
+	}
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 11.12</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -61,40 +62,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">char</span> s[LENGTH];
-    <span class="dt">int</span> words, upper, lower, punct, digits;
-    bool in_word = false;
-    <span class="dt">char</span> *ptr;
-    words = upper = lower = punct = digits = <span class="dv">0</span>;
-    puts(<span class="st">&quot;Enter some text (EOF to finish):&quot;</span>);
-    <span class="cf">while</span> (fgets(s, LENGTH, stdin)) {
-        ptr = s;
-        <span class="cf">while</span> (*ptr) {
-            <span class="cf">if</span> (isalpha(*ptr) &amp;&amp; !in_word) {
-                in_word = true;
-                ++words;
-            } <span class="cf">else</span> <span class="cf">if</span> (isspace(*ptr)) {
-                in_word = false;
-            }
-            <span class="cf">if</span> (islower(*ptr))
-                ++lower;
-            <span class="cf">if</span> (isupper(*ptr))
-                ++upper;
-            <span class="cf">if</span> (ispunct(*ptr))
-                ++punct;
-            <span class="cf">if</span> (isdigit(*ptr))
-                ++digits;
-            ++ptr;
-        }
-    }
-    printf(<span class="st">&quot;Words count: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Lowercase letters: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Uppercase letters: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Punctuation characters: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
-           <span class="st">&quot;Number of digits: %d</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           words, lower, upper, punct, digits);
-    puts(<span class="st">&quot;Bye&quot;</span>);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="dt">char</span> s[LENGTH];
+	<span class="dt">int</span> words, upper, lower, punct, digits;
+	bool in_word = false;
+	<span class="dt">char</span> *ptr;
+	words = upper = lower = punct = digits = <span class="dv">0</span>;
+	puts(<span class="st">&quot;Enter some text (EOF to finish):&quot;</span>);
+	<span class="cf">while</span> (fgets(s, LENGTH, stdin)) {
+		ptr = s;
+		<span class="cf">while</span> (*ptr) {
+			<span class="cf">if</span> (isalpha(*ptr) &amp;&amp; !in_word) {
+				in_word = true;
+				++words;
+			} <span class="cf">else</span> <span class="cf">if</span> (isspace(*ptr)) {
+				in_word = false;
+			}
+			<span class="cf">if</span> (islower(*ptr))
+				++lower;
+			<span class="cf">if</span> (isupper(*ptr))
+				++upper;
+			<span class="cf">if</span> (ispunct(*ptr))
+				++punct;
+			<span class="cf">if</span> (isdigit(*ptr))
+				++digits;
+			++ptr;
+		}
+	}
+	printf(<span class="st">&quot;Words count: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Lowercase letters: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Uppercase letters: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Punctuation characters: %d</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       <span class="st">&quot;Number of digits: %d</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       words, lower, upper, punct, digits);
+	puts(<span class="st">&quot;Bye&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

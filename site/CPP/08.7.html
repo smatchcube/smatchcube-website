@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.7</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -80,68 +81,68 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">float</span> hours_of_work, gross_pay, taxes, net_pay, pay_rate;
-    <span class="dt">char</span> rate_choice;
-    
-    <span class="cf">while</span> (true) {
-        printf(<span class="st">&quot;*****************************************************************</span><span class="sc">\n</span><span class="st">&quot;</span>
-                   <span class="st">&quot;Enter the number corresponding to the desired pay rate or action:</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;a) $%.2f/hr                          b) $%.2f/hr</span><span class="sc">\n</span><span class="st">&quot;</span>
-                   <span class="st">&quot;c) $%.2f/hr                          d) $%.2f/hr</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;q) quit</span><span class="sc">\n</span><span class="st">&quot;</span>
-                   <span class="st">&quot;*****************************************************************</span><span class="sc">\n</span><span class="st">&quot;</span>
-               <span class="st">&quot;input : &quot;</span>,
-                   PAY_RATE1, PAY_RATE2, PAY_RATE3, PAY_RATE4);
-        scanf(<span class="st">&quot;%c&quot;</span>, &amp;rate_choice);
-        <span class="cf">switch</span> (rate_choice) {
-        <span class="cf">case</span> &#39;a&#39;:
-            pay_rate = PAY_RATE1;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;b&#39;:
-            pay_rate = PAY_RATE2;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;c&#39;:
-            pay_rate = PAY_RATE3;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;d&#39;:
-            pay_rate = PAY_RATE4;
-            <span class="cf">break</span>;
-        <span class="cf">case</span> &#39;q&#39;:
-            <span class="cf">return</span> <span class="dv">0</span>;
-        <span class="cf">default</span>:
-            printf(<span class="st">&quot;Choice not available, try again.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-            <span class="cf">continue</span>;
-        }
-        printf(<span class="st">&quot;Enter the number of hours worked in a week: &quot;</span>);
-        scanf(<span class="st">&quot;%f&quot;</span>, &amp;hours_of_work);
-        gross_pay = calculate_gross_pay(hours_of_work, pay_rate);
-        taxes = calculate_taxes(gross_pay);
-        net_pay = gross_pay - taxes;
-        printf(<span class="st">&quot;Gross pay : $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
-                   <span class="st">&quot;Taxes :     $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
-                   <span class="st">&quot;Net pay :   $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-                   gross_pay, taxes, net_pay);
-        <span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
-            <span class="cf">continue</span>; <span class="co">/* clean rest of input */</span>
-    }
+	<span class="dt">float</span> hours_of_work, gross_pay, taxes, net_pay, pay_rate;
+	<span class="dt">char</span> rate_choice;
+	
+	<span class="cf">while</span> (true) {
+		printf(<span class="st">&quot;*****************************************************************</span><span class="sc">\n</span><span class="st">&quot;</span>
+	               <span class="st">&quot;Enter the number corresponding to the desired pay rate or action:</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;a) $%.2f/hr                          b) $%.2f/hr</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       	       <span class="st">&quot;c) $%.2f/hr                          d) $%.2f/hr</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;q) quit</span><span class="sc">\n</span><span class="st">&quot;</span>
+	               <span class="st">&quot;*****************************************************************</span><span class="sc">\n</span><span class="st">&quot;</span>
+		       <span class="st">&quot;input : &quot;</span>,
+	               PAY_RATE1, PAY_RATE2, PAY_RATE3, PAY_RATE4);
+		scanf(<span class="st">&quot;%c&quot;</span>, &amp;rate_choice);
+		<span class="cf">switch</span> (rate_choice) {
+		<span class="cf">case</span> &#39;a&#39;:
+			pay_rate = PAY_RATE1;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;b&#39;:
+			pay_rate = PAY_RATE2;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;c&#39;:
+			pay_rate = PAY_RATE3;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;d&#39;:
+			pay_rate = PAY_RATE4;
+			<span class="cf">break</span>;
+		<span class="cf">case</span> &#39;q&#39;:
+			<span class="cf">return</span> <span class="dv">0</span>;
+		<span class="cf">default</span>:
+			printf(<span class="st">&quot;Choice not available, try again.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+			<span class="cf">continue</span>;
+		}
+		printf(<span class="st">&quot;Enter the number of hours worked in a week: &quot;</span>);
+		scanf(<span class="st">&quot;%f&quot;</span>, &amp;hours_of_work);
+		gross_pay = calculate_gross_pay(hours_of_work, pay_rate);
+		taxes = calculate_taxes(gross_pay);
+		net_pay = gross_pay - taxes;
+		printf(<span class="st">&quot;Gross pay : $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
+	       	       <span class="st">&quot;Taxes :     $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>
+	               <span class="st">&quot;Net pay :   $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	               gross_pay, taxes, net_pay);
+		<span class="cf">while</span> (getchar() != <span class="ch">&#39;\n&#39;</span>)
+			<span class="cf">continue</span>; <span class="co">/* clean rest of input */</span>
+	}
 }
 
 <span class="dt">float</span> calculate_gross_pay(<span class="dt">float</span> hours_of_work, <span class="dt">float</span> pay_rate)
 {
-    <span class="cf">if</span> (hours_of_work &gt; OVERTIME_HOURS)
-        <span class="cf">return</span> pay_rate * (OVERTIME_HOURS + 
-                        (hours_of_work - OVERTIME_HOURS) * OVERTIME_MULTIPLIER);
-    <span class="cf">return</span> pay_rate * hours_of_work;
+	<span class="cf">if</span> (hours_of_work &gt; OVERTIME_HOURS)
+		<span class="cf">return</span> pay_rate * (OVERTIME_HOURS + 
+				        (hours_of_work - OVERTIME_HOURS) * OVERTIME_MULTIPLIER);
+	<span class="cf">return</span> pay_rate * hours_of_work;
 }
 
 <span class="dt">float</span> calculate_taxes(<span class="dt">float</span> gross_pay)
 {
-    <span class="cf">if</span> (gross_pay &lt;= BREAK1)
-        <span class="cf">return</span> TAX_RATE1 * gross_pay;
-    <span class="cf">else</span> <span class="cf">if</span> (gross_pay &lt;= BREAK2)
-        <span class="cf">return</span> BASE1 + (TAX_RATE2 * (gross_pay - BREAK1));
-    <span class="cf">else</span>
-        <span class="cf">return</span> BASE2 + (TAX_RATE3 * (gross_pay - BREAK2));
+	<span class="cf">if</span> (gross_pay &lt;= BREAK1)
+		<span class="cf">return</span> TAX_RATE1 * gross_pay;
+	<span class="cf">else</span> <span class="cf">if</span> (gross_pay &lt;= BREAK2)
+		<span class="cf">return</span> BASE1 + (TAX_RATE2 * (gross_pay - BREAK1));
+	<span class="cf">else</span>
+		<span class="cf">return</span> BASE2 + (TAX_RATE3 * (gross_pay - BREAK2));
 }</code></pre></div>
 </main>
 <footer>

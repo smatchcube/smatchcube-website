@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 8.4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,26 +61,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> ch;
-    <span class="dt">unsigned</span> number_of_letters;
-    <span class="dt">unsigned</span> number_of_words = <span class="dv">0</span>;
-    bool in_word = false;
+	<span class="dt">int</span> ch;
+	<span class="dt">unsigned</span> number_of_letters;
+	<span class="dt">unsigned</span> number_of_words = <span class="dv">0</span>;
+	bool in_word = false;
 
-    printf(<span class="st">&quot;Enter some text: &quot;</span>);
-    <span class="cf">while</span> ((ch = getchar()) != EOF) {
-        <span class="cf">if</span> (isspace(ch)) {
-            in_word = false;
-        } <span class="cf">else</span> {
-            number_of_letters++;
-            <span class="cf">if</span> (!in_word) {
-                number_of_words++;
-                in_word = true;
-            }
-        }
-    }
-    printf(<span class="st">&quot;The average number of letters per word is %.2f.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-            (<span class="dt">float</span>) number_of_letters / number_of_words);
-    <span class="cf">return</span> <span class="dv">0</span>;
+	printf(<span class="st">&quot;Enter some text: &quot;</span>);
+	<span class="cf">while</span> ((ch = getchar()) != EOF) {
+		<span class="cf">if</span> (isspace(ch)) {
+			in_word = false;
+		} <span class="cf">else</span> {
+			number_of_letters++;
+			<span class="cf">if</span> (!in_word) {
+				number_of_words++;
+				in_word = true;
+			}
+		}
+	}
+	printf(<span class="st">&quot;The average number of letters per word is %.2f.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+			(<span class="dt">float</span>) number_of_letters / number_of_words);
+	<span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 </main>
 <footer>

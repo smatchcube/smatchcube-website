@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -60,26 +61,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">int</span> arr1[] = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>};
-    <span class="dt">const</span> <span class="dt">int</span> arr2[] = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>};
-    printf(<span class="st">&quot;Largest value of arr1 = %d.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           max(<span class="dv">4</span>, arr1));
-    printf(<span class="st">&quot;Largest value of arr2 = %d.</span><span class="sc">\n</span><span class="st">&quot;</span>,
-           max(<span class="dv">5</span>, arr2));
+	<span class="dt">int</span> arr1[] = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>};
+	<span class="dt">const</span> <span class="dt">int</span> arr2[] = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>};
+	printf(<span class="st">&quot;Largest value of arr1 = %d.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       max(<span class="dv">4</span>, arr1));
+	printf(<span class="st">&quot;Largest value of arr2 = %d.</span><span class="sc">\n</span><span class="st">&quot;</span>,
+	       max(<span class="dv">5</span>, arr2));
 
-    <span class="cf">return</span> <span class="dv">0</span>;
+	<span class="cf">return</span> <span class="dv">0</span>;
 }
 
 <span class="dt">int</span> max(<span class="dt">int</span> size, <span class="dt">const</span> <span class="dt">int</span> arr[size])
 <span class="co">// return the largest int a an array</span>
 <span class="co">// note that it also works for const arrays</span>
 {
-    <span class="dt">int</span> max = arr[<span class="dv">0</span>];
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; size; ++i) {
-        <span class="cf">if</span> (arr[i] &gt; max)
-            max = arr[i];
-    }
-    <span class="cf">return</span> max;
+	<span class="dt">int</span> max = arr[<span class="dv">0</span>];
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; size; ++i) {
+		<span class="cf">if</span> (arr[i] &gt; max)
+			max = arr[i];
+	}
+	<span class="cf">return</span> max;
 }</code></pre></div>
 </main>
 <footer>

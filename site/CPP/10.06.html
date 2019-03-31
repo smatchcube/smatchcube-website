@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 10.6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -62,41 +63,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">int</span> main(<span class="dt">void</span>)
 {
-    <span class="dt">double</span> arr1[SIZE1] = {<span class="dv">1</span>, <span class="fl">3.14</span>, <span class="fl">9.9999</span>, <span class="dv">0</span>};
-    printf(<span class="st">&quot;Array_1 before reversing : &quot;</span>);
-    print_array(SIZE1, arr1);
-    reverse(SIZE1, arr1);
-    printf(<span class="st">&quot;Array_1 after reversing  : &quot;</span>);
-    print_array(SIZE1, arr1);
+	<span class="dt">double</span> arr1[SIZE1] = {<span class="dv">1</span>, <span class="fl">3.14</span>, <span class="fl">9.9999</span>, <span class="dv">0</span>};
+	printf(<span class="st">&quot;Array_1 before reversing : &quot;</span>);
+	print_array(SIZE1, arr1);
+	reverse(SIZE1, arr1);
+	printf(<span class="st">&quot;Array_1 after reversing  : &quot;</span>);
+	print_array(SIZE1, arr1);
 
-    <span class="dt">double</span> arr2[SIZE2] = {<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>, <span class="fl">6.6</span>, <span class="fl">7.7</span>};
-    printf(<span class="st">&quot;Array_2 before reversing : &quot;</span>);
-    print_array(SIZE2, arr2);
-    reverse(SIZE2, arr2);
-    printf(<span class="st">&quot;Array_2 after reversing  : &quot;</span>);
-    print_array(SIZE2, arr2);
+	<span class="dt">double</span> arr2[SIZE2] = {<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>, <span class="fl">6.6</span>, <span class="fl">7.7</span>};
+	printf(<span class="st">&quot;Array_2 before reversing : &quot;</span>);
+	print_array(SIZE2, arr2);
+	reverse(SIZE2, arr2);
+	printf(<span class="st">&quot;Array_2 after reversing  : &quot;</span>);
+	print_array(SIZE2, arr2);
 }
 
 <span class="dt">void</span> reverse(<span class="dt">int</span> size, <span class="dt">double</span> arr[size])
 <span class="co">// reverse the content of the array</span>
 {
-    <span class="dt">double</span> temp;
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size / <span class="dv">2</span>; ++i) {
-        temp = arr[i];
-        arr[i] = arr[size-i<span class="dv">-1</span>];
-        arr[size-i<span class="dv">-1</span>] = temp;
-    }
+	<span class="dt">double</span> temp;
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size / <span class="dv">2</span>; ++i) {
+		temp = arr[i];
+		arr[i] = arr[size-i<span class="dv">-1</span>];
+		arr[size-i<span class="dv">-1</span>] = temp;
+	}
 }
 
 
 <span class="dt">void</span> print_array(<span class="dt">int</span> size, <span class="dt">const</span> <span class="dt">double</span> arr[size])
 <span class="co">// print the content of an array of doubles (literal representation)</span>
 {
-    putchar(&#39;{&#39;);
-    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
-        printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
-    }
-    printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// remove last &#39;,&#39; and &#39; &#39; char and close curly brackets</span>
+	putchar(&#39;{&#39;);
+	<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {
+		printf(<span class="st">&quot;%f, &quot;</span>, arr[i]);
+	}
+	printf(<span class="st">&quot;</span><span class="sc">\b\b</span><span class="st">  </span><span class="sc">\b\b</span><span class="st">}</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="co">// remove last &#39;,&#39; and &#39; &#39; char and close curly brackets</span>
 }</code></pre></div>
 </main>
 <footer>
