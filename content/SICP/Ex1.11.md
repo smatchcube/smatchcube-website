@@ -7,15 +7,23 @@ categories: SICP
 Recursive version:
 ```scheme
 (define (f n)
-  (cond ((< n 3) n)
-        ((>= n 3) (+ (f (- n 1)) (* 2 (f (- n 2))) (* 3 (f (- n 3)))))))
+  (if (< n 3)
+      n
+      (+ (f (- n 1))
+	 (* 2 (f (- n 2)))
+	 (* 3 (f (- n 3))))))
 ```
 Iterative version:
 ```scheme
 (define (f n)
-  (cond ((< n 3) n)
-        (else (f-iter 0 1 2 3 n))))
-  (define (f-iter a b c counter n)
-    (cond ((> counter n) c)
-          (else (f-iter b c (+ c (* 2 b) (* 3 a)) (+ counter 1) n))))
+  (define (f-iter fn-1 fn-2 fn-3 counter)
+    (if (> counter n)
+	fn-1
+	(f-iter (+ fn-1 (* 2 fn-2) (* 3 fn-3))
+		fn-1
+		fn-2
+		(inc counter))))
+  (if (< n 3)
+      n
+      (f-iter 2 1 0 3)))
 ```

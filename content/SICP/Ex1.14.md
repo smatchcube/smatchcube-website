@@ -6,4 +6,4 @@ categories: SICP
 ---
 Not enough space to draw the entire tree but you can see what it looks like.
 
-![](/assets/Ex1.14.jpg)
+![](/assets/Ex2.50.png)

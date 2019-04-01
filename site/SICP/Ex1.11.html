@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Smatchcube | Exercise 1.11</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>body {max-width: 1000px;margin: 0 0 10px;padding: 15px; padding-bottom:10px; overflow:auto}</style>
+<style>body {max-width: 1000px;padding: 15px; margin: auto;}</style>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -57,15 +57,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <p>Recursive version:</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(f n)
-  (<span class="kw">cond</span> ((<span class="kw">&lt;</span> n <span class="dv">3</span>) n)
-        ((<span class="kw">&gt;=</span> n <span class="dv">3</span>) (<span class="kw">+</span> (f (<span class="kw">-</span> n <span class="dv">1</span>)) (* <span class="dv">2</span> (f (<span class="kw">-</span> n <span class="dv">2</span>))) (* <span class="dv">3</span> (f (<span class="kw">-</span> n <span class="dv">3</span>)))))))</code></pre></div>
+  (<span class="kw">if</span> (<span class="kw">&lt;</span> n <span class="dv">3</span>)
+      n
+      (<span class="kw">+</span> (f (<span class="kw">-</span> n <span class="dv">1</span>))
+	 (* <span class="dv">2</span> (f (<span class="kw">-</span> n <span class="dv">2</span>)))
+	 (* <span class="dv">3</span> (f (<span class="kw">-</span> n <span class="dv">3</span>))))))</code></pre></div>
 <p>Iterative version:</p>
 <div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(f n)
-  (<span class="kw">cond</span> ((<span class="kw">&lt;</span> n <span class="dv">3</span>) n)
-        (<span class="kw">else</span> (f-iter <span class="dv">0</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> n))))
-  (<span class="kw">define</span><span class="fu"> </span>(f-iter a b c counter n)
-    (<span class="kw">cond</span> ((<span class="kw">&gt;</span> counter n) c)
-          (<span class="kw">else</span> (f-iter b c (<span class="kw">+</span> c (* <span class="dv">2</span> b) (* <span class="dv">3</span> a)) (<span class="kw">+</span> counter <span class="dv">1</span>) n))))</code></pre></div>
+  (<span class="kw">define</span><span class="fu"> </span>(f-iter fn<span class="dv">-1</span> fn<span class="dv">-2</span> fn<span class="dv">-3</span> counter)
+    (<span class="kw">if</span> (<span class="kw">&gt;</span> counter n)
+	fn<span class="dv">-1</span>
+	(f-iter (<span class="kw">+</span> fn<span class="dv">-1</span> (* <span class="dv">2</span> fn<span class="dv">-2</span>) (* <span class="dv">3</span> fn<span class="dv">-3</span>))
+		fn<span class="dv">-1</span>
+		fn<span class="dv">-2</span>
+		(inc counter))))
+  (<span class="kw">if</span> (<span class="kw">&lt;</span> n <span class="dv">3</span>)
+      n
+      (f-iter <span class="dv">2</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">3</span>)))</code></pre></div>
 </main>
 <footer>
 <hr>
