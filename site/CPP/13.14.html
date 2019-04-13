@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smatchcube | Exercise 13.14</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<style>
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+</head>
+<body>
+<header>
+  <h1>Smatchcube's website</h1>
+  <hr>
+</header>
+<nav>
+<p>/<a href="../index.html">home</a>/<a href="../CPP.html">CPP</a>/Exercise 13.14</p>
+</nav>
+<main>
+<div id="header">
+<h1 class="title">Exercise 13.14</h1>
+</div>
+<p>Here is the data file to feed to my program for testing: <a href="./13.image.data.html">click here</a></p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;string.h&gt;</span>
+<span class="pp">#define ROWS 20</span>
+<span class="pp">#define COLS 30</span>
+
+<span class="dt">void</span> deglitch(<span class="dt">int</span> [ROWS][COLS]);
+
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> * argv[])
+{
+	FILE *fi, *fo;
+	<span class="dt">int</span> digits[ROWS][COLS];
+	<span class="dt">char</span> chars[ROWS][COLS<span class="dv">+1</span>];
+	<span class="dt">const</span> <span class="dt">char</span> color[<span class="dv">10</span>] = {&#39; &#39;, &#39;.&#39;, <span class="ch">&#39;\&#39;&#39;</span>, &#39;:&#39;, &#39;-&#39;, &#39;*&#39;, &#39;=&#39;, &#39;@&#39; , &#39;%&#39;, &#39;#&#39;};
+
+	<span class="cf">if</span> (argc != <span class="dv">2</span>) {
+		printf(<span class="st">&quot;Usage: %s file</span><span class="sc">\n</span><span class="st">&quot;</span>, argv[<span class="dv">0</span>]);
+		exit(EXIT_FAILURE);
+	}
+	<span class="cf">if</span> ((fi = fopen(argv[<span class="dv">1</span>], <span class="st">&quot;r&quot;</span>)) == NULL) {
+		printf(<span class="st">&quot;Can&#39;t open file %s for read.</span><span class="sc">\n</span><span class="st">&quot;</span>, argv[<span class="dv">1</span>]);
+		exit(EXIT_FAILURE);
+	}
+	<span class="cf">if</span> ((fo = fopen(<span class="st">&quot;output.img&quot;</span>, <span class="st">&quot;w&quot;</span>)) == NULL) {
+		printf(<span class="st">&quot;Can&#39;t open file %s for write.</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;output.img&quot;</span>);
+		exit(EXIT_FAILURE);
+	}
+
+	<span class="cf">for</span> (<span class="dt">int</span> r = <span class="dv">0</span>; r &lt; ROWS; ++r) {
+		<span class="cf">for</span> (<span class="dt">int</span> c = <span class="dv">0</span>; c &lt; COLS; ++c) {
+			digits[r][c] = getc(fi) - &#39;<span class="dv">0</span>&#39;;
+			getc(fi);
+		}
+	}
+	fclose(fi);
+
+	deglitch(digits);
+
+	<span class="cf">for</span> (<span class="dt">int</span> r = <span class="dv">0</span>; r &lt; ROWS; ++r) {
+		<span class="cf">for</span> (<span class="dt">int</span> c = <span class="dv">0</span>; c &lt; COLS; ++c)
+			chars[r][c] = color[digits[r][c]];
+		chars[r][COLS] = &#39;\<span class="dv">0</span>&#39;;
+	}
+	<span class="cf">for</span> (<span class="dt">int</span> r = <span class="dv">0</span>; r &lt; ROWS; ++r) {
+		puts(chars[r]);
+		fprintf(fo, <span class="st">&quot;%s</span><span class="sc">\n</span><span class="st">&quot;</span>, chars[r]);
+	}
+	fclose(fo);
+	puts(<span class="st">&quot;Done&quot;</span>);
+	<span class="cf">return</span> <span class="dv">0</span>;
+}
+
+<span class="dt">void</span> deglitch(<span class="dt">int</span> T[ROWS][COLS])
+{
+	<span class="dt">char</span> copy_T[ROWS][COLS];
+	<span class="dt">float</span> average_neighbors;
+	<span class="dt">int</span> nb_neighbors;
+	<span class="cf">for</span> (<span class="dt">int</span> c = <span class="dv">0</span>; c &lt; COLS; ++c) {
+		<span class="cf">for</span> (<span class="dt">int</span> r = <span class="dv">0</span>; r &lt; ROWS; ++r)
+			copy_T[r][c] = T[r][c];
+	}
+	<span class="cf">for</span> (<span class="dt">int</span> c = <span class="dv">0</span>; c &lt; COLS; ++c) {
+		<span class="cf">for</span> (<span class="dt">int</span> r = <span class="dv">0</span>; r &lt; ROWS; ++r) {
+			average_neighbors = <span class="dv">0</span>;
+			nb_neighbors = <span class="dv">0</span>;
+			<span class="cf">if</span> (r &gt;= <span class="dv">1</span>) {
+				<span class="cf">if</span> (abs(copy_T[r<span class="dv">-1</span>][c] - copy_T[r][c]) &lt;= <span class="dv">1</span>)
+					<span class="cf">continue</span>;
+				average_neighbors += copy_T[r<span class="dv">-1</span>][c];
+				++nb_neighbors;
+			}
+			<span class="cf">if</span> (r &lt; ROWS - <span class="dv">1</span>) {
+				<span class="cf">if</span> (abs(copy_T[r<span class="dv">+1</span>][c] - copy_T[r][c]) &lt;= <span class="dv">1</span>)
+					<span class="cf">continue</span>;
+				average_neighbors += copy_T[r<span class="dv">+1</span>][c];
+				++nb_neighbors;
+			}
+			<span class="cf">if</span> (c &gt;= <span class="dv">1</span>) {
+				<span class="cf">if</span> (abs(copy_T[r][c<span class="dv">-1</span>] - copy_T[r][c]) &lt;= <span class="dv">1</span>)
+					<span class="cf">continue</span>;
+				average_neighbors += copy_T[r][c<span class="dv">-1</span>];
+				++nb_neighbors;
+			}
+			<span class="cf">if</span> (c &lt; COLS - <span class="dv">1</span>) {
+				<span class="cf">if</span> (abs(copy_T[r][c<span class="dv">+1</span>] - copy_T[r][c]) &lt;= <span class="dv">1</span>)
+					<span class="cf">continue</span>;
+				average_neighbors += copy_T[r][c<span class="dv">+1</span>];
+				++nb_neighbors;
+			}
+			average_neighbors /= nb_neighbors;
+			T[r][c] = (<span class="dt">int</span>) (average_neighbors + <span class="fl">0.5</span>); <span class="co">// round average</span>
+		}
+	}
+}</code></pre></div>
+</main>
+<footer>
+<hr>
+<!--<a href="http://www.w3.org/html/logo/">
+<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+</a>-->
+</footer>
+</body>
+</html>

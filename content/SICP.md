@@ -3,7 +3,7 @@ title: Structure and Interpretation of Computer Programs
 path: /[home](index.html)/SICP
 ---
 
-Note: Formatting is still brocken as I'm importing my solutions from my old website.
+Note: Formatting is still brocken as I'm importing my solutions from my old website. Only the first two chapters are finished.
 
 Here are my owns solutions for the popular <cite>Strucure and Interpretation of Computer Programs</cite> (SICP).
 

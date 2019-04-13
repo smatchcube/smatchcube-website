@@ -165,6 +165,21 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 
 ## 13. File Input/Output
 
+[1](CPP/13.01.html),
+[2](CPP/13.02.html),
+[3](CPP/13.03.html),
+[4](CPP/13.04.html),
+[5](CPP/13.05.html),
+[6](CPP/13.06.html),
+[7](CPP/13.07.html),
+[8](CPP/13.08.html),
+[9](CPP/13.09.html),
+[10](CPP/13.10.html),
+[11](CPP/13.11.html),
+[12](CPP/13.12.html),
+[13](CPP/13.13.html),
+[14](CPP/13.14.html)
+
 ## 14. Structures and Other Data Forms
 
 ## 15. Bit Fiddling
