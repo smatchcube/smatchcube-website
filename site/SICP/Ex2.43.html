@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-  <h1>Smatchcube's website</h1>
+  <h1>Smatchcube's website  🌍</h1>
   <hr>
 </header>
 <nav>
@@ -18,8 +18,8 @@
 <div id="header">
 <h1 class="title">Exercise 2.43</h1>
 </div>
-<p><strong>Note</strong> : <em>my solution may be extremely wrong as comparing the times doesn't give expected ratios, maybe because the <code>safe?</code> procedure takes more time when as the number of queens on the board increase. This question is not trivial. My analyze may not be 100% false though, <code>queen-cols</code> is called too many times.</em></p>
-<p>The original <code>queens</code> procedure calls <code>queen-cols</code> only \(n+1\) times. Louis's procedure calls the <code>queen-cols</code> procedure for both each <code>new-row</code> and each column, hence for a board of size \(n\) the procedure <code>queen-cols</code> is called \(n^n\) times in contrary to only \(n+1\) times from the original procedure.\ So if the original procedure solves the puzzle in time \(T\), Louis's procedure may solves the puzzle in approximately time \(T^T\).</p>
+<p><strong>Note</strong> : <em>my solution may be extremely wrong as comparing the times doesn’t give expected ratios, maybe because the <code>safe?</code> procedure takes more time when as the number of queens on the board increase. This question is not trivial. My analyze may not be 100% false though, <code>queen-cols</code> is called too many times.</em></p>
+<p>The original <code>queens</code> procedure calls <code>queen-cols</code> only \(n+1\) times. Louis’s procedure calls the <code>queen-cols</code> procedure for both each <code>new-row</code> and each column, hence for a board of size \(n\) the procedure <code>queen-cols</code> is called \(n^n\) times in contrary to only \(n+1\) times from the original procedure.\ So if the original procedure solves the puzzle in time \(T\), Louis’s procedure may solves the puzzle in approximately time \(T^T\).</p>
 </main>
 <footer>
 <hr>

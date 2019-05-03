@@ -6,11 +6,11 @@ path: /[home](index.html)/CPP
 Here are my owns solutions for the book <cite>C Primer Plus</cite> (6^th^ edition).  
 Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers).
 
-## 1. Getting Ready
+## 1. Getting Ready  🏁
 
 [1](CPP/01.1.html)
 
-## 2. Introducing C
+## 2. Introducing C  👀
 
 [1](CPP/02.1.html),
 [2](CPP/02.2.html),
@@ -21,7 +21,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [7](CPP/02.7.html),
 [8](CPP/02.8.html)
 
-## 3. Data and C
+## 3. Data and C  🔢
 
 [1](CPP/03.1.html),
 [2](CPP/03.2.html),
@@ -32,7 +32,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [7](CPP/03.7.html),
 [8](CPP/03.8.html)
 
-## 4. Character Strings and Formatted Input/Output
+## 4. Character Strings and Formatted Input/Output  🔤
 
 [1](CPP/04.1.html),
 [2](CPP/04.2.html),
@@ -43,7 +43,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [7](CPP/04.7.html),
 [8](CPP/04.8.html)
 
-## 5. Operators, Expressions, and Statements
+## 5. Operators, Expressions, and Statements  ➗
 
 [1](CPP/05.1.html),
 [2](CPP/05.2.html),
@@ -55,7 +55,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [8](CPP/05.8.html),
 [9](CPP/05.9.html)
 
-## 6. Control Statements: Looping
+## 6. Control Statements: Looping  🔃
 
 [1](CPP/06.01.html),
 [2](CPP/06.02.html),
@@ -76,7 +76,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [17](CPP/06.17.html),
 [18](CPP/06.18.html)
 
-## 7. Control Statements: Branching and Jumps
+## 7. Control Statements: Branching and Jumps  🦘
 
 [1](CPP/07.01.html),
 [2](CPP/07.02.html),
@@ -90,7 +90,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [10](CPP/07.10.html),
 [11](CPP/07.11.html)
 
-## 8. Character Input/Output and Input Validation
+## 8. Character Input/Output and Input Validation  ⌨️
 
 [1](CPP/08.1.html),
 [2](CPP/08.2.html),
@@ -101,7 +101,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [7](CPP/08.7.html),
 [8](CPP/08.8.html)
 
-## 9. Functions
+## 9. Functions  ↦
 
 [1](CPP/09.01.html),
 [2](CPP/09.02.html),
@@ -115,7 +115,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [10](CPP/09.10.html),
 [11](CPP/09.11.html)
 
-## 10. Arrays and Pointers
+## 10. Arrays and Pointers  👉
 
 [1](CPP/10.01.html),
 [2](CPP/10.02.html),
@@ -132,7 +132,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [13](CPP/10.13.html),
 [14](CPP/10.14.html)
 
-## 11. Characters Strings and String Functions
+## 11. Characters Strings and String Functions  📑
 
 [1](CPP/11.01.html),
 [2](CPP/11.02.html),
@@ -151,7 +151,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [15](CPP/11.15.html),
 [16](CPP/11.16.html)
 
-## 12. Storage Classes, Linkage, and Memory Management
+## 12. Storage Classes, Linkage, and Memory Management  🖇️
 
 [1](CPP/12.1.html),
 [2](CPP/12.2.html),
@@ -163,7 +163,7 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [8](CPP/12.8.html),
 [9](CPP/12.9.html)
 
-## 13. File Input/Output
+## 13. File Input/Output  💾
 
 [1](CPP/13.01.html),
 [2](CPP/13.02.html),
@@ -180,10 +180,10 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 [13](CPP/13.13.html),
 [14](CPP/13.14.html)
 
-## 14. Structures and Other Data Forms
+## 14. Structures and Other Data Forms  🏗️
 
-## 15. Bit Fiddling
+## 15. Bit Fiddling  🎛️
 
-## 16. The C Preprocessor and the C Library
+## 16. The C Preprocessor and the C Library  📚
 
-## 17. Advanced Data Representation
+## 17. Advanced Data Representation  🌳

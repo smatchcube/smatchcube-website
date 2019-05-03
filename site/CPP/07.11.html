@@ -6,46 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
 <style>
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 </head>
 <body>
 <header>
-  <h1>Smatchcube's website</h1>
+  <h1>Smatchcube's website  🌍</h1>
   <hr>
 </header>
 <nav>
@@ -55,103 +81,103 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Exercise 7.11</h1>
 </div>
-<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
-<span class="pp">#include </span><span class="im">&lt;stdbool.h&gt;</span>
-<span class="pp">#include </span><span class="im">&lt;ctype.h&gt;</span>
-
-<span class="dt">const</span> <span class="dt">float</span> ARTICHOKES_PRICE_PER_POUNDS = <span class="fl">2.05</span>;
-<span class="dt">const</span> <span class="dt">float</span> BEETS_PRICE_PER_POUNDS      = <span class="fl">1.15</span>;
-<span class="dt">const</span> <span class="dt">float</span> CARROTS_PRICE_PER_POUNDS    = <span class="fl">1.09</span>;
-
-<span class="dt">float</span> ask_pounds(<span class="dt">char</span>[]);
-
-<span class="dt">int</span> main(<span class="dt">void</span>)
-{
-	<span class="dt">char</span> vegetable_choice;
-	bool user_still_ordering = true;
-	<span class="dt">float</span> artichokes_pounds, beets_pounds, carrots_pounds;
-	<span class="dt">float</span> cost_artichokes_order, cost_beets_order, cost_carrots_order;
-	<span class="dt">float</span> cost_vegetables;
-	<span class="dt">float</span> discount;
-	<span class="dt">float</span> total_pounds;
-	<span class="dt">float</span> shipping_costs;
-	<span class="dt">float</span> grand_total;
-	artichokes_pounds = beets_pounds = carrots_pounds = <span class="dv">0</span>;
-
-	<span class="cf">while</span> (user_still_ordering) {
-		printf(<span class="st">&quot; *** Choose the vegetable you want to order ***</span><span class="sc">\n</span><span class="st">&quot;</span>
-		       <span class="st">&quot;a for artichokes, b for beets, c for carrots and q to exit the ordering process.</span><span class="sc">\n</span><span class="st">&quot;</span>
-		       <span class="st">&quot;input: &quot;</span>);
-		<span class="cf">while</span> ((vegetable_choice = getchar()) == <span class="ch">&#39;\n&#39;</span>)
-			<span class="cf">continue</span>; <span class="co">// clear newlines in input buffer and prompt a char</span>
-		<span class="cf">switch</span> (vegetable_choice) {
-		<span class="cf">case</span> &#39;a&#39;:
-			artichokes_pounds += ask_pounds(<span class="st">&quot;artichokes&quot;</span>);
-			<span class="cf">break</span>;
-		<span class="cf">case</span> &#39;b&#39;:
-			beets_pounds += ask_pounds(<span class="st">&quot;beets&quot;</span>);
-			<span class="cf">break</span>;
-		<span class="cf">case</span> &#39;c&#39;:
-			carrots_pounds += ask_pounds(<span class="st">&quot;carrots&quot;</span>);
-			<span class="cf">break</span>;
-		<span class="cf">case</span> &#39;q&#39;:
-			user_still_ordering = false;
-			<span class="cf">break</span>;
-		<span class="cf">default</span>:
-			printf(<span class="st">&quot;please enter a correct action</span><span class="sc">\n</span><span class="st">&quot;</span>);
-		}
-	}
-	
-	cost_artichokes_order = artichokes_pounds * ARTICHOKES_PRICE_PER_POUNDS;
-	cost_beets_order = beets_pounds * BEETS_PRICE_PER_POUNDS;
-	cost_carrots_order = carrots_pounds * CARROTS_PRICE_PER_POUNDS;
-
-	cost_vegetables = cost_artichokes_order + cost_beets_order + cost_carrots_order;
-	<span class="cf">if</span> (cost_vegetables &gt;= <span class="dv">100</span>)
-		discount = <span class="fl">0.05</span> * cost_vegetables;
-	<span class="cf">else</span> 
-		discount = <span class="dv">0</span>;
-
-	total_pounds = artichokes_pounds + beets_pounds + carrots_pounds;
-	<span class="cf">if</span> (total_pounds &lt;= <span class="fl">5.00</span>)
-	       shipping_costs = <span class="fl">6.50</span>;
-	<span class="cf">else</span> <span class="cf">if</span> (total_pounds &lt;= <span class="fl">20.00</span>)
-		shipping_costs = <span class="fl">14.00</span>;
-	<span class="cf">else</span>
-		shipping_costs = <span class="fl">14.00</span> + <span class="fl">0.50</span> * (total_pounds - <span class="fl">20.00</span>);
-
-	grand_total = cost_vegetables - discount + shipping_costs;
-	
-	<span class="cf">if</span> (total_pounds &lt;= <span class="dv">0</span>) {
-		printf(<span class="st">&quot;Bye</span><span class="sc">\n</span><span class="st">&quot;</span>);
-		<span class="cf">return</span> <span class="dv">0</span>;
-	}
-
-	printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">      ***  Purchase informations  ***</span><span class="sc">\n</span><span class="st">&quot;</span>);
-	<span class="cf">if</span> (artichokes_pounds &gt; <span class="dv">0</span>)
-		printf(<span class="st">&quot;%.2f pounds of artichokes for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-		       artichokes_pounds, ARTICHOKES_PRICE_PER_POUNDS, cost_artichokes_order);
-	<span class="cf">if</span> (beets_pounds &gt; <span class="dv">0</span>)
-		printf(<span class="st">&quot;%.2f pounds of beets for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-		       beets_pounds, BEETS_PRICE_PER_POUNDS, cost_beets_order);
-	<span class="cf">if</span> (carrots_pounds &gt; <span class="dv">0</span>)
-		printf(<span class="st">&quot;%.2f pounds of carrots for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,
-		       carrots_pounds, CARROTS_PRICE_PER_POUNDS, cost_carrots_order);
-	<span class="cf">if</span> (discount &gt; <span class="dv">0</span>)
-	printf(<span class="st">&quot;Discount: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, discount);
-	printf(<span class="st">&quot;Shipping costs: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, shipping_costs);
-	printf(<span class="st">&quot;Grand total: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, grand_total);
-	printf(<span class="st">&quot;Thank you for your visit.</span><span class="sc">\n</span><span class="st">&quot;</span>);
-	<span class="cf">return</span> <span class="dv">0</span>;
-}
-
-<span class="dt">float</span> ask_pounds(<span class="dt">char</span> product_name[])
-{
-	<span class="dt">float</span> pounds;
-	printf(<span class="st">&quot;Enter how many pounds of %s you want: &quot;</span>, product_name);
-	scanf(<span class="st">&quot;%f&quot;</span>, &amp;pounds);
-	<span class="cf">return</span> pounds;
-}</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="pp">#include </span><span class="im">&lt;stdbool.h&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="pp">#include </span><span class="im">&lt;ctype.h&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="dt">const</span> <span class="dt">float</span> ARTICHOKES_PRICE_PER_POUNDS = <span class="fl">2.05</span>;</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="dt">const</span> <span class="dt">float</span> BEETS_PRICE_PER_POUNDS      = <span class="fl">1.15</span>;</a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="dt">const</span> <span class="dt">float</span> CARROTS_PRICE_PER_POUNDS    = <span class="fl">1.09</span>;</a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="dt">float</span> ask_pounds(<span class="dt">char</span>[]);</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="dt">int</span> main(<span class="dt">void</span>)</a>
+<a class="sourceLine" id="cb1-12" title="12">{</a>
+<a class="sourceLine" id="cb1-13" title="13">	<span class="dt">char</span> vegetable_choice;</a>
+<a class="sourceLine" id="cb1-14" title="14">	<span class="dt">bool</span> user_still_ordering = true;</a>
+<a class="sourceLine" id="cb1-15" title="15">	<span class="dt">float</span> artichokes_pounds, beets_pounds, carrots_pounds;</a>
+<a class="sourceLine" id="cb1-16" title="16">	<span class="dt">float</span> cost_artichokes_order, cost_beets_order, cost_carrots_order;</a>
+<a class="sourceLine" id="cb1-17" title="17">	<span class="dt">float</span> cost_vegetables;</a>
+<a class="sourceLine" id="cb1-18" title="18">	<span class="dt">float</span> discount;</a>
+<a class="sourceLine" id="cb1-19" title="19">	<span class="dt">float</span> total_pounds;</a>
+<a class="sourceLine" id="cb1-20" title="20">	<span class="dt">float</span> shipping_costs;</a>
+<a class="sourceLine" id="cb1-21" title="21">	<span class="dt">float</span> grand_total;</a>
+<a class="sourceLine" id="cb1-22" title="22">	artichokes_pounds = beets_pounds = carrots_pounds = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-23" title="23"></a>
+<a class="sourceLine" id="cb1-24" title="24">	<span class="cf">while</span> (user_still_ordering) {</a>
+<a class="sourceLine" id="cb1-25" title="25">		printf(<span class="st">&quot; *** Choose the vegetable you want to order ***</span><span class="sc">\n</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb1-26" title="26">		       <span class="st">&quot;a for artichokes, b for beets, c for carrots and q to exit the ordering process.</span><span class="sc">\n</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb1-27" title="27">		       <span class="st">&quot;input: &quot;</span>);</a>
+<a class="sourceLine" id="cb1-28" title="28">		<span class="cf">while</span> ((vegetable_choice = getchar()) == <span class="ch">&#39;\n&#39;</span>)</a>
+<a class="sourceLine" id="cb1-29" title="29">			<span class="cf">continue</span>; <span class="co">// clear newlines in input buffer and prompt a char</span></a>
+<a class="sourceLine" id="cb1-30" title="30">		<span class="cf">switch</span> (vegetable_choice) {</a>
+<a class="sourceLine" id="cb1-31" title="31">		<span class="cf">case</span> <span class="ch">&#39;a&#39;</span>:</a>
+<a class="sourceLine" id="cb1-32" title="32">			artichokes_pounds += ask_pounds(<span class="st">&quot;artichokes&quot;</span>);</a>
+<a class="sourceLine" id="cb1-33" title="33">			<span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb1-34" title="34">		<span class="cf">case</span> <span class="ch">&#39;b&#39;</span>:</a>
+<a class="sourceLine" id="cb1-35" title="35">			beets_pounds += ask_pounds(<span class="st">&quot;beets&quot;</span>);</a>
+<a class="sourceLine" id="cb1-36" title="36">			<span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb1-37" title="37">		<span class="cf">case</span> <span class="ch">&#39;c&#39;</span>:</a>
+<a class="sourceLine" id="cb1-38" title="38">			carrots_pounds += ask_pounds(<span class="st">&quot;carrots&quot;</span>);</a>
+<a class="sourceLine" id="cb1-39" title="39">			<span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb1-40" title="40">		<span class="cf">case</span> <span class="ch">&#39;q&#39;</span>:</a>
+<a class="sourceLine" id="cb1-41" title="41">			user_still_ordering = false;</a>
+<a class="sourceLine" id="cb1-42" title="42">			<span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb1-43" title="43">		<span class="cf">default</span>:</a>
+<a class="sourceLine" id="cb1-44" title="44">			printf(<span class="st">&quot;please enter a correct action</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-45" title="45">		}</a>
+<a class="sourceLine" id="cb1-46" title="46">	}</a>
+<a class="sourceLine" id="cb1-47" title="47">	</a>
+<a class="sourceLine" id="cb1-48" title="48">	cost_artichokes_order = artichokes_pounds * ARTICHOKES_PRICE_PER_POUNDS;</a>
+<a class="sourceLine" id="cb1-49" title="49">	cost_beets_order = beets_pounds * BEETS_PRICE_PER_POUNDS;</a>
+<a class="sourceLine" id="cb1-50" title="50">	cost_carrots_order = carrots_pounds * CARROTS_PRICE_PER_POUNDS;</a>
+<a class="sourceLine" id="cb1-51" title="51"></a>
+<a class="sourceLine" id="cb1-52" title="52">	cost_vegetables = cost_artichokes_order + cost_beets_order + cost_carrots_order;</a>
+<a class="sourceLine" id="cb1-53" title="53">	<span class="cf">if</span> (cost_vegetables &gt;= <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb1-54" title="54">		discount = <span class="fl">0.05</span> * cost_vegetables;</a>
+<a class="sourceLine" id="cb1-55" title="55">	<span class="cf">else</span> </a>
+<a class="sourceLine" id="cb1-56" title="56">		discount = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-57" title="57"></a>
+<a class="sourceLine" id="cb1-58" title="58">	total_pounds = artichokes_pounds + beets_pounds + carrots_pounds;</a>
+<a class="sourceLine" id="cb1-59" title="59">	<span class="cf">if</span> (total_pounds &lt;= <span class="fl">5.00</span>)</a>
+<a class="sourceLine" id="cb1-60" title="60">	       shipping_costs = <span class="fl">6.50</span>;</a>
+<a class="sourceLine" id="cb1-61" title="61">	<span class="cf">else</span> <span class="cf">if</span> (total_pounds &lt;= <span class="fl">20.00</span>)</a>
+<a class="sourceLine" id="cb1-62" title="62">		shipping_costs = <span class="fl">14.00</span>;</a>
+<a class="sourceLine" id="cb1-63" title="63">	<span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-64" title="64">		shipping_costs = <span class="fl">14.00</span> + <span class="fl">0.50</span> * (total_pounds - <span class="fl">20.00</span>);</a>
+<a class="sourceLine" id="cb1-65" title="65"></a>
+<a class="sourceLine" id="cb1-66" title="66">	grand_total = cost_vegetables - discount + shipping_costs;</a>
+<a class="sourceLine" id="cb1-67" title="67">	</a>
+<a class="sourceLine" id="cb1-68" title="68">	<span class="cf">if</span> (total_pounds &lt;= <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb1-69" title="69">		printf(<span class="st">&quot;Bye</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-70" title="70">		<span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-71" title="71">	}</a>
+<a class="sourceLine" id="cb1-72" title="72"></a>
+<a class="sourceLine" id="cb1-73" title="73">	printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">      ***  Purchase informations  ***</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-74" title="74">	<span class="cf">if</span> (artichokes_pounds &gt; <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-75" title="75">		printf(<span class="st">&quot;%.2f pounds of artichokes for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb1-76" title="76">		       artichokes_pounds, ARTICHOKES_PRICE_PER_POUNDS, cost_artichokes_order);</a>
+<a class="sourceLine" id="cb1-77" title="77">	<span class="cf">if</span> (beets_pounds &gt; <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-78" title="78">		printf(<span class="st">&quot;%.2f pounds of beets for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb1-79" title="79">		       beets_pounds, BEETS_PRICE_PER_POUNDS, cost_beets_order);</a>
+<a class="sourceLine" id="cb1-80" title="80">	<span class="cf">if</span> (carrots_pounds &gt; <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-81" title="81">		printf(<span class="st">&quot;%.2f pounds of carrots for $%.2f per pounds: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb1-82" title="82">		       carrots_pounds, CARROTS_PRICE_PER_POUNDS, cost_carrots_order);</a>
+<a class="sourceLine" id="cb1-83" title="83">	<span class="cf">if</span> (discount &gt; <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-84" title="84">	printf(<span class="st">&quot;Discount: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, discount);</a>
+<a class="sourceLine" id="cb1-85" title="85">	printf(<span class="st">&quot;Shipping costs: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, shipping_costs);</a>
+<a class="sourceLine" id="cb1-86" title="86">	printf(<span class="st">&quot;Grand total: $%.2f</span><span class="sc">\n</span><span class="st">&quot;</span>, grand_total);</a>
+<a class="sourceLine" id="cb1-87" title="87">	printf(<span class="st">&quot;Thank you for your visit.</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-88" title="88">	<span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-89" title="89">}</a>
+<a class="sourceLine" id="cb1-90" title="90"></a>
+<a class="sourceLine" id="cb1-91" title="91"><span class="dt">float</span> ask_pounds(<span class="dt">char</span> product_name[])</a>
+<a class="sourceLine" id="cb1-92" title="92">{</a>
+<a class="sourceLine" id="cb1-93" title="93">	<span class="dt">float</span> pounds;</a>
+<a class="sourceLine" id="cb1-94" title="94">	printf(<span class="st">&quot;Enter how many pounds of %s you want: &quot;</span>, product_name);</a>
+<a class="sourceLine" id="cb1-95" title="95">	scanf(<span class="st">&quot;%f&quot;</span>, &amp;pounds);</a>
+<a class="sourceLine" id="cb1-96" title="96">	<span class="cf">return</span> pounds;</a>
+<a class="sourceLine" id="cb1-97" title="97">}</a></code></pre></div>
 </main>
 <footer>
 <hr>

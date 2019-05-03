@@ -6,46 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
 <style>
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 </head>
 <body>
 <header>
-  <h1>Smatchcube's website</h1>
+  <h1>Smatchcube's website  🌍</h1>
   <hr>
 </header>
 <nav>
@@ -56,69 +82,69 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 class="title">Exercise 2.3</h1>
 </div>
 <p>My first representation define a rectangle as a point with two vectors as described in the image. <img src="/assets/Ex2.3a.svg" />{: .center-image .medium-margin .widthh }</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-rectangle px py v1x v1y v2x v2y)
-  (<span class="kw">cons</span> (make-point px py)
-        (<span class="kw">cons</span> (<span class="kw">make-vector</span> v1x v1y)
-              (<span class="kw">make-vector</span> v2x v2y))))
-
-(<span class="kw">define</span><span class="fu"> </span>(p rectangle) (<span class="kw">car</span> rectangle))
-(<span class="kw">define</span><span class="fu"> </span>(v1 rectangle) (<span class="kw">car</span> (<span class="kw">cdr</span> rectangle)))
-(<span class="kw">define</span><span class="fu"> </span>(v2 rectangle) (<span class="kw">cdr</span> (<span class="kw">cdr</span> rectangle)))</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(make-rectangle px py v1x v1y v2x v2y)</a>
+<a class="sourceLine" id="cb1-2" title="2">  (<span class="kw">cons</span> (make-point px py)</a>
+<a class="sourceLine" id="cb1-3" title="3">        (<span class="kw">cons</span> (<span class="kw">make-vector</span> v1x v1y)</a>
+<a class="sourceLine" id="cb1-4" title="4">              (<span class="kw">make-vector</span> v2x v2y))))</a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6">(<span class="ex">define</span><span class="fu"> </span>(p rectangle) (<span class="kw">car</span> rectangle))</a>
+<a class="sourceLine" id="cb1-7" title="7">(<span class="ex">define</span><span class="fu"> </span>(v1 rectangle) (<span class="kw">car</span> (<span class="kw">cdr</span> rectangle)))</a>
+<a class="sourceLine" id="cb1-8" title="8">(<span class="ex">define</span><span class="fu"> </span>(v2 rectangle) (<span class="kw">cdr</span> (<span class="kw">cdr</span> rectangle)))</a></code></pre></div>
 <p>I used vectors from \(^2\) for my definition of a rectangle so i need to write the constructor and the selectors needed.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(<span class="kw">make-vector</span> x y) (<span class="kw">cons</span> x y))
-
-(<span class="kw">define</span><span class="fu"> </span>(x-vector v) (<span class="kw">car</span> v))
-(<span class="kw">define</span><span class="fu"> </span>(y-vector v) (<span class="kw">cdr</span> v))</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(<span class="kw">make-vector</span> x y) (<span class="kw">cons</span> x y))</a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">(<span class="ex">define</span><span class="fu"> </span>(x-vector v) (<span class="kw">car</span> v))</a>
+<a class="sourceLine" id="cb2-4" title="4">(<span class="ex">define</span><span class="fu"> </span>(y-vector v) (<span class="kw">cdr</span> v))</a></code></pre></div>
 <p>We can represent the data structure of a rectangle with the box-and-pointer notation. <img src="/assets/Ex2.3b.svg" />{: .center-image .medium-margin .widthhh }</p>
 <p>Now we can define a procedure to compute the norm of the vectors and one procedure to directly find the length and the width of a rectangle.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(vector-norm v)
-  (<span class="kw">sqrt</span> (<span class="kw">+</span> (square (x-vector v))
-           (square (y-vector v)))))
-
-(<span class="kw">define</span><span class="fu"> </span>(<span class="kw">length</span> rectangle)
-  (vector-norm (v1 rectangle)))
-(<span class="kw">define</span><span class="fu"> </span>(width rectangle)
-  (vector-norm (v2 rectangle)))</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(vector-norm v)</a>
+<a class="sourceLine" id="cb3-2" title="2">  (<span class="kw">sqrt</span> (<span class="op">+</span> (square (x-vector v))</a>
+<a class="sourceLine" id="cb3-3" title="3">           (square (y-vector v)))))</a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">(<span class="ex">define</span><span class="fu"> </span>(<span class="kw">length</span> rectangle)</a>
+<a class="sourceLine" id="cb3-6" title="6">  (vector-norm (v1 rectangle)))</a>
+<a class="sourceLine" id="cb3-7" title="7">(<span class="ex">define</span><span class="fu"> </span>(width rectangle)</a>
+<a class="sourceLine" id="cb3-8" title="8">  (vector-norm (v2 rectangle)))</a></code></pre></div>
 <p>We can finally write the procedures to find the perimeter and the area of a rectangle.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(area rectangle)
-  (* (<span class="kw">length</span> rectangle)
-     (width rectangle)))
-
-(<span class="kw">define</span><span class="fu"> </span>(perimeter rectangle)
-  (* (<span class="kw">+</span> (<span class="kw">length</span> rectangle)
-        (width rectangle))
-     <span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb4-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(area rectangle)</a>
+<a class="sourceLine" id="cb4-2" title="2">  (* (<span class="kw">length</span> rectangle)</a>
+<a class="sourceLine" id="cb4-3" title="3">     (width rectangle)))</a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5">(<span class="ex">define</span><span class="fu"> </span>(perimeter rectangle)</a>
+<a class="sourceLine" id="cb4-6" title="6">  (* (<span class="op">+</span> (<span class="kw">length</span> rectangle)</a>
+<a class="sourceLine" id="cb4-7" title="7">        (width rectangle))</a>
+<a class="sourceLine" id="cb4-8" title="8">     <span class="dv">2</span>))</a></code></pre></div>
 <p>The second way of representing a rectangle is with three points (in clockwise or counterclockwise order). This representation is less elegant in my opinion so I will not explain it as my first representation.</p>
 <p>So for this representation we need a new constructor and new selectors for our rectangles.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-rectangle p1x p1y p2x p2y p3x p3y)
-  (<span class="kw">cons</span> (make-point p1x p1y)
-        (<span class="kw">cons</span> (make-point p2x p2y)
-              (make-point p3x p3y))))
-
-(<span class="kw">define</span><span class="fu"> </span>(p1 rectangle) (<span class="kw">car</span> rectangle))
-(<span class="kw">define</span><span class="fu"> </span>(p2 rectangle) (<span class="kw">car</span> (<span class="kw">cdr</span> rectangle)))
-(<span class="kw">define</span><span class="fu"> </span>(p3 rectangle) (<span class="kw">cdr</span> (<span class="kw">cdr</span> rectangle)))</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb5-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(make-rectangle p1x p1y p2x p2y p3x p3y)</a>
+<a class="sourceLine" id="cb5-2" title="2">  (<span class="kw">cons</span> (make-point p1x p1y)</a>
+<a class="sourceLine" id="cb5-3" title="3">        (<span class="kw">cons</span> (make-point p2x p2y)</a>
+<a class="sourceLine" id="cb5-4" title="4">              (make-point p3x p3y))))</a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6">(<span class="ex">define</span><span class="fu"> </span>(p1 rectangle) (<span class="kw">car</span> rectangle))</a>
+<a class="sourceLine" id="cb5-7" title="7">(<span class="ex">define</span><span class="fu"> </span>(p2 rectangle) (<span class="kw">car</span> (<span class="kw">cdr</span> rectangle)))</a>
+<a class="sourceLine" id="cb5-8" title="8">(<span class="ex">define</span><span class="fu"> </span>(p3 rectangle) (<span class="kw">cdr</span> (<span class="kw">cdr</span> rectangle)))</a></code></pre></div>
 <p>Now we need to change the <code>length</code> and <code>width</code> procedures according to the new representation, I choose to use my already defined <code>vector-norm</code>.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(make-vector-from-points p1 p2)
-  (<span class="kw">make-vector</span> (<span class="kw">abs</span> (<span class="kw">-</span> (x-point p1) (x-point p2)))
-               (<span class="kw">abs</span> (<span class="kw">-</span> (y-point p1) (y-point p2)))))
-
-(<span class="kw">define</span><span class="fu"> </span>(<span class="kw">length</span> rectangle)
-  (<span class="kw">let</span> ((v1 (make-vector-from-points (p1 rectangle) (p2 rectangle))))
-    (vector-norm v1)))
-
-(<span class="kw">define</span><span class="fu"> </span>(width rectangle)
-  (<span class="kw">let</span> ((v2 (make-vector-from-points (p2 rectangle) (p3 rectangle))))
-    (vector-norm v2)))</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb6-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(make-vector-from-points p1 p2)</a>
+<a class="sourceLine" id="cb6-2" title="2">  (<span class="kw">make-vector</span> (<span class="kw">abs</span> (<span class="op">-</span> (x-point p1) (x-point p2)))</a>
+<a class="sourceLine" id="cb6-3" title="3">               (<span class="kw">abs</span> (<span class="op">-</span> (y-point p1) (y-point p2)))))</a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">(<span class="ex">define</span><span class="fu"> </span>(<span class="kw">length</span> rectangle)</a>
+<a class="sourceLine" id="cb6-6" title="6">  (<span class="kw">let</span> ((v1 (make-vector-from-points (p1 rectangle) (p2 rectangle))))</a>
+<a class="sourceLine" id="cb6-7" title="7">    (vector-norm v1)))</a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9">(<span class="ex">define</span><span class="fu"> </span>(width rectangle)</a>
+<a class="sourceLine" id="cb6-10" title="10">  (<span class="kw">let</span> ((v2 (make-vector-from-points (p2 rectangle) (p3 rectangle))))</a>
+<a class="sourceLine" id="cb6-11" title="11">    (vector-norm v2)))</a></code></pre></div>
 <p>And now we can define the perimeter and the area.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(area rectangle)
-  (* (<span class="kw">length</span> rectangle)
-     (width rectangle)))
-
-(<span class="kw">define</span><span class="fu"> </span>(perimeter rectangle)
-  (* (<span class="kw">+</span> (<span class="kw">length</span> rectangle)
-        (width rectangle))
-     <span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb7-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(area rectangle)</a>
+<a class="sourceLine" id="cb7-2" title="2">  (* (<span class="kw">length</span> rectangle)</a>
+<a class="sourceLine" id="cb7-3" title="3">     (width rectangle)))</a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">(<span class="ex">define</span><span class="fu"> </span>(perimeter rectangle)</a>
+<a class="sourceLine" id="cb7-6" title="6">  (* (<span class="op">+</span> (<span class="kw">length</span> rectangle)</a>
+<a class="sourceLine" id="cb7-7" title="7">        (width rectangle))</a>
+<a class="sourceLine" id="cb7-8" title="8">     <span class="dv">2</span>))</a></code></pre></div>
 <p>As you can see these two last procedures are the same as the <code>area</code> and <code>perimeter</code> used in the first representation of a rectangle because we used different layers of abstractions.</p>
 </main>
 <footer>

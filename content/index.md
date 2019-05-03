@@ -1,7 +1,8 @@
 ---
+pagetitle: Home
 path: /[home](index.html)
 ---
-# Programming
+# Programming  👨‍💻
 
 Here are my own solutions for some popular programming and computer science books:
 
@@ -12,11 +13,11 @@ I also like solving some Project Euler problems:
 
 [![Project Euler](https://projecteuler.net/profile/smatchcube.png)](https://projecteuler.net)
 
-# Contact
+# Contact  📧
 
 Feel free to send me any questions or death threats at [smatchcube@tfwno.gf](mailto:smatchcube@tfwno.gf)
 
-# About
+# About  🔦
 
 This site is built with [pandoc](https://www.pandoc.org) using a simple homemade template  and is hosted generously on [neocities](https://neocities.org).  
 Source code of this website (including my pandoc template) available [here](https://gitlab.com/smatchcube/smatchcube-website).

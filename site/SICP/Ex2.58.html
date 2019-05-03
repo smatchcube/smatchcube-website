@@ -6,46 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
 <style>
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 </head>
 <body>
 <header>
-  <h1>Smatchcube's website</h1>
+  <h1>Smatchcube's website  🌍</h1>
   <hr>
 </header>
 <nav>
@@ -57,72 +83,72 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <h1 id="a.">a.</h1>
 <p>We only need to change the representation thanks to the power of abstraction.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(sum? x) (<span class="kw">and</span> (<span class="kw">pair?</span> x) (<span class="kw">eq?</span> (<span class="kw">cadr</span> x) &#39;+)))
-(<span class="kw">define</span><span class="fu"> </span>(product? x) (<span class="kw">and</span> (<span class="kw">pair?</span> x) (<span class="kw">eq?</span> (<span class="kw">cadr</span> x) &#39;*)))
-
-(<span class="kw">define</span><span class="fu"> </span>(make-sum a1 a2)
-  (<span class="kw">cond</span> ((=number? a1 <span class="dv">0</span>) a2)
-        ((=number? a2 <span class="dv">0</span>) a1)
-        ((<span class="kw">and</span> (<span class="kw">number?</span> a1) (<span class="kw">number?</span> a2))
-         (<span class="kw">+</span> a1 a2))
-        (<span class="kw">else</span> (<span class="kw">list</span> a1 &#39;+ a2))))
-
-(<span class="kw">define</span><span class="fu"> </span>(make-product m1 m2)
-  (<span class="kw">cond</span> ((<span class="kw">or</span> (=number? m1 <span class="dv">0</span>) (=number? m2 <span class="dv">0</span>)) <span class="dv">0</span>)
-        ((=number? m1 <span class="dv">1</span>) m2)
-        ((=number? m2 <span class="dv">1</span>) m1)
-        ((<span class="kw">and</span> (<span class="kw">number?</span> m1) (<span class="kw">number?</span> m2)) (* m1 m2))
-        (<span class="kw">else</span> (<span class="kw">list</span> m1 &#39;* m2))))
-
-(<span class="kw">define</span><span class="fu"> </span>(addend s) (<span class="kw">car</span> s))
-(<span class="kw">define</span><span class="fu"> </span>(augend s) (<span class="kw">caddr</span> s))
-
-(<span class="kw">define</span><span class="fu"> </span>(multiplier p) (<span class="kw">car</span> p))
-(<span class="kw">define</span><span class="fu"> </span>(multiplicand p) (<span class="kw">caddr</span> p))</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(sum? x) (<span class="kw">and</span> (<span class="kw">pair?</span> x) (<span class="kw">eq?</span> (<span class="kw">cadr</span> x) &#39;+)))</a>
+<a class="sourceLine" id="cb1-2" title="2">(<span class="ex">define</span><span class="fu"> </span>(product? x) (<span class="kw">and</span> (<span class="kw">pair?</span> x) (<span class="kw">eq?</span> (<span class="kw">cadr</span> x) &#39;*)))</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">(<span class="ex">define</span><span class="fu"> </span>(make-sum a1 a2)</a>
+<a class="sourceLine" id="cb1-5" title="5">  (<span class="kw">cond</span> ((=number? a1 <span class="dv">0</span>) a2)</a>
+<a class="sourceLine" id="cb1-6" title="6">        ((=number? a2 <span class="dv">0</span>) a1)</a>
+<a class="sourceLine" id="cb1-7" title="7">        ((<span class="kw">and</span> (<span class="kw">number?</span> a1) (<span class="kw">number?</span> a2))</a>
+<a class="sourceLine" id="cb1-8" title="8">         (<span class="op">+</span> a1 a2))</a>
+<a class="sourceLine" id="cb1-9" title="9">        (<span class="kw">else</span> (<span class="kw">list</span> a1 &#39;+ a2))))</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11">(<span class="ex">define</span><span class="fu"> </span>(make-product m1 m2)</a>
+<a class="sourceLine" id="cb1-12" title="12">  (<span class="kw">cond</span> ((<span class="kw">or</span> (=number? m1 <span class="dv">0</span>) (=number? m2 <span class="dv">0</span>)) <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-13" title="13">        ((=number? m1 <span class="dv">1</span>) m2)</a>
+<a class="sourceLine" id="cb1-14" title="14">        ((=number? m2 <span class="dv">1</span>) m1)</a>
+<a class="sourceLine" id="cb1-15" title="15">        ((<span class="kw">and</span> (<span class="kw">number?</span> m1) (<span class="kw">number?</span> m2)) (* m1 m2))</a>
+<a class="sourceLine" id="cb1-16" title="16">        (<span class="kw">else</span> (<span class="kw">list</span> m1 &#39;* m2))))</a>
+<a class="sourceLine" id="cb1-17" title="17"></a>
+<a class="sourceLine" id="cb1-18" title="18">(<span class="ex">define</span><span class="fu"> </span>(addend s) (<span class="kw">car</span> s))</a>
+<a class="sourceLine" id="cb1-19" title="19">(<span class="ex">define</span><span class="fu"> </span>(augend s) (<span class="kw">caddr</span> s))</a>
+<a class="sourceLine" id="cb1-20" title="20"></a>
+<a class="sourceLine" id="cb1-21" title="21">(<span class="ex">define</span><span class="fu"> </span>(multiplier p) (<span class="kw">car</span> p))</a>
+<a class="sourceLine" id="cb1-22" title="22">(<span class="ex">define</span><span class="fu"> </span>(multiplicand p) (<span class="kw">caddr</span> p))</a></code></pre></div>
 <h1 id="b.">b.</h1>
-<p>As the <code>deriv</code> procedure is checking if it's a sum before if it's a product we can make only relatively small changes in order to respect priority of computation and to drop useless parentheses. Indeed, if the <code>deriv</code> procedure is computing the derivative of a product in an expression, it means that the expression is not a sum (because it's checking first if it's a sum), so it takes automatically care of priority. It's a bit tricky but it works perfectly. I'm pretty sure the order of the predicates in the <code>deriv</code> procedure was carefully thought from the beginning by the wise authors to take this idea into account.</p>
-<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(sum? x)
-  (<span class="kw">cond</span> ((<span class="kw">null?</span> x) false)
-        ((<span class="kw">eq?</span> (<span class="kw">car</span> x) &#39;+) true)
-        (<span class="kw">else</span> (sum? (<span class="kw">cdr</span> x)))))
-
-(<span class="kw">define</span><span class="fu"> </span>(product? x)
-  (<span class="kw">cond</span> ((<span class="kw">null?</span> x) false)
-        ((<span class="kw">eq?</span> (<span class="kw">car</span> x) &#39;*) true)
-        (<span class="kw">else</span> (product? (<span class="kw">cdr</span> x)))))
-
-(<span class="kw">define</span><span class="fu"> </span>(addend s)
-  (<span class="kw">define</span><span class="fu"> </span>(addend-iter before+ after+)
-    (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> after+) &#39;+)
-        (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cdr</span> before+))
-            (<span class="kw">car</span> before+)
-            before+)
-        (addend-iter (<span class="kw">append</span> before+ (<span class="kw">list</span> (<span class="kw">car</span> after+))) (<span class="kw">cdr</span> after+))))
-  (addend-iter &#39;() s))
-
-(<span class="kw">define</span><span class="fu"> </span>(augend s)
-  (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> s) &#39;+)
-      (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cddr</span> s))
-          (<span class="kw">cadr</span> s)
-          (<span class="kw">cdr</span> s))
-      (augend (<span class="kw">cdr</span> s))))
-
-(<span class="kw">define</span><span class="fu"> </span>(multiplier p)
-  (<span class="kw">define</span><span class="fu"> </span>(multiplier-iter before* after*)
-    (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> after*) &#39;*)
-        (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cdr</span> before*))
-            (<span class="kw">car</span> before*)
-            before*)
-        (multiplier-iter (<span class="kw">append</span> before* (<span class="kw">list</span> (<span class="kw">car</span> after*))) (<span class="kw">cdr</span> after*))))
-  (multiplier-iter &#39;() p))
-
-(<span class="kw">define</span><span class="fu"> </span>(multiplicand p)
-  (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> p) &#39;*)
-      (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cddr</span> p))
-          (<span class="kw">cadr</span> p)
-          (<span class="kw">cdr</span> p))
-      (multiplicand (<span class="kw">cdr</span> p))))</code></pre></div>
-<p>Note that I'm not changing the constructor <code>make-sum</code> and <code>make-product</code> to drop useless parentheses for the output because it can really be complicated.</p>
+<p>As the <code>deriv</code> procedure is checking if it’s a sum before if it’s a product we can make only relatively small changes in order to respect priority of computation and to drop useless parentheses. Indeed, if the <code>deriv</code> procedure is computing the derivative of a product in an expression, it means that the expression is not a sum (because it’s checking first if it’s a sum), so it takes automatically care of priority. It’s a bit tricky but it works perfectly. I’m pretty sure the order of the predicates in the <code>deriv</code> procedure was carefully thought from the beginning by the wise authors to take this idea into account.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(sum? x)</a>
+<a class="sourceLine" id="cb2-2" title="2">  (<span class="kw">cond</span> ((<span class="kw">null?</span> x) false)</a>
+<a class="sourceLine" id="cb2-3" title="3">        ((<span class="kw">eq?</span> (<span class="kw">car</span> x) &#39;+) true)</a>
+<a class="sourceLine" id="cb2-4" title="4">        (<span class="kw">else</span> (sum? (<span class="kw">cdr</span> x)))))</a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">(<span class="ex">define</span><span class="fu"> </span>(product? x)</a>
+<a class="sourceLine" id="cb2-7" title="7">  (<span class="kw">cond</span> ((<span class="kw">null?</span> x) false)</a>
+<a class="sourceLine" id="cb2-8" title="8">        ((<span class="kw">eq?</span> (<span class="kw">car</span> x) &#39;*) true)</a>
+<a class="sourceLine" id="cb2-9" title="9">        (<span class="kw">else</span> (product? (<span class="kw">cdr</span> x)))))</a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11">(<span class="ex">define</span><span class="fu"> </span>(addend s)</a>
+<a class="sourceLine" id="cb2-12" title="12">  (<span class="ex">define</span><span class="fu"> </span>(addend-iter before+ after+)</a>
+<a class="sourceLine" id="cb2-13" title="13">    (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> after+) &#39;+)</a>
+<a class="sourceLine" id="cb2-14" title="14">        (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cdr</span> before+))</a>
+<a class="sourceLine" id="cb2-15" title="15">            (<span class="kw">car</span> before+)</a>
+<a class="sourceLine" id="cb2-16" title="16">            before+)</a>
+<a class="sourceLine" id="cb2-17" title="17">        (addend-iter (<span class="kw">append</span> before+ (<span class="kw">list</span> (<span class="kw">car</span> after+))) (<span class="kw">cdr</span> after+))))</a>
+<a class="sourceLine" id="cb2-18" title="18">  (addend-iter &#39;() s))</a>
+<a class="sourceLine" id="cb2-19" title="19"></a>
+<a class="sourceLine" id="cb2-20" title="20">(<span class="ex">define</span><span class="fu"> </span>(augend s)</a>
+<a class="sourceLine" id="cb2-21" title="21">  (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> s) &#39;+)</a>
+<a class="sourceLine" id="cb2-22" title="22">      (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cddr</span> s))</a>
+<a class="sourceLine" id="cb2-23" title="23">          (<span class="kw">cadr</span> s)</a>
+<a class="sourceLine" id="cb2-24" title="24">          (<span class="kw">cdr</span> s))</a>
+<a class="sourceLine" id="cb2-25" title="25">      (augend (<span class="kw">cdr</span> s))))</a>
+<a class="sourceLine" id="cb2-26" title="26"></a>
+<a class="sourceLine" id="cb2-27" title="27">(<span class="ex">define</span><span class="fu"> </span>(multiplier p)</a>
+<a class="sourceLine" id="cb2-28" title="28">  (<span class="ex">define</span><span class="fu"> </span>(multiplier-iter before* after*)</a>
+<a class="sourceLine" id="cb2-29" title="29">    (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> after*) &#39;*)</a>
+<a class="sourceLine" id="cb2-30" title="30">        (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cdr</span> before*))</a>
+<a class="sourceLine" id="cb2-31" title="31">            (<span class="kw">car</span> before*)</a>
+<a class="sourceLine" id="cb2-32" title="32">            before*)</a>
+<a class="sourceLine" id="cb2-33" title="33">        (multiplier-iter (<span class="kw">append</span> before* (<span class="kw">list</span> (<span class="kw">car</span> after*))) (<span class="kw">cdr</span> after*))))</a>
+<a class="sourceLine" id="cb2-34" title="34">  (multiplier-iter &#39;() p))</a>
+<a class="sourceLine" id="cb2-35" title="35"></a>
+<a class="sourceLine" id="cb2-36" title="36">(<span class="ex">define</span><span class="fu"> </span>(multiplicand p)</a>
+<a class="sourceLine" id="cb2-37" title="37">  (<span class="kw">if</span> (<span class="kw">eq?</span> (<span class="kw">car</span> p) &#39;*)</a>
+<a class="sourceLine" id="cb2-38" title="38">      (<span class="kw">if</span> (<span class="kw">null?</span> (<span class="kw">cddr</span> p))</a>
+<a class="sourceLine" id="cb2-39" title="39">          (<span class="kw">cadr</span> p)</a>
+<a class="sourceLine" id="cb2-40" title="40">          (<span class="kw">cdr</span> p))</a>
+<a class="sourceLine" id="cb2-41" title="41">      (multiplicand (<span class="kw">cdr</span> p))))</a></code></pre></div>
+<p>Note that I’m not changing the constructor <code>make-sum</code> and <code>make-product</code> to drop useless parentheses for the output because it can really be complicated.</p>
 </main>
 <footer>
 <hr>
