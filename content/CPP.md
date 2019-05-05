@@ -182,7 +182,27 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 
 ## 14. Structures and Other Data Forms  🏗️
 
+[1](CPP/14.01.html),
+[2](CPP/14.02.html),
+[3](CPP/14.03.html),
+[4](CPP/14.04.html),
+[5](CPP/14.05.html),
+[6](CPP/14.06.html),
+[7](CPP/14.07.html),
+[8](CPP/14.08.html),
+[9](CPP/14.09.html),
+[10](CPP/14.10.html),
+[11](CPP/14.11.html)
+
 ## 15. Bit Fiddling  🎛️
+
+[1](CPP/15.1.html),
+[2](CPP/15.2.html),
+[3](CPP/15.3.html),
+[4](CPP/15.4.html),
+[5](CPP/15.5.html),
+[6](CPP/15.6.html),
+[7](CPP/15.7.html)
 
 ## 16. The C Preprocessor and the C Library  📚
 
