@@ -206,4 +206,13 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 
 ## 16. The C Preprocessor and the C Library  📚
 
+[1](CPP/16.1.html),
+[2](CPP/16.2.html),
+[3](CPP/16.3.html),
+[4](CPP/16.4.html),
+[5](CPP/16.5.html),
+[6](CPP/16.6.html),
+[7](CPP/16.7.html)
+
+
 ## 17. Advanced Data Representation  🌳

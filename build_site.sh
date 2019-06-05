@@ -1,25 +1,26 @@
-#!/bin/bash
+#!/bin/sh
 
 rm -r site
-cp -r not_content site
+mkdir site
+cp -r not_content/. site/
+cp -r assets site/assets
 
-math=--mathjax
+options="--mathjax --preserve-tabs --template blog-template.html"
 
-for markdown in content/*.md
+for markdown_file in content/*.md
 do
-	name=$(basename -s .md $markdown)
-	pandoc $math --preserve-tabs --template blog-template.html -o ./site/$name.html ./content/$name.md
+	name=$(basename -s .md "$markdown_file")
+	pandoc $options -o ./site/"$name".html ./content/"$name".md
 done
 
-for folder_path in $(ls -d content/*/)
+for folder_path in content/*/
 do
-	folder=$(basename -s / $folder_path)
-	mkdir ./site/$folder
-	for markdown in content/$folder/*.md
+	folder_name=$(basename -s / "$folder_path")
+	mkdir ./site/"$folder_name"
+	for markdown_file in content/"$folder_name"/*.md
 	do
-		name=$(basename -s .md $markdown)
-		pandoc $math --preserve-tabs --template blog-template.html -o ./site/$folder/$name.html ./content/$folder/$name.md
+		name=$(basename -s .md "$markdown_file")
+		pandoc $options -o ./site/"$folder_name"/"$name".html \
+			./content/"$folder_name"/"$name".md
 	done
 done
-
-cp -r assets site/assets
