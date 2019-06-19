@@ -5,7 +5,7 @@ mkdir site
 cp -r not_content/. site/
 cp -r assets site/assets
 
-options="--mathjax --preserve-tabs --template blog-template.html"
+options="--mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML --preserve-tabs --template blog-template.html"
 
 for markdown_file in content/*.md
 do

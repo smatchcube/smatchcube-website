@@ -5,6 +5,8 @@
   <title>Smatchcube | Exercise 1.22</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,57 +77,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.22</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.22</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.22</h1>
 </div>
 <p>Here is my procedure for computing primes in a certain range and display the time needed to check their primality.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(search-for-primes start end)</a>
-<a class="sourceLine" id="cb1-2" title="2">  (<span class="kw">cond</span> ((<span class="op">=</span> start (<span class="op">+</span> end <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb1-3" title="3">         (<span class="kw">newline</span>) (<span class="kw">display</span> <span class="st">&quot;Done!&quot;</span>))</a>
-<a class="sourceLine" id="cb1-4" title="4">        (<span class="kw">else</span> (timed-prime-test start)</a>
-<a class="sourceLine" id="cb1-5" title="5">              (search-for-primes (<span class="op">+</span> start <span class="dv">1</span>) end))))</a></code></pre></div>
-<p>As my computer is more powerful than the average computer of the 90s, i need to check much bigger numbers to be able to measure a difference in run time. We can recap the results of the procedure in a table:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(search-for-primes lower upper)</a>
+<a class="sourceLine" id="cb1-2" title="2">  (<span class="kw">cond</span> ((<span class="op">&gt;</span> lower upper) (<span class="kw">newline</span>) (<span class="kw">display</span> <span class="st">&quot;Done&quot;</span>))</a>
+<a class="sourceLine" id="cb1-3" title="3">	((<span class="kw">even?</span> lower) (search-for-primes (<span class="op">+</span> lower <span class="dv">1</span>) upper))</a>
+<a class="sourceLine" id="cb1-4" title="4">	(<span class="kw">else</span> (timed-prime-test lower)</a>
+<a class="sourceLine" id="cb1-5" title="5">	      (search-for-primes (<span class="op">+</span> lower <span class="dv">2</span>) upper))))</a></code></pre></div>
+<p>As my computer is way more powerful than the average computer of the 90s, i need to check much bigger primes to be able to measure a significant time duration.</p>
+<p>We can recap the results of the procedure in a table:</p>
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<caption>Time to check for primality</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;"><strong>Prime number</strong></th>
-<th style="text-align: center;"><strong>Factor</strong></th>
-<th style="text-align: right;"><strong>Time to check in seconds</strong></th>
+<th style="text-align: right;">Prime number</th>
+<th style="text-align: center;">Power of ten</th>
+<th style="text-align: right;">Average time to check (seconds)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">\(100000000003\)<br/>\(100000000019\)<br/>\(100000000057\)</td>
-<td style="text-align: center;">\(10^{11}\)</td>
-<td style="text-align: right;">\(0.33\)</td>
+<td style="text-align: right;"><span class="math inline">\(100000000003\)</span><br/><span class="math inline">\(100000000019\)</span><br/><span class="math inline">\(100000000057\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^{11}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0.39\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">\(1000000000039\)<br/>\(1000000000061\)<br/>\(1000000000063\)</td>
-<td style="text-align: center;">\(10^{12}\)</td>
-<td style="text-align: right;">\(1.01\)</td>
+<td style="text-align: right;"><span class="math inline">\(1000000000039\)</span><br/><span class="math inline">\(1000000000061\)</span><br/><span class="math inline">\(1000000000063\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^{12}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1.23\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">\(10000000000037\)<br/>\(10000000000051\)<br/>\(10000000000099\)</td>
-<td style="text-align: center;">\(10^{13}\)</td>
-<td style="text-align: right;">\(3.19\)</td>
+<td style="text-align: right;"><span class="math inline">\(10000000000037\)</span><br/><span class="math inline">\(10000000000051\)</span><br/><span class="math inline">\(10000000000099\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^{13}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3.86\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(100000000000031\)</span><br/><span class="math inline">\(100000000000067\)</span><br/><span class="math inline">\(100000000000097\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^{14}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(12.22\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>\(3.16\), \(=3.125\) and \(=3.16\).\ If a prime is approximately \(10\) times bigger than another prime then the time to check this number is approximately \(\) longer than the other.\ This is really interesting to see that computers are pretty much working the same way twenty years after (just much faster).</p>
+<p><span class="math inline">\(\sqrt{10}\approx 3.16\)</span>, <span class="math inline">\(\frac{1.23}{0.39}\approx 3.15\)</span>, <span class="math inline">\(\frac{3.86}{1.23}\approx 3.14\)</span> and <span class="math inline">\(\frac{12.22}{3.86}\approx 3.17\)</span>.</p>
+<p>If a prime is approximately <span class="math inline">\(10\)</span> times bigger than another prime then the time to check this number is approximately <span class="math inline">\(\sqrt{10}\)</span> times longer than the other.</p>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

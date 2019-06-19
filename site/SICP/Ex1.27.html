@@ -5,6 +5,7 @@
   <title>Smatchcube | Exercise 1.27</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,7 +76,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.27</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.27</p>
 </nav>
 <main>
 <div id="header">
@@ -83,20 +84,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Here is my procedure that return whether a number fool the Fermat test or not.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(carmichael? n)</a>
-<a class="sourceLine" id="cb1-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(carmichael-iter n count)</a>
-<a class="sourceLine" id="cb1-3" title="3">    (<span class="kw">cond</span> ((<span class="op">=</span> count n) true)</a>
-<a class="sourceLine" id="cb1-4" title="4">          ((<span class="op">=</span> (expmod count n n) count) (carmichael-iter n (<span class="op">+</span> count <span class="dv">1</span>)))</a>
+<a class="sourceLine" id="cb1-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(carm-iter a)</a>
+<a class="sourceLine" id="cb1-3" title="3">    (<span class="kw">cond</span> ((<span class="op">&gt;=</span> a n) true)</a>
+<a class="sourceLine" id="cb1-4" title="4">          ((<span class="op">=</span> (expmod a n n) a) (carm-iter (<span class="op">+</span> a <span class="dv">1</span>)))</a>
 <a class="sourceLine" id="cb1-5" title="5">          (<span class="kw">else</span> false)))</a>
 <a class="sourceLine" id="cb1-6" title="6">  (<span class="kw">if</span> (prime? n)</a>
 <a class="sourceLine" id="cb1-7" title="7">      false</a>
-<a class="sourceLine" id="cb1-8" title="8">      (carmichael-iter n <span class="dv">1</span>)))</a></code></pre></div>
-<p>Testing on the examples listed in the footnote 47 works as expected. Note that my procedure has an order of growth \((n)\) in time and \((1)\) in space.\ I tested some bigger Carmichael numbers found on the web, i don’t run out of space as my procedure is \((1)\) in space but the time needed for numbers with more than \(6\) digits is crazy.\</p>
+<a class="sourceLine" id="cb1-8" title="8">      (carm-iter <span class="dv">1</span>)))</a></code></pre></div>
+<p>Testing on the examples listed in the footnote 47 works as expected.</p>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

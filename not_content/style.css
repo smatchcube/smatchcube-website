@@ -2,11 +2,36 @@
    HTML content. To learn how to do something, just try searching Google for questions like
    "how to change link color." */
 main {
-	width: 40em;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 hr {
-	size: 1px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid lightgray;
+}
+
+th, td {
+	padding: 10px;
+}
+
+tr:nth-child(even) {
+	background-color: #f7f7f7;
+}
+
+th {
+	background-color: #efefef;
+}
+
+.sourceCode {
+	background-color: #f7faff;
+	font-size: 15px;
+}
+
+p {
+	font-size: 16px;
 }

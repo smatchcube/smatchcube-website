@@ -1,6 +1,6 @@
 ---
 pagetitle: Home
-path: /[home](index.html)
+path: /[home](/)
 ---
 # Programming  👨‍💻
 

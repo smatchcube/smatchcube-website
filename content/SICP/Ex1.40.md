@@ -6,8 +6,14 @@ categories: SICP
 ---
 ```scheme
 (define (cubic a b c)
-  (lambda (x) (+ (* x x x)
-                 (* a x x)
-                 (* b x)
-                 c)))
+  (lambda (x)
+    (+ (cube x)
+       (* a (square x))
+       (* b x)
+       c)))
+```
+A little test to solve $x^3+x^2+x+1=0$:
+```scheme
+(newtons-method (cubic 1 1 1) 1)
+; => -.9999999999997796
 ```

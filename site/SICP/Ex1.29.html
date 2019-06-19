@@ -5,6 +5,7 @@
   <title>Smatchcube | Exercise 1.29</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,33 +76,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.29</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.29</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.29</h1>
 </div>
 <p>I chose to divide the sum in four parts.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(integral f a b n)</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(simpson-integral f a b n)</a>
 <a class="sourceLine" id="cb1-2" title="2">  (<span class="ex">define</span><span class="fu"> h </span>(<span class="op">/</span> (<span class="op">-</span> b a) n))</a>
-<a class="sourceLine" id="cb1-3" title="3">  (<span class="ex">define</span><span class="fu"> </span>(add-2h x) (<span class="op">+</span> x (* <span class="dv">2</span> h)))</a>
-<a class="sourceLine" id="cb1-4" title="4">  (* (<span class="op">+</span> (f a)</a>
-<a class="sourceLine" id="cb1-5" title="5">        (* <span class="dv">2</span> (sum f (<span class="op">+</span> a (* <span class="dv">2</span> h)) add-2h (<span class="op">+</span> a (* (<span class="op">-</span> n <span class="dv">2</span>) h))))</a>
-<a class="sourceLine" id="cb1-6" title="6">        (* <span class="dv">4</span> (sum f (<span class="op">+</span> a (* <span class="dv">3</span> h)) add-2h (<span class="op">+</span> a (* (<span class="op">-</span> n <span class="dv">1</span>) h))))</a>
-<a class="sourceLine" id="cb1-7" title="7">        (f (<span class="op">+</span> a (* n h))))</a>
-<a class="sourceLine" id="cb1-8" title="8">     (<span class="op">/</span> h <span class="fl">3.0</span>)))</a></code></pre></div>
-<p>Comparing my solution to others, that’s really interesting that so few solutions are dividing the sum in four parts as I did.\ Here are the results of the integral of <code>cube</code> :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(integral cube <span class="dv">0</span> <span class="dv">1</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="fl">0.24999998666666667</span></a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(integral cube <span class="dv">0</span> <span class="dv">1</span> <span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="fl">0.24999999999866668</span></a></code></pre></div>
-<p>With an equal value of <code>n</code>, this new procedure return a more precise estimation of the integral than the older procedure shown previously.</p>
+<a class="sourceLine" id="cb1-3" title="3">  (<span class="ex">define</span><span class="fu"> </span>(add-2h x)</a>
+<a class="sourceLine" id="cb1-4" title="4">    (<span class="op">+</span> x (* <span class="dv">2</span> h)))</a>
+<a class="sourceLine" id="cb1-5" title="5">  (* (<span class="op">/</span> h <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1-6" title="6">     (<span class="op">+</span> (f a)</a>
+<a class="sourceLine" id="cb1-7" title="7">	(* <span class="dv">4</span> (sum f (<span class="op">+</span> a h) add-2h (<span class="op">-</span> b h)))</a>
+<a class="sourceLine" id="cb1-8" title="8">	(* <span class="dv">2</span> (sum f (<span class="op">+</span> a (* <span class="dv">2</span> h)) add-2h (<span class="op">-</span> b (* <span class="dv">2</span> h))))</a>
+<a class="sourceLine" id="cb1-9" title="9">	(f b))))</a></code></pre></div>
+<p>Here are the results of integrating <code>cube</code> between 0 and 1:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(simpson-integral cube <span class="dv">0</span> <span class="dv">1</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">; =&gt; 1/4</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">(simpson-integral cube <span class="dv">0</span> <span class="dv">1</span> <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">; =&gt; 1/4</span></a></code></pre></div>
+<p>We can see that Simpson’s Rule is way more accurate compared to the algorithm used in the <code>integrate</code> procedure. Our <code>simpson-integral</code> function gives us the exact value of the integral, it’s not a coincidence as Simpson’s Rule is known to give exact values for polynomial of degree less than or equal to 3.</p>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

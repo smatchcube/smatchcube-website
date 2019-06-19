@@ -5,6 +5,7 @@
   <title>Smatchcube | Exercise 1.39</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,13 +76,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.39</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.39</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.39</h1>
 </div>
-<p>I chose to not start the continued fraction right at the beginning to make the \(N_i\) sequence simpler.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(tan-cf x k)</a>
 <a class="sourceLine" id="cb1-2" title="2">  (<span class="op">/</span> x</a>
 <a class="sourceLine" id="cb1-3" title="3">     (<span class="op">+</span> <span class="fl">1.0</span> (cont-frac (<span class="kw">lambda</span> (i) (<span class="op">-</span> <span class="dv">0</span> (* x x)))</a>
@@ -90,9 +90,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

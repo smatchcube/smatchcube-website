@@ -5,7 +5,8 @@
   <title>Smatchcube | Exercise 1.15</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
-<script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 </head>
 <body>
 <header>
@@ -13,20 +14,17 @@
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.15</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.15</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.15</h1>
 </div>
-<p>The number of times the <code>sine</code> procedure is applied is <span class="math inline">\(5\)</span> because <span class="math inline">\(12.15 \times (1/3)^4=0.15&gt;0.1\)</span> and <span class="math inline">\(12.15\times(1/3)^5=0.05&lt;0.1\)</span> (the angle is divided by <span class="math inline">\(3\)</span> each time the function is applied). The number of times the <code>sine</code> procedure is applied on an angle <span class="math inline">\(a\)</span> is the integer <span class="math inline">\(n\)</span> such that <span class="math inline">\(a \times (1/3)^n &lt; 0.1\)</span> and the solution is the logarithm of <span class="math inline">\(0.1/a\)</span> in base <span class="math inline">\(1/3\)</span> (the answer is the ceiling of that logarithm to be exact). So this procedure has an order of growth of <span class="math inline">\(\Theta(\lceil \log_{1/3}{(3)} \rceil)\)</span> in time if I’m not wrong.</p>
-<p>As explain later in the book, it’s quite useless to have a really precise idea of the order of growth so we can simply say that the order of growth in time of the <code>sine</code> procedure is <span class="math inline">\(\Theta(\log(n))\)</span>. The order of growth in space is <span class="math inline">\(\Theta(n)\)</span>.</p>
+<p>The <code>sine</code> procedure is applied <span class="math inline">\(5\)</span> times because that’s the minimum number of times we need to divide <span class="math inline">\(12.15\)</span> by <span class="math inline">\(3\)</span> to get a number smaller than <span class="math inline">\(0.1\)</span>. The number of times the <code>sine</code> procedure is applied on an angle <span class="math inline">\(a\)</span> is the smallest positive integer <span class="math inline">\(n\)</span> such that <span class="math inline">\(\left|a \times (1/3)^n \right|&lt; 0.1\)</span>, solving this equation we get <span class="math inline">\(n &gt; \log_{3}\left(\frac{|a|}{0.1}\right)\)</span>. We can conclude that the <code>sine</code> procedure requires approximately <span class="math inline">\(\log_{3}\left(\frac{|a|}{0.1}\right)\)</span> steps, the order of growth in time is logarithmic.</p>
+<p>Similarly we can see that the order of growth in space is logarithmic.</p>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

@@ -1,11 +1,8 @@
 ---
 title: Structure and Interpretation of Computer Programs
-path: /[home](index.html)/SICP
+path: /[home](/)/SICP
 ---
-
-Note: Formatting is still brocken as I'm importing my solutions from my old website. Only the first two chapters are finished.
-
-Here are my owns solutions for the popular <cite>Strucure and Interpretation of Computer Programs</cite> (SICP).
+Here are my owns solutions for the popular <cite>Strucure and Interpretation of Computer Programs</cite> (SICP). 🧙‍♂️
 
 ### 1. Building Abstractions with Procedures
 
@@ -41,6 +38,6 @@ Here are my owns solutions for the popular <cite>Strucure and Interpretation of 
 
 Notes:
 
-- Works in progress!
+- Work in progress!
 - I use mit-scheme for most exercises as intended in the SICP book. Exception is made for the exercises about the picture language where I used racket with this cool [package](https://docs.racket-lang.org/sicp-manual/).
 - If you have any suggestions or questions, send me an email at [smatchcube@tfwno.gf](mailto:smatchcube@tfwno.gf)

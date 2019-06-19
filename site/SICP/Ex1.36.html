@@ -5,6 +5,8 @@
   <title>Smatchcube | Exercise 1.36</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,37 +77,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.36</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.36</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.36</h1>
 </div>
-<p>Here is the modified version of <code>fixed-point</code> to display the sequence of approximations it generates.</p>
+<p>Here is the modified version of <code>fixed-point</code> to display the sequence of approximations it generates with the current number of steps.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> tolerance </span><span class="fl">0.00001</span>)</a>
 <a class="sourceLine" id="cb1-2" title="2">(<span class="ex">define</span><span class="fu"> </span>(fixed-point f first-guess)</a>
 <a class="sourceLine" id="cb1-3" title="3">  (<span class="ex">define</span><span class="fu"> </span>(close-enough? v1 v2)</a>
 <a class="sourceLine" id="cb1-4" title="4">    (<span class="op">&lt;</span> (<span class="kw">abs</span> (<span class="op">-</span> v1 v2))</a>
 <a class="sourceLine" id="cb1-5" title="5">       tolerance))</a>
-<a class="sourceLine" id="cb1-6" title="6">  (<span class="ex">define</span><span class="fu"> </span>(try guess number-step)</a>
+<a class="sourceLine" id="cb1-6" title="6">  (<span class="ex">define</span><span class="fu"> </span>(try guess step)</a>
 <a class="sourceLine" id="cb1-7" title="7">    (<span class="kw">let</span> ((next (f guess)))</a>
-<a class="sourceLine" id="cb1-8" title="8">      (<span class="kw">newline</span>) (<span class="kw">display</span> next) (<span class="kw">display</span> <span class="st">&quot; *** step number: &quot;</span>) (<span class="kw">display</span> number-step)</a>
+<a class="sourceLine" id="cb1-8" title="8">      (<span class="kw">newline</span>) (<span class="kw">display</span> step) (<span class="kw">display</span> <span class="st">&quot;: &quot;</span>) (<span class="kw">display</span> next)</a>
 <a class="sourceLine" id="cb1-9" title="9">      (<span class="kw">if</span> (close-enough? guess next)</a>
 <a class="sourceLine" id="cb1-10" title="10">          next</a>
-<a class="sourceLine" id="cb1-11" title="11">          (try next (<span class="op">+</span> number-step <span class="dv">1</span>)))))</a>
+<a class="sourceLine" id="cb1-11" title="11">          (try next (<span class="op">+</span> step <span class="dv">1</span>)))))</a>
 <a class="sourceLine" id="cb1-12" title="12">  (try first-guess <span class="dv">1</span>))</a></code></pre></div>
-<p>Here is the procedure to approximate the solution to \(x^x = 1000\).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> log1000 </span>(<span class="kw">log</span> <span class="dv">1000</span>))</a>
-<a class="sourceLine" id="cb2-2" title="2">(fixed-point (<span class="kw">lambda</span> (x) (<span class="op">/</span> log1000 (<span class="kw">log</span> x))) <span class="dv">2</span>)</a></code></pre></div>
-<p>Without average damping we need \(34\) steps to approximate the solution.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(fixed-point (<span class="kw">lambda</span> (x) (<span class="op">/</span> (<span class="op">+</span> x (<span class="op">/</span> log1000 (<span class="kw">log</span> x))) <span class="dv">2</span>)) <span class="dv">2</span>)</a></code></pre></div>
-<p>Using the average damping technique, we only need \(9\) steps to have the same approximation.</p>
+<p>Here are the procedures to approximate the solution of <span class="math inline">\(x^x = 1000\)</span>.</p>
+<p><strong>Without average damping:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(fixed-point (<span class="kw">lambda</span> (x) (<span class="op">/</span> (<span class="kw">log</span> <span class="dv">1000</span>) (<span class="kw">log</span> x))) <span class="dv">2</span>)</a></code></pre></div>
+<p>Output:</p>
+<pre><code>1: 9.965784284662087
+2: 3.004472209841214
+3: 6.279195757507157
+4: 3.759850702401539
+5: 5.215843784925895
+6: 4.182207192401397
+7: 4.8277650983445906
+8: 4.387593384662677
+9: 4.671250085763899
+10: 4.481403616895052
+11: 4.6053657460929
+12: 4.5230849678718865
+13: 4.577114682047341
+14: 4.541382480151454
+15: 4.564903245230833
+16: 4.549372679303342
+17: 4.559606491913287
+18: 4.552853875788271
+19: 4.557305529748263
+20: 4.554369064436181
+21: 4.556305311532999
+22: 4.555028263573554
+23: 4.555870396702851
+24: 4.555315001192079
+25: 4.5556812635433275
+26: 4.555439715736846
+27: 4.555599009998291
+28: 4.555493957531389
+29: 4.555563237292884
+30: 4.555517548417651
+31: 4.555547679306398
+32: 4.555527808516254
+33: 4.555540912917957
+34: 4.555532270803653</code></pre>
+<p><strong>Whith average damping:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb4-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(average x y) (<span class="op">/</span> (<span class="op">+</span> x y) <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">(fixed-point (<span class="kw">lambda</span> (x) (average x (<span class="op">/</span> (<span class="kw">log</span> <span class="dv">1000</span>) (<span class="kw">log</span> x)))) <span class="dv">2</span>)</a></code></pre></div>
+<p>Output:</p>
+<pre><code>1: 5.9828921423310435
+2: 4.922168721308343
+3: 4.628224318195455
+4: 4.568346513136242
+5: 4.5577305909237005
+6: 4.555909809045131
+7: 4.555599411610624
+8: 4.5555465521473675
+9: 4.555537551999825</code></pre>
+<p>Without average damping we need 34 steps. Using the average damping technique, we only need 9 steps to have the same precision. It’s clear that average damping is more efficient in this case.</p>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

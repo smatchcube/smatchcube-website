@@ -5,6 +5,7 @@
   <title>Smatchcube | Exercise 1.33</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,44 +76,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.33</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.33</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.33</h1>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(filtered-accumulate combiner filter null-value term a next b)</a>
-<a class="sourceLine" id="cb1-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(iter a b result)</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(filtered-accumulate combiner null-value predicate term a next b)</a>
+<a class="sourceLine" id="cb1-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(iter a result)</a>
 <a class="sourceLine" id="cb1-3" title="3">    (<span class="kw">cond</span> ((<span class="op">&gt;</span> a b) result)</a>
-<a class="sourceLine" id="cb1-4" title="4">          ((filter a) (iter (next a) b (combiner result (term a))))</a>
-<a class="sourceLine" id="cb1-5" title="5">          (<span class="kw">else</span> (iter (next a) b result))))</a>
-<a class="sourceLine" id="cb1-6" title="6">  (iter a b null-value))</a></code></pre></div>
-<ol type="a">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(filtered-accumulate <span class="op">+</span> prime? <span class="dv">0</span> square a inc b)</a></code></pre></div>
-<ol start="2" type="a">
-<li>Firstly we need to write a procedure that checks whether a numbers is relatively prime to another.</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(<span class="kw">gcd</span> a b)</a>
-<a class="sourceLine" id="cb3-2" title="2">  (<span class="kw">cond</span> ((<span class="op">&lt;</span> a b) (<span class="kw">gcd</span> b a))</a>
-<a class="sourceLine" id="cb3-3" title="3">        ((<span class="op">=</span> b <span class="dv">0</span>) a)</a>
-<a class="sourceLine" id="cb3-4" title="4">        (<span class="kw">else</span> (<span class="kw">gcd</span> b (<span class="kw">remainder</span> a b)))))</a>
-<a class="sourceLine" id="cb3-5" title="5"></a>
-<a class="sourceLine" id="cb3-6" title="6">(<span class="ex">define</span><span class="fu"> </span>(relatively-prime? a b)</a>
-<a class="sourceLine" id="cb3-7" title="7">  (<span class="op">=</span> (<span class="kw">gcd</span> a b) <span class="dv">1</span>))</a></code></pre></div>
-<p>Now we can create our desired procedure:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb4-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(product-of-realatively-prime n)</a>
-<a class="sourceLine" id="cb4-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(relative-prime-to-n? x) (relatively-prime? n x))</a>
-<a class="sourceLine" id="cb4-3" title="3">  (<span class="ex">define</span><span class="fu"> </span>(identity x) x)</a>
-<a class="sourceLine" id="cb4-4" title="4">  (<span class="ex">define</span><span class="fu"> </span>(inc x) (<span class="op">+</span> x <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb4-5" title="5">  (filtered-accumulate * relative-prime-to-n? <span class="dv">1</span> identity <span class="dv">0</span> inc n))</a></code></pre></div>
+<a class="sourceLine" id="cb1-4" title="4">	  ((predicate a) (iter (next a) (combiner (term a) result)))</a>
+<a class="sourceLine" id="cb1-5" title="5">	  (<span class="kw">else</span> (iter (next a) result))))</a>
+<a class="sourceLine" id="cb1-6" title="6">  (iter a null-value))</a></code></pre></div>
+<p><strong>a.</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(sum-squares-primes a b)</a>
+<a class="sourceLine" id="cb2-2" title="2">  (filtered-accumulate <span class="op">+</span> <span class="dv">0</span> prime? square a inc b))</a></code></pre></div>
+<p><strong>b.</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(product-relatively-primes n)</a>
+<a class="sourceLine" id="cb3-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(relatively-prime-to-n? i)</a>
+<a class="sourceLine" id="cb3-3" title="3">    (<span class="op">=</span> (<span class="kw">gcd</span> i n) <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb3-4" title="4">  (filtered-accumulate * <span class="dv">1</span> relatively-prime-to-n? identity <span class="dv">2</span> inc (<span class="op">-</span> n <span class="dv">1</span>)))</a></code></pre></div>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

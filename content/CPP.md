@@ -1,6 +1,6 @@
 ---
 title: C Primer Plus
-path: /[home](index.html)/CPP
+path: /[home](/)/CPP
 ---
 
 Here are my owns solutions for the book <cite>C Primer Plus</cite> (6^th^ edition).  

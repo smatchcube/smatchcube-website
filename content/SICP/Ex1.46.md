@@ -7,30 +7,28 @@ categories: SICP
 Here is the general `iterative-improve` procedure to express the idea of iterative improvement.
 ```scheme
 (define (iterative-improve good-enough? improve)
-  (lambda (guess) (display guess)
+  (lambda (guess)
     (if (good-enough? guess)
-                      guess
-                      ((iterative-improve good-enough? improve) (improve guess)))))
+	guess
+	((iterative-improve good-enough? improve) (improve guess)))))
 ```
-We can rewrite the `sqrt` and `fixed-point` using our new procedure.
+We can rewrite `sqrt` and `fixed-point` using our new procedure.
 ```scheme
 (define (sqrt x)
-  (define (sqrt-good-enough? guess)
-    (< (abs (- (square guess) x)) 0.001))
-  (define improve-sqrt
-    (average-damp (lambda (y) (/ x y))))
-  ((iterative-improve sqrt-good-enough? improve-sqrt) 1.0))
+  (let ((good-enough? (lambda (guess) (< (abs (- (square guess) x)) 0.001)))
+	(improve (lambda (guess) (average guess (/ x guess)))))
+    ((iterative-improve good-enough? improve) 1.0)))
+
+(sqrt 9)
+; => 3.00009155413138
 ```
+
 ```scheme
+(define tolerance 0.00001)
 (define (fixed-point f first-guess)
-  (define (close-enough? guess)
-    (< (abs (- guess (f guess)))
-       0.00001))
-  (define improve
-    (lambda (x) (f x)))
-  ((iterative-improve close-enough? improve) first-guess))
-```
-And we can test our new procedure to find an approximation of the unique fixed point of the cosine function.
-```scheme
-(fixed-point cos 1)    --> 0.7390893414033927
+  (let ((close-enough? (lambda (guess) (< (abs (- (f guess) guess)) tolerance))))
+    ((iterative-improve close-enough? f) first-guess)))
+
+(fixed-point cos 1.0)
+; => 0.7390893414033927
 ```

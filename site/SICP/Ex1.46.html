@@ -5,6 +5,7 @@
   <title>Smatchcube | Exercise 1.46</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,7 +76,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.46</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.46</p>
 </nav>
 <main>
 <div id="header">
@@ -83,32 +84,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Here is the general <code>iterative-improve</code> procedure to express the idea of iterative improvement.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(iterative-improve good-enough? improve)</a>
-<a class="sourceLine" id="cb1-2" title="2">  (<span class="kw">lambda</span> (guess) (<span class="kw">display</span> guess)</a>
+<a class="sourceLine" id="cb1-2" title="2">  (<span class="kw">lambda</span> (guess)</a>
 <a class="sourceLine" id="cb1-3" title="3">    (<span class="kw">if</span> (good-enough? guess)</a>
-<a class="sourceLine" id="cb1-4" title="4">                      guess</a>
-<a class="sourceLine" id="cb1-5" title="5">                      ((iterative-improve good-enough? improve) (improve guess)))))</a></code></pre></div>
-<p>We can rewrite the <code>sqrt</code> and <code>fixed-point</code> using our new procedure.</p>
+<a class="sourceLine" id="cb1-4" title="4">	guess</a>
+<a class="sourceLine" id="cb1-5" title="5">	((iterative-improve good-enough? improve) (improve guess)))))</a></code></pre></div>
+<p>We can rewrite <code>sqrt</code> and <code>fixed-point</code> using our new procedure.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(<span class="kw">sqrt</span> x)</a>
-<a class="sourceLine" id="cb2-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(sqrt-good-enough? guess)</a>
-<a class="sourceLine" id="cb2-3" title="3">    (<span class="op">&lt;</span> (<span class="kw">abs</span> (<span class="op">-</span> (square guess) x)) <span class="fl">0.001</span>))</a>
-<a class="sourceLine" id="cb2-4" title="4">  (<span class="ex">define</span><span class="fu"> improve-sqrt</span></a>
-<a class="sourceLine" id="cb2-5" title="5">    (average-damp (<span class="kw">lambda</span> (y) (<span class="op">/</span> x y))))</a>
-<a class="sourceLine" id="cb2-6" title="6">  ((iterative-improve sqrt-good-enough? improve-sqrt) <span class="fl">1.0</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(fixed-point f first-guess)</a>
-<a class="sourceLine" id="cb3-2" title="2">  (<span class="ex">define</span><span class="fu"> </span>(close-enough? guess)</a>
-<a class="sourceLine" id="cb3-3" title="3">    (<span class="op">&lt;</span> (<span class="kw">abs</span> (<span class="op">-</span> guess (f guess)))</a>
-<a class="sourceLine" id="cb3-4" title="4">       <span class="fl">0.00001</span>))</a>
-<a class="sourceLine" id="cb3-5" title="5">  (<span class="ex">define</span><span class="fu"> improve</span></a>
-<a class="sourceLine" id="cb3-6" title="6">    (<span class="kw">lambda</span> (x) (f x)))</a>
-<a class="sourceLine" id="cb3-7" title="7">  ((iterative-improve close-enough? improve) first-guess))</a></code></pre></div>
-<p>And we can test our new procedure to find an approximation of the unique fixed point of the cosine function.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb4-1" title="1">(fixed-point <span class="kw">cos</span> <span class="dv">1</span>)    --&gt; <span class="fl">0.7390893414033927</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" title="2">  (<span class="kw">let</span> ((good-enough? (<span class="kw">lambda</span> (guess) (<span class="op">&lt;</span> (<span class="kw">abs</span> (<span class="op">-</span> (square guess) x)) <span class="fl">0.001</span>)))</a>
+<a class="sourceLine" id="cb2-3" title="3">	(improve (<span class="kw">lambda</span> (guess) (average guess (<span class="op">/</span> x guess)))))</a>
+<a class="sourceLine" id="cb2-4" title="4">    ((iterative-improve good-enough? improve) <span class="fl">1.0</span>)))</a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">(<span class="kw">sqrt</span> <span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">; =&gt; 3.00009155413138</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb3-1" title="1">(<span class="ex">define</span><span class="fu"> tolerance </span><span class="fl">0.00001</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2">(<span class="ex">define</span><span class="fu"> </span>(fixed-point f first-guess)</a>
+<a class="sourceLine" id="cb3-3" title="3">  (<span class="kw">let</span> ((close-enough? (<span class="kw">lambda</span> (guess) (<span class="op">&lt;</span> (<span class="kw">abs</span> (<span class="op">-</span> (f guess) guess)) tolerance))))</a>
+<a class="sourceLine" id="cb3-4" title="4">    ((iterative-improve close-enough? f) first-guess)))</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">(fixed-point <span class="kw">cos</span> <span class="fl">1.0</span>)</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">; =&gt; 0.7390893414033927</span></a></code></pre></div>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

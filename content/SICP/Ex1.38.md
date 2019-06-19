@@ -4,15 +4,13 @@ title:  "Exercise 1.38"
 tags: mit-scheme scheme SICP solution
 categories: SICP
 ---
-Here is the procedure to approximate Euler's number "\\(e\\)".
+Here is the procedure to approximate Euler's number using a continued fraction.
 ```scheme
-(define (e k)
-  (+ 2.0
-     (cont-frac (lambda (i) 1)
-                (lambda (i) (let ((r (remainder i 3)))
-                              (if (= r 2)
-                                  (- i (/ (- i r) 3))
-                                  1)))
-                k)))
+(+ 2
+   (cont-frac (lambda (i) 1.0)
+	      (lambda (i)
+		(if (= (remainder i 3) 2)
+		    (/ (inc i) 1.5)
+		    1))
+	      10000))
 ```
-The hardest part of this exercise is to express \\(D_i\\) as a procedure.

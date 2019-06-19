@@ -5,12 +5,12 @@ tags: mit-scheme scheme SICP solution
 categories: SICP
 ---
 ```scheme
-(define (double a) (+ a a))
+;; implementation of double and halve
+(define (double a) (* a 2))
 (define (halve a) (/ a 2))
-;; below are the functions we need to use
 
-(define (* a b)
+(define (fast-* a b)
   (cond ((= b 0) 0)
-        ((even? b) (double (* a (halve b))))
-        (else (+ a (* a (- b 1))))))
+	((even? b) (fast-* (double a) (halve b)))
+	(else (+ a (fast-* a (- b 1))))))
 ```

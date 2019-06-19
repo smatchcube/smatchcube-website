@@ -1,6 +1,6 @@
 ---
 title: Programs
-path: /[home](index.html)/programs
+path: /[home](/)/programs
 ---
 
 On this page you will find some programs I made.

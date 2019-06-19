@@ -4,7 +4,7 @@ title:  "Exercise 1.31"
 tags: mit-scheme scheme SICP solution
 categories: SICP
 ---
-I chose to start with the recursive version of `product`:
+**a.** Here is a recursive version of `product`:
 ```scheme
 (define (product term a next b)
   (if (> a b)
@@ -18,16 +18,21 @@ Here is the `factorial` procedure:
   (define (identity x) x)
   (define (inc n) (+ n 1))
   (product identity 1 inc n))
-  ```
-  I chose to use only the `product` procedure only once to not deal with very big numbers and to avoid an overflow error.
+```
+An approximation of $\pi$ using `product`:  
 ```scheme
 (define (pi-product n)
-  (define (inc x) (+ x 1))
-  (define (square x) (* x x))
-  (define (pi-term x) (/ (* 2 x) (+ (* 2 x) 1)))
-  (* (/ 16.0 9) (+ n 1) (square (product pi-term 2 inc n))))
-  ```
-As I started with recursive version of `product`, here is the alternative iterative version:
+  (define (pi-term x)
+    (/ x (+ x 1)))
+  (define (pi-next n) (+ n 2))
+  (* (/ 8.0 9)
+     (square (product pi-term 4.0 pi-next (- n 2)))
+     n))
+
+(pi-product 100000)
+; => 3.1416083615920813
+```
+**b.** Here is the alternative iterative version of `product`:
 ```scheme
 (define (product term a next b)
   (define (iter a result)
@@ -35,4 +40,4 @@ As I started with recursive version of `product`, here is the alternative iterat
         result
         (iter (next a) (* result (term a)))))
   (iter a 1))
-  ```
+```

@@ -5,32 +5,22 @@ tags: mit-scheme scheme SICP solution
 categories: SICP
 ---
 ```scheme
-(define (filtered-accumulate combiner filter null-value term a next b)
-  (define (iter a b result)
+(define (filtered-accumulate combiner null-value predicate term a next b)
+  (define (iter a result)
     (cond ((> a b) result)
-          ((filter a) (iter (next a) b (combiner result (term a))))
-          (else (iter (next a) b result))))
-  (iter a b null-value))
+	  ((predicate a) (iter (next a) (combiner (term a) result)))
+	  (else (iter (next a) result))))
+  (iter a null-value))
 ```
-a.
+**a.**
 ```scheme
-(filtered-accumulate + prime? 0 square a inc b)
+(define (sum-squares-primes a b)
+  (filtered-accumulate + 0 prime? square a inc b))
 ```
-b. Firstly we need to write a procedure that checks whether a numbers is relatively prime to another.
+**b.**
 ```scheme
-(define (gcd a b)
-  (cond ((< a b) (gcd b a))
-        ((= b 0) a)
-        (else (gcd b (remainder a b)))))
-
-(define (relatively-prime? a b)
-  (= (gcd a b) 1))
-```
-Now we can create our desired procedure:
-```scheme
-(define (product-of-realatively-prime n)
-  (define (relative-prime-to-n? x) (relatively-prime? n x))
-  (define (identity x) x)
-  (define (inc x) (+ x 1))
-  (filtered-accumulate * relative-prime-to-n? 1 identity 0 inc n))
+(define (product-relatively-primes n)
+  (define (relatively-prime-to-n? i)
+    (= (gcd i n) 1))
+  (filtered-accumulate * 1 relatively-prime-to-n? identity 2 inc (- n 1)))
 ```

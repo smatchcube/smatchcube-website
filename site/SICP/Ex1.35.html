@@ -5,7 +5,8 @@
   <title>Smatchcube | Exercise 1.35</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
-<script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -76,22 +77,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.35</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.35</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.35</h1>
 </div>
-<p>We need to check, if \(1 + 1/= \).\ \(= \) by definition (as described in Section 1.2.2).\ Then,\[ <span class="math display">\[\begin{align}
-1+1/\varphi &amp;= 1 + \frac{1}{\frac{1+\sqrt{5}}{2}}\newline &amp;= 1 + \frac{2}{1+\sqrt{5}}\newline&amp;=1+\frac{2\times (1-\sqrt{5})}{(1+\sqrt{5})\times (1-\sqrt{5})}\newline &amp;= 1 + \frac{2\times (1-\sqrt{5})}{-4}\newline&amp;=1-\frac{1}{2}+\frac{\sqrt{5}}{2}\newline&amp;=\frac{1+\sqrt{5}}{2}\newline&amp;=\varphi 
-\end{align}\]</span>\]</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(fixed-point (<span class="kw">lambda</span> (x) (<span class="op">+</span> <span class="dv">1</span> (<span class="op">/</span> <span class="dv">1</span> x))) <span class="fl">1.0</span>)</a></code></pre></div>
+<p>We need to verify that <span class="math inline">\(1 + 1/\varphi = \varphi\)</span>.</p>
+<p><span class="math inline">\(\varphi = \frac{1 + \sqrt{5}}{2}\)</span> by definition (as described in Section 1.2.2).</p>
+<p>Therefore we have, <span class="math display">\[\begin{align}
+1+1/\varphi &amp;= 1 + \frac{1}{\frac{1+\sqrt{5}}{2}}\newline &amp;= 1 + \frac{2}{1+\sqrt{5}}\newline&amp;=1+\frac{2}{1+\sqrt{5}}\cdot \frac{1-\sqrt 5}{1-\sqrt 5}\newline &amp;= 1 + \frac{\sqrt 5 - 1}{2}\newline&amp;=\frac{1+\sqrt{5}}{2}\newline&amp;=\varphi 
+\end{align}\]</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(fixed-point (<span class="kw">lambda</span> (x) (<span class="op">+</span> <span class="dv">1</span> (<span class="op">/</span> <span class="dv">1</span> x))) <span class="fl">1.6</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">; =&gt; 1.6180327868852458</span></a></code></pre></div>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

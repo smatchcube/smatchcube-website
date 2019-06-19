@@ -5,6 +5,8 @@
   <title>Smatchcube | Exercise 1.19</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,12 +77,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.19</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.19</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.19</h1>
 </div>
+<p><span class="math display">\[\begin{align} T_{pq}(T_{pq}(a,b))&amp;=T_{pq}(bq+aq+ap,bp+aq)\\&amp;=(q(bp+aq)+q(bq+aq+ap)+p(bq+aq+ap),p(bp+aq)+q(bq+aq+ap))\\&amp;=(bpq+aq^2+bq^2+aq^2+apq+bpq+apq+ap^2,bp^2+apq+bq^2+aq^2+apq)\\&amp;=(b(q^2+2pq)+a(q^2+2pq)+a(p^2+q^2),b(p^2+q^2)+(q^2+2pq))\\&amp;=(bq&#39;+aq&#39;+ap&#39;,bp&#39;+aq&#39;)\\&amp;=T_{p&#39;q&#39;}(a,b)\end{align}\]</span> With <span class="math inline">\(p&#39;=p^2+q^2\)</span> and <span class="math inline">\(q&#39;=q^2+2pq\)</span>.</p>
+<p>This result leads us to the following clever algorithm to compute the Fibonacci numbers in a logarithmic number of steps:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb1-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(fib n)</a>
 <a class="sourceLine" id="cb1-2" title="2">  (fib-iter <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> n))</a>
 <a class="sourceLine" id="cb1-3" title="3">(<span class="ex">define</span><span class="fu"> </span>(fib-iter a b p q count)</a>
@@ -89,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-6" title="6">         (fib-iter a</a>
 <a class="sourceLine" id="cb1-7" title="7">                   b</a>
 <a class="sourceLine" id="cb1-8" title="8">                   (<span class="op">+</span> (square p) (square q))</a>
-<a class="sourceLine" id="cb1-9" title="9">                   (<span class="op">+</span> (* <span class="dv">2</span> p q) (square q))</a>
+<a class="sourceLine" id="cb1-9" title="9">                   (<span class="op">+</span> (square q) (* <span class="dv">2</span> p q))</a>
 <a class="sourceLine" id="cb1-10" title="10">                   (<span class="op">/</span> count <span class="dv">2</span>)))</a>
 <a class="sourceLine" id="cb1-11" title="11">        (<span class="kw">else</span> (fib-iter (<span class="op">+</span> (* b q) (* a q) (* a p))</a>
 <a class="sourceLine" id="cb1-12" title="12">                        (<span class="op">+</span> (* b p) (* a q))</a>
@@ -99,9 +103,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>

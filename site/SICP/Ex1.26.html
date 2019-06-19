@@ -5,6 +5,8 @@
   <title>Smatchcube | Exercise 1.26</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 </head>
 <body>
 <header>
@@ -12,19 +14,16 @@
   <hr>
 </header>
 <nav>
-<p>/<a href="../index.html">home</a>/<a href="../SICP.html">SICP</a>/Exercise 1.26</p>
+<p>/<a href="/">home</a>/<a href="/SICP.html">SICP</a>/Exercise 1.26</p>
 </nav>
 <main>
 <div id="header">
 <h1 class="title">Exercise 1.26</h1>
 </div>
-<p>The <code>square</code> procedure take a variable already computed and square this value. Using a multiplication instead of the <code>square</code> procedure make the program compute two times the <code>expmod</code> value and thus transforming our \(()\) process in a \((n)\) process.</p>
+<p>The <code>square</code> procedure takes a variable already computed and square this value. Using a multiplication instead of the <code>square</code> procedure tells the program to compute two times the <code>expmod</code> value. Thus we loose the advantage of divising by two the steps needed at each recusrsive call to <code>expmod</code>, transforming our <span class="math inline">\(\Theta(\log{n})\)</span> process in a <span class="math inline">\(\Theta(n)\)</span> process.</p>
 </main>
 <footer>
 <hr>
-<!--<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg" width="63" height="64" alt="HTML5 Powered" title="HTML5 Powered">
-</a>-->
 </footer>
 </body>
 </html>
