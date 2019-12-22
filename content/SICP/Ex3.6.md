@@ -6,7 +6,7 @@ categories: SICP
 ---
 ```scheme
 (define rand
-  (let ((x 564568412687412)) ; set the default seed 
+  (let ((x random-init)) ; set the default seed 
     (lambda (m)
       (cond ((eq? m 'generate) (set! x (rand-update x)) x)
             ((eq? m 'reset) (lambda (new-value) (set! x new-value)))

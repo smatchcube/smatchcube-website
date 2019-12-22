@@ -10,14 +10,17 @@ categories: SICP
     (set! sum (+ sum number))
     sum))
 ```
-A little test:
+Test:
 ```scheme
 (define A1 (make-accumulator 5))
 (define A2 (make-accumulator 22))
+
 (A1 10)
 ; => 15
+
 (A2 3)
-; => 20
-(A2 10)
 ; => 25
+
+(A2 10)
+; => 35
 ```

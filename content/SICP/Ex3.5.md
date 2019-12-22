@@ -14,12 +14,11 @@ Here is the general procedure for Monte Carlo integration.
   (* (monte-carlo trials area-test)
      (* (- x2 x1) (- y2 y1))))
 ```
-Now we can use it to estimate \\(\pi\\):
+We can use it to estimate $\pi$:
 ```scheme
-(define (is-in-unit-circle? x y)
+(define (in-unit-circle? x y)
   (<= (sqrt (+ (square x) (square y))) 1))
 
-(estimate-integral is-in-unit-circle? -1.0 1.0 -1.0 1.0 1000000.0)
-; => 3.140388
+(estimate-integral in-unit-circle? -1.0 1.0 -1.0 1.0 1000000)
+; => 3.141088
 ```
-Note that I used real numbers instead of integers to generate random real numbers according to the footnote 8. One way to solve this problem would be to use the `exact->inexact` procedure in `random-in-range` or just add `0.0` as adding an inexact number to an exact number return an inexact number.

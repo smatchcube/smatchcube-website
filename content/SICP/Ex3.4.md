@@ -17,9 +17,8 @@ categories: SICP
     balance)
   (define (wrong-guess x)
     (set! wrong-guess-counter (+ wrong-guess-counter 1))
-    (if (>= wrong-guess-counter 7)
-        (begin (call-the-cops)
-               "Incorrect password, we are calling the cops!")
+    (if (> wrong-guess-counter 7)
+        (call-the-cops)
         "Incorrect password"))
   (define (dispatch password-guess m)
     (if (eq? secret-password password-guess)
@@ -29,4 +28,6 @@ categories: SICP
                            m)))
         wrong-guess))
   dispatch)
+
+(define (call-the-cops) "We are calling the cops!")
 ```

@@ -94,18 +94,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-10" title="10">    balance)</a>
 <a class="sourceLine" id="cb1-11" title="11">  (<span class="ex">define</span><span class="fu"> </span>(wrong-guess x)</a>
 <a class="sourceLine" id="cb1-12" title="12">    (set! wrong-guess-counter (<span class="op">+</span> wrong-guess-counter <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb1-13" title="13">    (<span class="kw">if</span> (<span class="op">&gt;=</span> wrong-guess-counter <span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb1-14" title="14">        (<span class="kw">begin</span> (call-the-cops)</a>
-<a class="sourceLine" id="cb1-15" title="15">               <span class="st">&quot;Incorrect password, we are calling the cops!&quot;</span>)</a>
-<a class="sourceLine" id="cb1-16" title="16">        <span class="st">&quot;Incorrect password&quot;</span>))</a>
-<a class="sourceLine" id="cb1-17" title="17">  (<span class="ex">define</span><span class="fu"> </span>(dispatch password-guess m)</a>
-<a class="sourceLine" id="cb1-18" title="18">    (<span class="kw">if</span> (<span class="kw">eq?</span> secret-password password-guess)</a>
-<a class="sourceLine" id="cb1-19" title="19">        (<span class="kw">cond</span> ((<span class="kw">eq?</span> m &#39;withdraw) withdraw)</a>
-<a class="sourceLine" id="cb1-20" title="20">              ((<span class="kw">eq?</span> m &#39;deposit) deposit)</a>
-<a class="sourceLine" id="cb1-21" title="21">              (<span class="kw">else</span> (error <span class="st">&quot;Unknown request: MAKE-ACCOUNT&quot;</span></a>
-<a class="sourceLine" id="cb1-22" title="22">                           m)))</a>
-<a class="sourceLine" id="cb1-23" title="23">        wrong-guess))</a>
-<a class="sourceLine" id="cb1-24" title="24">  dispatch)</a></code></pre></div>
+<a class="sourceLine" id="cb1-13" title="13">    (<span class="kw">if</span> (<span class="op">&gt;</span> wrong-guess-counter <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-14" title="14">        (call-the-cops)</a>
+<a class="sourceLine" id="cb1-15" title="15">        <span class="st">&quot;Incorrect password&quot;</span>))</a>
+<a class="sourceLine" id="cb1-16" title="16">  (<span class="ex">define</span><span class="fu"> </span>(dispatch password-guess m)</a>
+<a class="sourceLine" id="cb1-17" title="17">    (<span class="kw">if</span> (<span class="kw">eq?</span> secret-password password-guess)</a>
+<a class="sourceLine" id="cb1-18" title="18">        (<span class="kw">cond</span> ((<span class="kw">eq?</span> m &#39;withdraw) withdraw)</a>
+<a class="sourceLine" id="cb1-19" title="19">              ((<span class="kw">eq?</span> m &#39;deposit) deposit)</a>
+<a class="sourceLine" id="cb1-20" title="20">              (<span class="kw">else</span> (error <span class="st">&quot;Unknown request: MAKE-ACCOUNT&quot;</span></a>
+<a class="sourceLine" id="cb1-21" title="21">                           m)))</a>
+<a class="sourceLine" id="cb1-22" title="22">        wrong-guess))</a>
+<a class="sourceLine" id="cb1-23" title="23">  dispatch)</a>
+<a class="sourceLine" id="cb1-24" title="24"></a>
+<a class="sourceLine" id="cb1-25" title="25">(<span class="ex">define</span><span class="fu"> </span>(call-the-cops) <span class="st">&quot;We are calling the cops!&quot;</span>)</a></code></pre></div>
 </main>
 <footer>
 <hr>

@@ -88,7 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-3" title="3">    (<span class="kw">if</span> (<span class="kw">eq?</span> new-password password-guess)</a>
 <a class="sourceLine" id="cb1-4" title="4">        (original-account original-password m)</a>
 <a class="sourceLine" id="cb1-5" title="5">        (<span class="kw">lambda</span> (x) <span class="st">&quot;Incorrect password&quot;</span>))))</a></code></pre></div>
-<p>As usual we can test it:</p>
+<p>Test:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1"><span class="co">;; definition of Peter&#39;s account with a balance of 700</span></a>
 <a class="sourceLine" id="cb2-2" title="2">(<span class="ex">define</span><span class="fu"> peter-acc </span>(make-account <span class="dv">700</span> &#39;open-sesame))</a>
 <a class="sourceLine" id="cb2-3" title="3"></a>
@@ -100,7 +100,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-9" title="9"><span class="co">; =&gt; 710</span></a>
 <a class="sourceLine" id="cb2-10" title="10">((peter-acc &#39;open-sesame &#39;withdraw) <span class="dv">5</span>)</a>
 <a class="sourceLine" id="cb2-11" title="11"><span class="co">; =&gt; 705</span></a></code></pre></div>
-<p>It’s interesting that I don’t even have to modify the <code>make-account</code> procedure to implement this new feature. One problem with this quick and straightforward implementation is that it’s not checking if the original password is right, making the new account useless if the password is wrong during the creation of the account. This could easily be solved by checking during the account creation if the result of a deposit action with an amount of 0 return a number and not a password error.</p>
 </main>
 <footer>
 <hr>

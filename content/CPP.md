@@ -3,7 +3,7 @@ title: C Primer Plus
 path: /[home](/)/CPP
 ---
 
-Here are my owns solutions for the book <cite>C Primer Plus</cite> (6^th^ edition).  
+Here are my own solutions for the book <cite>C Primer Plus</cite> (6^th^ edition).  
 Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers).
 
 ## 1. Getting Ready  🏁
@@ -216,3 +216,12 @@ Source code available [here](https://github.com/Smatchcube/C-Primer-Plus-Answers
 
 
 ## 17. Advanced Data Representation  🌳
+
+[1](CPP/17.1.html),
+[2](CPP/17.2.html),
+[3](CPP/17.3.html),
+[4](CPP/17.4.html),
+[5](CPP/17.5.html),
+[6](CPP/17.6.html),
+[7](CPP/17.7.html),
+[8](CPP/17.8.html)

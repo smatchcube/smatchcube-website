@@ -32,6 +32,13 @@ Here are my owns solutions for the popular <cite>Strucure and Interpretation of 
 
 ### 3. Modularity, Objects, and State
 
+| | | | | | | | | | |
+|-:|-:|-:|-:|-:|-:|-:|-:|-:|-:|
+||[1](SICP/Ex3.1.html)|[2](SICP/Ex3.2.html)|[3](SICP/Ex3.3.html)|[4](SICP/Ex3.4.html)|[5](SICP/Ex3.5.html)|[6](SICP/Ex3.6.html)|[7](SICP/Ex3.7.html)|[8](SICP/Ex3.8.html)|[9](SICP/Ex3.9.html)|
+|[10](SICP/Ex3.10.html)|[11](SICP/Ex3.11.html)|[12](SICP/Ex3.12.html)|[13](SICP/Ex3.13.html)|[14](SICP/Ex3.14.html)|[15](SICP/Ex3.15.html)|[16](SICP/Ex3.16.html)|[17](SICP/Ex3.17.html)|[18](SICP/Ex3.18.html)|[19](SICP/Ex3.19.html)|
+|[20](SICP/Ex3.20.html)|[21](SICP/Ex3.21.html)|[22](SICP/Ex3.22.html)|[23](SICP/Ex3.23.html)|[24](SICP/Ex3.24.html)|[25](SICP/Ex3.25.html)|[26](SICP/Ex3.26.html)|[27](SICP/Ex3.27.html)|[28](SICP/Ex3.28.html)|[29](SICP/Ex3.29.html)|
+|[30](SICP/Ex3.30.html)|[31](SICP/Ex3.31.html)|[32](SICP/Ex3.32.html)|[33](SICP/Ex3.33.html)|[34](SICP/Ex3.34.html)|[35](SICP/Ex3.35.html)|[36](SICP/Ex3.36.html)|[37](SICP/Ex3.37.html)|[38](SICP/Ex3.38.html)|[39](SICP/Ex3.39.html)|
+
 ### 4. Metalinguistic Abstraction
 
 ### 5. Computing with Registers Machines

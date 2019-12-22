@@ -14,15 +14,36 @@ categories: SICP
                 (f m))))
   dispatch)
 ```
-Let's test it:
+Test:
 ```scheme
 (define s (make-monitored square))
-(s 10)
-; => 100
-(s 'how-many-calls?)
-; => 1
-(s 'reset-count)
-; => 1 ; set! return the old value even if we don't need it
+(define i (make-monitored (lambda (x) (+ x 1))))
+
 (s 'how-many-calls?)
 ; => 0
+
+(i 'how-many-calls?)
+; => 0
+
+(s 10)
+; => 100
+
+(s 'how-many-calls?)
+; => 1
+
+(i 'how-many-calls?)
+; => 0
+
+(i 3)
+; => 4
+
+(i 'how-many-calls?)
+; => 1
+
+(s 'reset-count) ; return value not interesting
+(s 'how-many-calls?)
+; => 0
+
+(i 'how-many-calls?)
+; => 1
 ```

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>body {max-width: 1000px;padding: 15px; margin: auto; font-family: sans;}</style>
 <link rel="stylesheet" href="/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 <style>
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -90,13 +91,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-5" title="5">      (P x y)))</a>
 <a class="sourceLine" id="cb1-6" title="6">  (* (monte-carlo trials area-test)</a>
 <a class="sourceLine" id="cb1-7" title="7">     (* (<span class="op">-</span> x2 x1) (<span class="op">-</span> y2 y1))))</a></code></pre></div>
-<p>Now we can use it to estimate \(\):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(is-in-unit-circle? x y)</a>
+<p>We can use it to estimate <span class="math inline">\(\pi\)</span>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><a class="sourceLine" id="cb2-1" title="1">(<span class="ex">define</span><span class="fu"> </span>(in-unit-circle? x y)</a>
 <a class="sourceLine" id="cb2-2" title="2">  (<span class="op">&lt;=</span> (<span class="kw">sqrt</span> (<span class="op">+</span> (square x) (square y))) <span class="dv">1</span>))</a>
 <a class="sourceLine" id="cb2-3" title="3"></a>
-<a class="sourceLine" id="cb2-4" title="4">(estimate-integral is-in-unit-circle? <span class="fl">-1.0</span> <span class="fl">1.0</span> <span class="fl">-1.0</span> <span class="fl">1.0</span> <span class="fl">1000000.0</span>)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co">; =&gt; 3.140388</span></a></code></pre></div>
-<p>Note that I used real numbers instead of integers to generate random real numbers according to the footnote 8. One way to solve this problem would be to use the <code>exact-&gt;inexact</code> procedure in <code>random-in-range</code> or just add <code>0.0</code> as adding an inexact number to an exact number return an inexact number.</p>
+<a class="sourceLine" id="cb2-4" title="4">(estimate-integral in-unit-circle? <span class="fl">-1.0</span> <span class="fl">1.0</span> <span class="fl">-1.0</span> <span class="fl">1.0</span> <span class="dv">1000000</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">; =&gt; 3.141088</span></a></code></pre></div>
 </main>
 <footer>
 <hr>

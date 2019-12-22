@@ -25,7 +25,11 @@ categories: SICP
 ```
 Test:
 ```scheme
-(define acc (make-account 300 'password))
-((acc 'wrong-password 'withdraw) 100)
+(define acc (make-account 100 'secret-password))
+
+((acc 'secret-password 'withdraw) 40)
+; => 60
+
+((acc 'some-other-password 'deposit) 50)
 ; => "Incorrect password"
 ```
