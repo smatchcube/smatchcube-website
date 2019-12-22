@@ -1,0 +1,32 @@
+body {
+    max-width: 900px;
+    margin: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-family: sans;
+    font-size: 17px;
+}
+
+a {
+    text-decoration:none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid lightgray;
+}
+
+th, td {
+	padding: 10px;
+}
+
+tr:nth-child(even) {
+	background-color: #f7f7f7;
+}
+
+th {
+	background-color: #efefef;
+}
