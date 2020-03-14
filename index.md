@@ -12,6 +12,7 @@ Here are my own solutions for some popular programming and computer science book
 Here are some programs I made:
 
 * [A simple sudoku solver using a backtracking algorithm](programs/sudoku_solver.html)
+* [Ultimate tic-tac-toe, a variant of a classic game](https://github.com/smatchcube/ultimate-tic-tac-toe)
 
 I also like solving some Project Euler problems: 
 
