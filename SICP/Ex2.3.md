@@ -5,7 +5,7 @@ tags: mit-scheme scheme SICP solution
 categories: SICP
 ---
 My first representation define a rectangle as a point with two vectors as described in the image.
-![](/images/Ex2.3a.svg){: .center-image .medium-margin .widthh }
+![](/images/Ex2.3a.svg){height=450px}
 ```scheme
 (define (make-rectangle px py v1x v1y v2x v2y)
   (cons (make-point px py)
@@ -24,7 +24,7 @@ I used vectors from \\(\mathbb{R}^2\\) for my definition of a rectangle so i nee
 (define (y-vector v) (cdr v))
 ```
 We can represent the data structure of a rectangle with the box-and-pointer notation.
-![](/images/Ex2.3b.svg){: .center-image .medium-margin .widthhh }
+![](/images/Ex2.3b.svg){height=350px}
 
 Now we can define a procedure to compute the norm of the vectors and one procedure to directly find the length and the width of a rectangle.
 ```scheme

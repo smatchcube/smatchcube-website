@@ -8,7 +8,7 @@ If we don't call the procedure during the creation of our gates the initial stat
 
 Let's see how this can lead to bad results with the example of the half-adder.
 
-![](/assets/Ex3.31.svg){width=650px}
+![](/images/Ex3.31.svg){width=650px}
 
 Suppose we have these wires:
 ```scheme

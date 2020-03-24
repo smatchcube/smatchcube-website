@@ -7,7 +7,7 @@ categories: SICP
 ### Proof that $\text{Fib}(n)$ is the closest integer to $\varphi^n/\sqrt{5}$.
 
 $\varphi=\frac{1+\sqrt{5}}{2}$ and $\psi=\frac{1-\sqrt{5}}{2}$  
-Let's begin to prove that $\text{Fib}(n)=(\varphi^n - \psi^n)/\sqrt{5}$ by induction.
+Let's begin to prove by induction that $\text{Fib}(n)=(\varphi^n - \psi^n)/\sqrt{5}$.
 
 $\text{P}(n):\quad \text{Fib}(n)=(\varphi^n - \psi^n)/\sqrt{5}$
 
@@ -25,19 +25,13 @@ $$\begin{align}\text{Fib}(k+2) & =\text{Fib}(k+1)+\text{Fib}(k)\quad \text{, by 
 \end{align}$$
 
 
-Keeping in mind that $\varphi^2=\varphi+1$, we show that:  
+Since $\varphi^2=\varphi+1$, we have:  
 $$\varphi^{k+1}+\varphi^k=\varphi^k(\varphi+1)=\varphi^k\varphi^2=\varphi^{k+2}$$
-As $\psi=\varphi-\sqrt{5}$, we see that:  
-$$\begin{align}\psi^{k+1}+\psi^k&=\psi^k(\psi+1)\newline
-&=\psi^k(\varphi+1-\sqrt{5})\newline
-&=\psi^k(\varphi^2-\sqrt{5})\newline
-&=\psi^k((\psi+\sqrt{5})^2-\sqrt{5})\newline
-&=\psi^k(\psi^2+2\psi\sqrt{5}+5-\sqrt{5})\newline
-&=\psi^k\psi^2\newline
-&=\psi^{k+2}
-\end{align}$$
+Similary $\psi^2=\psi+1$, hence:  
+$$\psi^{k+1}+\psi^k=\psi^k(\psi+1)=\psi^k\psi^2=\psi^{k+2}$$
 
-So now we have:  
+
+So we have:  
 $$\text{Fib}(k+2)=\frac{\varphi^{k+2}-\psi^{k+2}}{\sqrt{5}}$$
 
 Since both the base case and the inductive step have been performed, by mathematical induction the statement $\text{P}(n)$ holds for all natural numbers $n$.

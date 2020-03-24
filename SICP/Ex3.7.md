@@ -4,7 +4,7 @@ title:  "Exercise 3.7"
 tags: mit-scheme scheme SICP solution
 categories: SICP
 ---
-You can check my `make-account` implementation from exercise 3.3: [direct link](/SICP/Ex3.3/).
+You can check my `make-account` implementation from exercise 3.3: [direct link](/SICP/Ex3.3.html).
 ```scheme
 (define (make-joint original-account original-password new-password)
   (lambda (password-guess m)

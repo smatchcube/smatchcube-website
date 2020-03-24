@@ -71,7 +71,7 @@ ASCII-table
 ```
 Box-and-pointer diagram of `ASCII-table`:
 
-![](/assets/Ex3.25a.svg){width=650px}
+![](/images/Ex3.25a.svg){width=650px}
 
 Overwriting a table entry:
 ```scheme
@@ -82,4 +82,4 @@ Overwriting a table entry:
 ```
 Box-and-pointer diagram after overwriting the `math` entry:
 
-![](/assets/Ex3.25b.svg){width=650px}
+![](/images/Ex3.25b.svg){width=650px}

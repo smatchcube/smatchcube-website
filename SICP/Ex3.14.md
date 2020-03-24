@@ -6,11 +6,11 @@ categories: SICP
 ---
 Box-and-pointer diagram before the call of `mystery`:
 
-![](/assets/Ex3.14a.svg){width=650px}
+![](/images/Ex3.14a.svg){width=650px}
 
 After the evaluation of `(define w (mystery v))`:
 
-![](/assets/Ex3.14b.svg){width=650px}
+![](/images/Ex3.14b.svg){width=650px}
 
 The `mystery` procedure reverses a list using mutation.
 

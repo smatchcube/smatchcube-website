@@ -9,7 +9,7 @@ categories: SICP
 (count-pairs x)
 ; => 3
 ```
-![](/assets/Ex3.16a.svg){width=650px}
+![](/images/Ex3.16a.svg){width=650px}
 
 <br/>
 ```scheme
@@ -18,7 +18,7 @@ categories: SICP
 (count-pairs y)
 ; => 4
 ```
-![](/assets/Ex3.16b.svg){width=650px}
+![](/images/Ex3.16b.svg){width=650px}
 
 <br/>
 ```scheme
@@ -28,7 +28,7 @@ categories: SICP
 (count-pairs z)
 ; => 7
 ```
-![](/assets/Ex3.16c.svg){width=650px}
+![](/images/Ex3.16c.svg){width=650px}
 
 <br/>
 ```scheme
@@ -36,4 +36,4 @@ categories: SICP
 (set-car! (cddr w) w)
 (count-pairs w) ;; infinite loop
 ```
-![](/assets/Ex3.16d.svg){width=650px}
+![](/images/Ex3.16d.svg){width=650px}
