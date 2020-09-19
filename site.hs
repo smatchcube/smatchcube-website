@@ -30,6 +30,7 @@ main = hakyll $ do
   match ((fromList ["index.md", "SICP.md", "CPP.md", "programs.md", "not_found.md"])
          .||. "SICP/*.md"
          .||. "CPP/*.md"
+         .||. "CLRS/*.md"
          .||. "posts/*"
          .||. "programs/*") $ do
     route $ setExtension "html"
