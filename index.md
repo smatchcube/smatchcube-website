@@ -27,4 +27,4 @@ You can get my PGP public key [here](pubkey.asc).
 # About  🔦
 
 This site is built with [hakyll](https://jaspervdj.be/hakyll/) and [pandoc](https://www.pandoc.org) and is hosted generously on [neocities](https://neocities.org).
-Source code of this website available [here](https://gitlab.com/smatchcube/smatchcube-website).
+Source code of this website available [here](https://github.com/smatchcube/smatchcube-website).
